@@ -39,6 +39,7 @@ En este repositorio no se permiten las contribuciones ya que es un repositorio c
 * **KATERINE MARTINEZ** -  - [Katerine Martinez](https://lp.kate@gmail.com)
 * **MIGUEL MADERA** -  - [Miguel Madera](https://github.com/elbato1287)
 * **CRISTIAN MARTINEZ** -  - [Cristian Martinez](https://github.com/MartinezCristianD)
+* **MIGUEL APONTE** -  - [Miguel Aponte](miguel.ab23@hotmail.com)
 
 
 ## Licencia 📄
