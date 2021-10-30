@@ -14,15 +14,18 @@ Aplicacion Android  que permite la gestion y administracion de inventarios de cu
 1. [Android Studio](https://developer.android.com/studio) Update 4+
 2. [Git](https://git-scm.com/)
 3. [GitHub](https://github.com/)
-4. [Trello](https://trello.com/b/jWZcoEDC/almacen-de-materiales)
-5. [Mockflow](https://wireframepro.mockflow.com/view/MOqIQgHg3h)
-6. [Diagrams](https://app.diagrams.net/)
+4. [Java](https://Java.com)
+5. [Miro](https://miro.com/)
+6. [Figma](https://www.figma.com/)
 7. [Google drive](https://www.google.com/intl/es_co/drive/)
 
 ## Librerias⚙️
 
 1. [Firebase](https://firebase.google.com/)
-
+2. [Material Desing](https://material.io/design)
+3. [Picasso](https://square.github.io/picasso/)
+3. [AndroidX](https://developer.android.com/jetpack/androidx)
+   
 
 ## Ramas 📦
 
@@ -49,4 +52,4 @@ Este proyecto está bajo la Licencia (Licencia)
 ## ScreenShot
 
 
- ![MVVM](AQUI VA LA IMAGEN )
+ ![MVVM](https://github.com/MartinezCristianD/ProyectoMinTicCicloCuatro/blob/main/app/src/main/res/drawable/splashscreenfinal.png )
