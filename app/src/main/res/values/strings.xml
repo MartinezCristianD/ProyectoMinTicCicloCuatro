@@ -17,7 +17,8 @@
     <string name="creacion_categorias">° ° Creacion de Categorias ° °</string>
     <string name="texto_categorias">Ingrese el nombre de la Categoria</string>
     <string name="crear">Crear Categoria</string>
-
+    <string name="gracias">Gracias por Elegir °StockerInv°</string>
+    <string name="texto_elementos">° ° Crear Elementos ° °</string>
 
 
 </resources>

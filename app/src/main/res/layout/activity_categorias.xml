@@ -7,23 +7,24 @@
     android:background="@drawable/bacgroundcolor"
     tools:context=".CategoriasActivity">
 
+
     <TextView
         android:id="@+id/textViewCategorias"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/creacion_categorias"
         android:textSize="@dimen/texto_grande"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextCategorias"
+        app:layout_constraintBottom_toTopOf="@id/editTextCategorias"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <EditText
         android:id="@+id/editTextCategorias"
         android:layout_width="match_parent"
-        android:layout_marginVertical="@dimen/margen_media"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margen_media"
         android:layout_marginHorizontal="@dimen/margen_media"
         android:background="@drawable/bordes_redondos"
         android:layout_marginTop="@dimen/margen_extrema"
@@ -31,7 +32,6 @@
         android:textColorHint="@color/grey"
         android:clickable="true"
         android:focusable="true"
-        android:maxLength="@dimen/max_length_uno"
         android:inputType="textPersonName"
         android:hint="@string/texto_categorias"
         android:padding="@dimen/padding_texto"
@@ -54,5 +54,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextCategorias"
-        tools:text="@string/crear" />
+        android:text="@string/crear" />
 </androidx.constraintlayout.widget.ConstraintLayout>

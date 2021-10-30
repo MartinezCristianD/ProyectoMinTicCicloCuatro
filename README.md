@@ -38,11 +38,11 @@ En este repositorio no se permiten las contribuciones ya que es un repositorio c
 
 ## Autores ✒️
 
-* **ALEJANDRO PINZON** -  - [Alejandro Pinzon ](https://github.com/AlejoPinzon)
-* **KATERINE MARTINEZ** -  - [Katerine Martinez](https://lp.kate@gmail.com)
-* **MIGUEL MADERA** -  - [Miguel Madera](https://github.com/elbato1287)
-* **CRISTIAN MARTINEZ** -  - [Cristian Martinez](https://github.com/MartinezCristianD)
-* **MIGUEL APONTE** -  - [Miguel Aponte](miguel.ab23@hotmail.com)
+* **ALEJANDRO PINZON** - - [Alejandro Pinzon ](https://github.com/AlejoPinzon)
+* **KATERINE MARTINEZ** - - [Katerine Martinez](https://lp.kate@gmail.com)
+* **MIGUEL MADERA** - - [Miguel Madera](https://github.com/elbato1287)
+* **CRISTIAN MARTINEZ** - - [Cristian Martinez](https://github.com/MartinezCristianD)
+* **MIGUEL APONTE** - - [Miguel Aponte](https://miguel.ab23@hotmail.com)
 
 
 ## Licencia 📄

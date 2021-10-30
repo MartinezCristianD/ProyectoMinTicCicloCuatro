@@ -74,14 +74,14 @@
         android:textSize="@dimen/texto_terciario"
         android:textStyle="italic"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@id/botonRegistro"
+        app:layout_constraintBottom_toTopOf="@id/btnRegistro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardView" />
 
 
     <Button
-        android:id="@+id/botonRegistro"
+        android:id="@+id/btnRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margen_extrema"
@@ -90,20 +90,24 @@
         android:focusable="true"
         android:text="@string/registrarse"
         android:textAllCaps="false"
+        android:textColor="#5E35B1"
         android:textSize="@dimen/texto_secundario"
+        app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardView" />
+        app:layout_constraintTop_toBottomOf="@id/cardView"
+        tools:ignore="TextContrastCheck,TextContrastCheck" />
 
     <ImageButton
         android:id="@+id/botonRegresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorsecundario"
+        android:contentDescription="@string/content_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_menu_revert"
-        android:contentDescription="@string/content_description" />
+        tools:ignore="ImageContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
