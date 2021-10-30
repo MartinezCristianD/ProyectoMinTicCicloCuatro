@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">StockerInv</string>
+    <string name="nombre">Nombre</string>
     <string name="contraseña">Contraseña</string>
+    <string name="crearContraseña">Crea Una Contraseña</string>
     <string name="Inicio_sesion">Iniciar Sesion</string>
     <string name="usuario">Usuario</string>
     <string name="recordar_contraseña">¿Olvido su Contraseña?</string>

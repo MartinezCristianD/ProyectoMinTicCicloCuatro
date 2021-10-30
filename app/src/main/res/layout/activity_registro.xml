@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/burbujasbackgroundazul"
+    tools:context=".RegistroActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/transparente"
+        android:layout_marginTop="@dimen/margen_grande"
+        android:layout_margin="@dimen/margen_media"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margen_minima"
+            android:layout_marginTop="@dimen/margen_media">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ingresarCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margen_minima"
+                android:layout_marginVertical="@dimen/margen_media"
+                android:background="@drawable/bordes_redondos"
+                android:hint="@string/nombre"
+                android:inputType="textPersonName"
+                android:padding="@dimen/padding_texto"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/texto_secundario"
+                app:layout_constraintBottom_toTopOf="@+id/crearContraseña"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/crearContraseña"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/margen_media"
+                android:layout_marginHorizontal="@dimen/margen_minima"
+                android:background="@drawable/bordes_redondos"
+                android:hint="@string/crearContraseña"
+                android:inputType="textPersonName"
+                android:padding="@dimen/padding_texto"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/texto_secundario"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ingresarCorreo" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

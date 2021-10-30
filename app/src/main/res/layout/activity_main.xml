@@ -28,7 +28,7 @@
             android:focusable="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/ingresarUsuario"
+                android:id="@+id/crearContraseña"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/margen_media"
@@ -59,7 +59,7 @@
                 app:layout_constraintBottom_toTopOf="@id/textoOlvidoContraseña"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ingresarUsuario" />
+                app:layout_constraintTop_toBottomOf="@id/crearContraseña" />
 
             <TextView
                 android:id="@+id/textoOlvidoContraseña"
