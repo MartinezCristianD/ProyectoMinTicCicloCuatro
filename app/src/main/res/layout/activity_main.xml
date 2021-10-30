@@ -1,6 +1,5 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondoburbujas">
@@ -37,7 +36,7 @@
                 android:inputType="textEmailAddress"
                 android:padding="@dimen/padding_texto"
                 android:textColorHint="@color/grey"
-                android:textSize="@dimen/texto_principal"
+                android:textSize="@dimen/texto_secundario"
                 app:layout_constraintBottom_toTopOf="@id/ingresarContraseña"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +54,7 @@
                 android:inputType="text"
                 android:padding="@dimen/padding_texto"
                 android:textColorHint="@color/grey"
-                android:textSize="@dimen/texto_principal"
+                android:textSize="@dimen/texto_secundario"
                 app:layout_constraintBottom_toTopOf="@id/textoOlvidoContraseña"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -149,11 +148,11 @@
                 android:textSize="@dimen/texto_boton_principal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/buttonRegistro"
+                app:layout_constraintStart_toEndOf="@id/botonRegistro"
                 app:layout_constraintTop_toBottomOf="@id/textAunSinCuenta" />
 
             <Button
-                android:id="@+id/buttonRegistro"
+                android:id="@+id/botonRegistro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/color_terciario"

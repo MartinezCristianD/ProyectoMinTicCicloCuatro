@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StockerInv">
         <activity
+            android:name=".CategoriasActivity"
+            android:exported="true" />
+        <activity
             android:name=".RegistroActivity"
             android:exported="true" />
         <activity

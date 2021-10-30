@@ -2,7 +2,7 @@
     <string name="app_name">StockerInv</string>
     <string name="nombre">Nombre</string>
     <string name="contraseña">Contraseña</string>
-    <string name="crearContraseña">Crea Una Contraseña</string>
+    <string name="crear_contraseña">Crea Una Contraseña</string>
     <string name="Inicio_sesion">Iniciar Sesion</string>
     <string name="usuario">Usuario</string>
     <string name="recordar_contraseña">¿Olvido su Contraseña?</string>
@@ -10,6 +10,10 @@
     <string name="no_tienes_cuenta">¿Aun No Tienes Una Cuenta?</string>
     <string name="invitado">Invitado</string>
     <string name="registro">Registrate</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="texto_checkbox">Al registrarse acepta los terminos y condiciones, la politica de uso de datos disponible en www.StockerInv.com.co</string>
+    <string name="terminos_y_condiciones">Registrate</string>
+    <string name="content_description">Aqui hay algo</string>
 
 
 </resources>
