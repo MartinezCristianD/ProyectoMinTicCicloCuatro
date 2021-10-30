@@ -14,6 +14,10 @@
     <string name="texto_checkbox">Al registrarse acepta los terminos y condiciones, la politica de uso de datos disponible en www.StockerInv.com.co</string>
     <string name="terminos_y_condiciones">Registrate</string>
     <string name="content_description">Aqui hay algo</string>
+    <string name="creacion_categorias">° ° Creacion de Categorias ° °</string>
+    <string name="texto_categorias">Ingrese el nombre de la Categoria</string>
+    <string name="crear">Crear Categoria</string>
+
 
 
 </resources>

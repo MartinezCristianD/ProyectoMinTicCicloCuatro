@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 public class RegistroActivity extends AppCompatActivity {
@@ -16,6 +17,11 @@ public class RegistroActivity extends AppCompatActivity {
         ImageButton botonRegresar = findViewById(R.id.botonRegresar);
         botonRegresar.setOnClickListener(v -> {
             Intent intent = new Intent (v.getContext(), MainActivity.class);
+            startActivity(intent);
+        });
+        Button botonRegistrarse = findViewById(R.id.botonRegistro);
+        botonRegistrarse.setOnClickListener(v -> {
+            Intent intent = new Intent (v.getContext(), CategoriasActivity.class);
             startActivity(intent);
         });
     }

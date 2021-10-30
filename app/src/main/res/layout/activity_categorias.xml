@@ -1,8 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bacgroundcolor"
     tools:context=".CategoriasActivity">
 
+    <TextView
+        android:id="@+id/textViewCategorias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/creacion_categorias"
+        android:textSize="@dimen/texto_grande"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editTextCategorias"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextCategorias"
+        android:layout_width="match_parent"
+        android:layout_marginVertical="@dimen/margen_media"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margen_media"
+        android:background="@drawable/bordes_redondos"
+        android:layout_marginTop="@dimen/margen_extrema"
+        android:textSize="@dimen/texto_terciario"
+        android:textColorHint="@color/grey"
+        android:clickable="true"
+        android:focusable="true"
+        android:maxLength="@dimen/max_length_uno"
+        android:inputType="textPersonName"
+        android:hint="@string/texto_categorias"
+        android:padding="@dimen/padding_texto"
+        app:layout_constraintBottom_toTopOf="@id/botonCrearCategoria"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewCategorias"
+         />
+
+    <Button
+        android:id="@+id/botonCrearCategoria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorsecundario"
+        android:textAllCaps="false"
+        android:textSize="@dimen/texto_secundario"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextCategorias"
+        tools:text="@string/crear" />
 </androidx.constraintlayout.widget.ConstraintLayout>

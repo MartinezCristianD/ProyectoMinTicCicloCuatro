@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="texto_grande">30sp</dimen>
     <dimen name="texto_principal">25sp</dimen>
     <dimen name="texto_secundario">20sp</dimen>
     <dimen name="texto_terciario">15sp</dimen>
@@ -15,5 +16,10 @@
     <dimen name="margen_horizontal">10dp</dimen>
     <dimen name="margen_minima">15dp</dimen>
     <dimen name="margen_extrema">60dp</dimen>
+
+
+    <dimen name="max_length_uno">25</dimen>
+
+
 
 </resources>
