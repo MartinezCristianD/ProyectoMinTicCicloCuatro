@@ -3,6 +3,7 @@ package com.proyectomintic.stockerinv;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,4 +40,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Toast.makeText(this, "Bienvenido", Toast.LENGTH_LONG).show();
+
+    }
+
 }

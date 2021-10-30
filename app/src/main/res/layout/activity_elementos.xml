@@ -19,4 +19,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="298dp"
+        android:layout_height="179dp"
+        android:gravity="center"
+        android:text="SEGUIMOS TRABAJANDO EN LA APLICACION"
+        android:textSize="@dimen/texto_principal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCategorias" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="88dp"
+        android:layout_height="65dp"
+        android:background="@color/color_terciario"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="?attr/homeAsUpIndicator" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

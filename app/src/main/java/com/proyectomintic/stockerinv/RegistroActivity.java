@@ -34,8 +34,12 @@ public class RegistroActivity extends AppCompatActivity {
 
         });
 
-        botonRegistrarse.setOnClickListener(v -> {
-            Toast.makeText(this, "Gracias por Elegir °StockerInv°", Toast.LENGTH_LONG).show();
-        });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Toast.makeText(this, "Gracias por Elegir °StockerInv°", Toast.LENGTH_LONG).show();
+
     }
 }
