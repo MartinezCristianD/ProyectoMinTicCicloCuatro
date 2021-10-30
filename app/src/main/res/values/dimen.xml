@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="texto_principal">25sp</dimen>
+    <dimen name="texto_secundario">20sp</dimen>
+
+    <dimen name="texto_boton_principal">15sp</dimen>
+    <dimen name="texto_boton_secundario">10sp</dimen>
+
+
+    <dimen name="padding_texto">15dp</dimen>
+
+    <dimen name="margen_grande">45dp</dimen>
+    <dimen name="margen_media">25dp</dimen>
+    <dimen name="margen_horizontal">10dp</dimen>
+    <dimen name="margen_minima">15dp</dimen>
+
+</resources>

@@ -9,8 +9,8 @@
         android:id="@+id/card_view_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="@dimen/margen_horizontal"
+        android:layout_marginTop="@dimen/margen_grande"
         android:background="@color/transparente"
         app:cardBackgroundColor="@color/transparente"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,22 +20,25 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/margen_horizontal"
             android:background="@color/transparente"
             android:backgroundTint="@color/transparente"
-            android:backgroundTintMode="screen">
+            android:backgroundTintMode="screen"
+            android:clickable="true"
+            android:focusable="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/ingresarUsuario"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginVertical="25dp"
-                android:background="@color/white"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/margen_media"
+                android:background="@drawable/bordes_redondos"
                 android:hint="@string/usuario"
                 android:inputType="textEmailAddress"
-                android:padding="10dp"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toTopOf="@+id/ingresarContraseña"
+                android:padding="@dimen/padding_texto"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/texto_principal"
+                app:layout_constraintBottom_toTopOf="@id/ingresarContraseña"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -43,17 +46,20 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/ingresarContraseña"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginVertical="25dp"
-                android:background="@color/white"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/margen_media"
+                android:background="@drawable/bordes_redondos"
+                android:clickable="true"
+                android:focusable="true"
                 android:hint="@string/contraseña"
                 android:inputType="text"
-                android:padding="10dp"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toTopOf="@+id/textoOlvidoContraseña"
+                android:padding="@dimen/padding_texto"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/texto_principal"
+                app:layout_constraintBottom_toTopOf="@id/textoOlvidoContraseña"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ingresarUsuario" />
+                app:layout_constraintTop_toBottomOf="@id/ingresarUsuario" />
 
             <TextView
                 android:id="@+id/textoOlvidoContraseña"
@@ -63,40 +69,107 @@
                 android:focusable="true"
                 android:text="@string/recordar_contraseña"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="@dimen/texto_secundario"
+                android:layout_marginTop="@dimen/margen_minima"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                />
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
-
 
     <Button
         android:id="@+id/buttonIngreso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margen_media"
         android:backgroundTint="@color/colorsecundario"
+        android:clickable="true"
+        android:focusable="true"
         android:text="@string/Inicio_sesion"
-        android:layout_marginTop="25dp"
+        android:textSize="@dimen/texto_boton_principal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_view_login" />
+        app:layout_constraintTop_toBottomOf="@id/card_view_login" />
 
     <Button
         android:id="@+id/ingresoGoogle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="@dimen/margen_media"
         android:backgroundTint="@color/white"
+        android:clickable="true"
+        android:drawableLeft="@drawable/logogoogle"
+        android:focusable="true"
         android:text="@string/ingreso_con_google"
         android:textAllCaps="false"
         android:textColor="@color/black"
-        android:textSize="15sp"
+        android:textSize="@dimen/texto_boton_principal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonIngreso" />
+        app:layout_constraintTop_toBottomOf="@id/buttonIngreso" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/transparente"
+        android:layout_margin="@dimen/margen_media"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ingresoGoogle">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparente">
+
+            <TextView
+                android:id="@+id/textAunSinCuenta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margen_grande"
+                android:text="@string/no_tienes_cuenta"
+                android:textColor="@color/black"
+                android:textSize="@dimen/texto_secundario"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonInvitado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorsecundario"
+                android:layout_margin="@dimen/margen_media"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/invitado"
+                android:textSize="@dimen/texto_boton_principal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/buttonRegistro"
+                app:layout_constraintTop_toBottomOf="@id/textAunSinCuenta" />
+
+            <Button
+                android:id="@+id/buttonRegistro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/color_terciario"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/registro"
+                android:textSize="@dimen/texto_secundario"
+                android:textStyle="bold"
+                android:layout_margin="@dimen/margen_media"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/buttonInvitado"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textAunSinCuenta" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

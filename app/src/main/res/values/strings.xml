@@ -5,4 +5,9 @@
     <string name="usuario">Usuario</string>
     <string name="recordar_contraseña">¿Olvido su Contraseña?</string>
     <string name="ingreso_con_google">Ingrese con Google</string>
+    <string name="no_tienes_cuenta">¿Aun No Tienes Una Cuenta?</string>
+    <string name="invitado">Invitado</string>
+    <string name="registro">Registrate</string>
+
+
 </resources>
