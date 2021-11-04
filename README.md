@@ -40,9 +40,9 @@ En este repositorio no se permiten las contribuciones ya que es un repositorio c
 
 * **ALEJANDRO PINZON** - - [Alejandro Pinzon ](https://github.com/AlejoPinzon)
 * **KATERINE MARTINEZ** - - [Katerine Martinez](https://lp.kate@gmail.com)
-* **MIGUEL MADERA** - - [Miguel Madera](https://github.com/elbato1287)
+* **MIGUEL MADERA** - - [Miguel Madera](https://github.com/miguelmadera1287)
 * **CRISTIAN MARTINEZ** - - [Cristian Martinez](https://github.com/MartinezCristianD)
-* **MIGUEL APONTE** - - [Miguel Aponte](https://miguel.ab23@hotmail.com)
+* **MIGUEL APONTE** - - [Miguel Aponte](https://github.com/Mpepe31)
 
 
 ## Licencia 📄
