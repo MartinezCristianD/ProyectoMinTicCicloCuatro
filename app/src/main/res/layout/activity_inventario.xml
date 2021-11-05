@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/burbujasbackground"
+    android:backgroundTint="@color/color_primario"
+    android:backgroundTintMode="screen"
     tools:context=".views.InventarioActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>
