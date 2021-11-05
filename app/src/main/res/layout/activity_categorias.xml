@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bacgroundcolor"
-    tools:context=".CategoriasActivity">
+    tools:context=".views.CategoriasActivity">
 
 
     <TextView
@@ -14,45 +14,83 @@
         android:layout_height="wrap_content"
         android:text="@string/creacion_categorias"
         android:textSize="@dimen/texto_grande"
-        app:layout_constraintBottom_toTopOf="@id/editTextCategorias"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/cardViewCategorias"
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <EditText
-        android:id="@+id/editTextCategorias"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewCategorias"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/margen_media"
-        android:layout_marginHorizontal="@dimen/margen_media"
-        android:background="@drawable/bordes_redondos"
-        android:layout_marginTop="@dimen/margen_extrema"
-        android:textSize="@dimen/texto_terciario"
-        android:textColorHint="@color/grey"
-        android:clickable="true"
-        android:focusable="true"
-        android:inputType="textPersonName"
-        android:hint="@string/texto_categorias"
-        android:padding="@dimen/padding_texto"
         app:layout_constraintBottom_toTopOf="@id/botonCrearCategoria"
+        android:layout_margin="@dimen/margen_media"
+        android:backgroundTint="@color/color_terciario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewCategorias"
-        android:autofillHints="false" />
+        app:cardCornerRadius="@dimen/margen_extrema"
+        app:layout_constraintTop_toBottomOf="@id/textViewCategorias">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/margen_minima"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/radioButton4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margen_minima"
+                    android:text="@string/categoria_hogar"
+                    android:textSize="@dimen/texto_secundario" />
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margen_minima"
+                    android:text="@string/categoria_oficina"
+                    android:textSize="@dimen/texto_secundario" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margen_minima"
+                    android:text="@string/categoria_materiales"
+                    android:textSize="@dimen/texto_secundario" />
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margen_minima"
+                    android:text="@string/categoria_deportes"
+                    android:textSize="@dimen/texto_secundario" />
+            </RadioGroup>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/botonCrearCategoria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorsecundario"
-        android:textAllCaps="false"
-        android:textSize="@dimen/texto_secundario"
         android:clickable="true"
         android:focusable="true"
+        android:text="@string/crear"
+        android:textAllCaps="false"
+        android:textSize="@dimen/texto_secundario"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextCategorias"
-        android:text="@string/crear" />
+        app:layout_constraintTop_toBottomOf="@+id/cardViewCategorias" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
