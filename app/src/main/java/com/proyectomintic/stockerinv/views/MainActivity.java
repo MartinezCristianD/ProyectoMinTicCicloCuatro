@@ -1,4 +1,4 @@
-package com.proyectomintic.stockerinv;
+package com.proyectomintic.stockerinv.views;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.proyectomintic.stockerinv.R;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -19,9 +19,13 @@
     <string name="crear">Crear Categoria</string>
     <string name="gracias">Gracias por Elegir °StockerInv°</string>
     <string name="texto_elementos">° ° Crear Elementos ° °</string>
-    <string name="text_view_contador_uno">1</string>
-    <string name="nombre_elemento">Nombre del Elemento</string>
+    <string name="text_view_contador_uno"> Uno </string>
+    <string name="nombre_elemento"> Nombre del Elemento</string>
     <string name="texto_unidades"> Unidades </string>
+    <string name="categoria_hogar"> Hogar </string>
+    <string name="categoria_oficina"> Oficina </string>
+    <string name="categoria_materiales"> Materiales </string>
+    <string name="categoria_deportes"> Deportes </string>
 
 
     <array name="array_categorias">

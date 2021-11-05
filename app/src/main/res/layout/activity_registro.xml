@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/burbujasbackgroundazul"
-    tools:context=".RegistroActivity">
+    tools:context=".views.RegistroActivity">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="0dp"
+        android:id="@+id/cardViewCategorias"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_margin="@dimen/margen_minima"
+        android:layout_marginTop="@dimen/margen_media"
         android:backgroundTint="@color/transparente"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,7 +78,7 @@
         app:layout_constraintBottom_toTopOf="@id/btnRegistro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardView" />
+        app:layout_constraintTop_toBottomOf="@id/cardViewCategorias" />
 
 
     <Button
@@ -90,13 +91,12 @@
         android:focusable="true"
         android:text="@string/registrarse"
         android:textAllCaps="false"
-        android:textColor="#5E35B1"
+        android:textColor="@color/white"
         android:textSize="@dimen/texto_secundario"
-        app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardView"
+        app:layout_constraintTop_toBottomOf="@id/cardViewCategorias"
         tools:ignore="TextContrastCheck,TextContrastCheck" />
 
     <ImageButton

@@ -11,18 +11,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StockerInv">
         <activity
-            android:name=".ElementosActivity"
+            android:name=".views.InventarioActivity"
             android:exported="true" />
         <activity
-            android:name=".CategoriasActivity"
+            android:name=".views.ElementosActivity"
+            android:exported="true" />
+        <activity
+            android:name=".views.CategoriasActivity"
             android:exported="true"
             android:theme="@style/Theme.StockerInv" />
         <activity
-            android:name=".RegistroActivity"
+            android:name=".views.RegistroActivity"
             android:exported="true"
             android:theme="@style/Theme.StockerInv" />
         <activity
-            android:name=".MainActivity"
+            android:name=".views.MainActivity"
             android:exported="true"
             android:theme="@style/SplashTheme">
             <intent-filter>

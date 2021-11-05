@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_primario"
-    tools:context=".ElementosActivity">
+    tools:context=".views.ElementosActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -108,15 +108,15 @@
             <ImageButton
                 android:id="@+id/imageButtonAccederCamara"
                 android:layout_width="@dimen/dimen_icono_cuadrado"
-                android:layout_height="@dimen/dimen_icono_cuadrado"
+                android:layout_height="@dimen/dimen_icono_rectangulo"
                 android:layout_margin="@dimen/margen_minima"
+                android:background="@drawable/icono_camara"
                 android:contentDescription="@string/content_description"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/imageViewFotoArticulo"
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/ic_menu_camera" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imageViewFotoArticulo"
@@ -158,7 +158,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/btnCrearElementos"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="?attr/homeAsUpIndicator" />
+                app:srcCompat="?attr/homeAsUpIndicator"
+                tools:srcCompat="@android:drawable/ic_menu_revert" />
 
             <Button
                 android:id="@+id/btnCrearElementos"

@@ -1,13 +1,16 @@
-package com.proyectomintic.stockerinv;
+package com.proyectomintic.stockerinv.views;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.proyectomintic.stockerinv.R;
 
 public class ElementosActivity extends AppCompatActivity {
 
@@ -21,7 +24,13 @@ public class ElementosActivity extends AppCompatActivity {
 
         ImageButton botonRegresar = findViewById(R.id.botonAtras);
         botonRegresar.setOnClickListener(v -> {
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, CategoriasActivity.class);
+            startActivity(intent);
+        });
+
+        Button btnCrearElemento = findViewById(R.id.btnCrearElementos);
+        btnCrearElemento.setOnClickListener(v -> {
+            Intent intent = new Intent(this, InventarioActivity.class);
             startActivity(intent);
         });
 
@@ -37,7 +46,7 @@ public class ElementosActivity extends AppCompatActivity {
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                         String textoProgressBar = getString(R.string.texto_unidades);
-                        mostrarArticulosSeekBar.setText(progress + textoProgressBar);
+                        mostrarArticulosSeekBar.setText(progress + " " + textoProgressBar);
                     }
 
                     //hace un llamado  cuando se toca la perilla
