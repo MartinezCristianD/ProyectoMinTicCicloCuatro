@@ -47,7 +47,7 @@
                 android:layout_marginHorizontal="@dimen/margen_minima"
                 android:layout_marginVertical="@dimen/margen_media"
                 android:background="@drawable/bordes_redondos"
-                android:hint="@string/crear_contraseña"
+                android:hint="@string/crear_clave_usuario"
                 android:inputType="textPersonName"
                 android:padding="@dimen/padding_texto"
                 android:textColorHint="@color/grey"

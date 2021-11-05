@@ -18,8 +18,12 @@
     <dimen name="margen_extrema">60dp</dimen>
 
 
-    <dimen name="max_length_uno">25</dimen>
+    <dimen name="dimen_icono_cuadrado">100dp</dimen>
+    <dimen name="dimen_icono_cuadrado_dos">45dp</dimen>
 
+
+    <dimen name="max_length_uno">25</dimen>
+    <dimen name="max_length_nombres">15</dimen>
 
 
 </resources>

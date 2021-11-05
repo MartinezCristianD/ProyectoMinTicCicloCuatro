@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">StockerInv</string>
     <string name="nombre">Nombre</string>
-    <string name="contraseña">Contraseña</string>
-    <string name="crear_contraseña">Crea Una Contraseña</string>
+    <string name="clave_usuario">Clave Usuario</string>
+    <string name="crear_clave_usuario">Crea Una Clave de usuario</string>
     <string name="Inicio_sesion">Iniciar Sesion</string>
     <string name="usuario">Usuario</string>
-    <string name="recordar_contraseña">¿Olvido su Contraseña?</string>
+    <string name="recordar_clave">¿Olvido su Clave de Usuario?</string>
     <string name="ingreso_con_google">Ingrese con Google</string>
     <string name="no_tienes_cuenta">¿Aun No Tienes Una Cuenta?</string>
     <string name="invitado">Invitado</string>
@@ -19,6 +19,15 @@
     <string name="crear">Crear Categoria</string>
     <string name="gracias">Gracias por Elegir °StockerInv°</string>
     <string name="texto_elementos">° ° Crear Elementos ° °</string>
+    <string name="text_view_contador_uno">1</string>
+    <string name="nombre_elemento">Nombre del Elemento</string>
+    <string name="texto_unidades"> Unidades </string>
+
+
+    <array name="array_categorias">
+        <item />
+
+    </array>
 
 
 </resources>
