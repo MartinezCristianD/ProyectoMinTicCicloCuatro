@@ -24,9 +24,12 @@ public class ElementosActivity extends AppCompatActivity {
 
         String categoriaElegida = datos.getString("CATEGORIA_ELEGIDA");
 
-         TextView viewCategoriaElegida;
+        TextView viewCategoriaElegida;
         viewCategoriaElegida = findViewById(R.id.textViewCategoriaElegida);
-        if(!categoriaElegida.isEmpty()){viewCategoriaElegida.setText(categoriaElegida);}
+
+        if(categoriaElegida != null && !categoriaElegida.trim().isEmpty()){
+            viewCategoriaElegida.setText(categoriaElegida);
+        }
 
         TextView mostrarArticulosSeekBar = findViewById(R.id.textViewContador);
         SeekBar barraAgregarArticulos;

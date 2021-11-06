@@ -13,19 +13,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginTop="@dimen/margen_minima"
         android:text="@string/creacion_categorias"
         android:textSize="@dimen/texto_grande"
-        app:layout_constraintBottom_toTopOf="@id/cardViewRegistroUsuario"
+        android:layout_marginBottom="@dimen/margen_media"
+        app:layout_constraintBottom_toTopOf="@id/cardViewCategorias"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewRegistroUsuario"
+        android:id="@+id/cardViewCategorias"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margen_media"
+        android:layout_margin="@dimen/margen_minima"
+        android:layout_marginHorizontal="@dimen/margen_media"
+        android:padding="@dimen/padding_texto"
         android:backgroundTint="@color/white"
         app:cardCornerRadius="@dimen/margen_extrema"
         app:layout_constraintBottom_toTopOf="@id/botonCrearCategoria"
@@ -35,54 +39,84 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margen_media"
+            android:padding="@dimen/padding_texto">
 
             <RadioGroup
                 android:id="@+id/radioGroupCategorias"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="@dimen/margen_minima"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <RadioButton
-                    android:id="@+id/radioButtonHogar"
+                    android:id="@+id/radioButtonCocina"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margen_minima"
-                    android:checked="true"
-                    android:text="@string/categoria_hogar"
+                    android:layout_margin="@dimen/margen_radioBoton"
+                    android:text="@string/categoria_cocina"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/texto_secundario" />
+                    android:textSize="@dimen/texto_terciario" />
 
                 <RadioButton
-                    android:id="@+id/radioButtonOficina"
+                    android:id="@+id/radioButtonLimpieza"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margen_minima"
-                    android:text="@string/categoria_oficina"
+                    android:layout_margin="@dimen/margen_radioBoton"
+                    android:text="@string/categoria_limpieza"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/texto_secundario" />
+                    android:textSize="@dimen/texto_terciario" />
 
                 <RadioButton
-                    android:id="@+id/radioButtonMateriales"
+                    android:id="@+id/radioButtonJardin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margen_minima"
-                    android:text="@string/categoria_materiales"
+                    android:layout_margin="@dimen/margen_radioBoton"
+                    android:text="@string/categoria_jardin"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/texto_secundario" />
+                    android:textSize="@dimen/texto_terciario" />
 
                 <RadioButton
-                    android:id="@+id/radioButtonDeportes"
+                    android:id="@+id/radioButtonElectrodomesticos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margen_minima"
-                    android:text="@string/categoria_deportes"
+                    android:layout_margin="@dimen/margen_radioBoton"
+                    android:text="@string/categoria_electrodomesticos"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/texto_secundario" />
+                    android:textSize="@dimen/texto_terciario" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonMuebles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margen_radioBoton"
+                    android:text="@string/categoria_muebles"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/texto_terciario" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonTecnologia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margen_radioBoton"
+                    android:text="@string/categoria_tecnologia"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/texto_terciario"/>
+
+                <RadioButton
+                    android:id="@+id/radioButtonDecoracion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margen_radioBoton"
+                    android:text="@string/categoria_decoracion"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/texto_terciario"/>
+
+
+
             </RadioGroup>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -100,6 +134,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardViewRegistroUsuario" />
+        app:layout_constraintTop_toBottomOf="@id/cardViewCategorias" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

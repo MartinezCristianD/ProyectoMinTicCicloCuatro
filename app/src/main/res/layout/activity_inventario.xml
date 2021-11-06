@@ -18,8 +18,9 @@
         android:padding="@dimen/padding_texto"
         android:textColorHint="@color/grey"
         android:textSize="@dimen/texto_secundario"
+        android:textColor="@color/black"
         app:counterMaxLength="15"
-        app:layout_constraintBottom_toTopOf="@+id/cardViewRegistroUsuario"
+        app:layout_constraintBottom_toTopOf="@+id/cardViewCategorias"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="16dp">
 
@@ -34,7 +35,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewRegistroUsuario"
+        android:id="@+id/cardViewCategorias"
         android:layout_width="match_parent"
         android:layout_height="600dp"
         android:backgroundTint="@color/blanco_transparente"

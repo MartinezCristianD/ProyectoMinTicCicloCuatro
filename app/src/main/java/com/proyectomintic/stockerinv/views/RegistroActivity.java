@@ -26,13 +26,9 @@ public class RegistroActivity extends AppCompatActivity {
         });
 
         Button botonRegistrarse = findViewById(R.id.btnRegistro);
-        botonRegistrarse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), CategoriasActivity.class);
-                startActivity(intent);
-
-            }
+        botonRegistrarse.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), MainActivity.class);
+            startActivity(intent);
 
         });
 

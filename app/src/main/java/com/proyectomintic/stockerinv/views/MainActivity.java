@@ -26,18 +26,21 @@ public class MainActivity extends AppCompatActivity {
         Button botonInvitado = findViewById(R.id.buttonInvitado);
         botonInvitado.setOnClickListener(v -> {
             Intent i = new Intent(v.getContext(), CategoriasActivity.class);
+            Toast.makeText(this, "Bienvenido", Toast.LENGTH_LONG).show();
             startActivity(i);
         });
 
         Button botonIngreso = findViewById(R.id.botonIngreso);
         botonIngreso.setOnClickListener(v -> {
-            Intent i = new Intent(v.getContext(), CategoriasActivity.class);
+            Intent i = new Intent(v.getContext(), RutaActivity.class);
+            Toast.makeText(this, "Bienvenido", Toast.LENGTH_LONG).show();
             startActivity(i);
         });
 
         Button botonGoogle = findViewById(R.id.ingresoGoogle);
         botonGoogle.setOnClickListener(v -> {
-            Intent i = new Intent(v.getContext(), CategoriasActivity.class);
+            Intent i = new Intent(v.getContext(), RutaActivity.class);
+            Toast.makeText(this, "Bienvenido", Toast.LENGTH_LONG).show();
             startActivity(i);
         });
 
@@ -47,13 +50,6 @@ public class MainActivity extends AppCompatActivity {
     protected  void onStart() {
         super.onStart();
         setTheme(R.style.Theme_AppCompat);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Toast.makeText(this, "Bienvenido", Toast.LENGTH_LONG).show();
-
     }
 
 }

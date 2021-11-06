@@ -5,11 +5,16 @@
     <string name="texto_categorias">Ingrese el nombre de la Categoria</string>
     <string name="crear">Crear Categoria</string>
     <string name="categorias"> Categorias</string>
+    <string name="sin_categorias"> Sin Categoria</string>
     <string name="gracias">Gracias por Elegir °StockerInv°</string>
-    <string name="categoria_hogar"> Hogar </string>
-    <string name="categoria_oficina"> Oficina </string>
-    <string name="categoria_materiales"> Materiales </string>
-    <string name="categoria_deportes"> Deportes </string>
+    <string name="categoria_limpieza"> Limpieza </string>
+    <string name="categoria_cocina"> Cocina </string>
+    <string name="categoria_muebles"> Muebles </string>
+    <string name="categoria_electrodomesticos"> Electrodomesticos </string>
+    <string name="categoria_tecnologia"> Tecnologia </string>
+    <string name="categoria_decoracion"> Decoracion </string>
+    <string name="categoria_jardin"> Jardin </string>
+
 
     <!--- APP -->
     <string name="app_name">StockerInv</string>
@@ -20,7 +25,8 @@
     <string name="texto_checkbox">Al registrarse acepta los terminos y condiciones, la politica de uso de datos disponible en www.StockerInv.com.co</string>
     <string name="terminos_y_condiciones">Registrate</string>
     <string name="content_description">Aqui hay algo</string>
-    <string name="text_view_contador_uno"> 0 Unidades </string>
+    <string name="continuar">Continuar</string>
+
 
     <!--- Usuario -->
     <string name="nombre">Nombre</string>
@@ -37,5 +43,13 @@
     <string name="texto_unidades"> Unidades </string>
     <string name="buscar_elemento"> Buscar Elemento </string>
     <string name="agrega_foto_articulo"> Agrega una Foto del Articulo </string>
+    <string name="text_view_contador_uno"> 0 Unidades </string>
+
+    <!--- Elementos -->
+    <string name="destino"> Ingrese el destino de su Inventario </string>
+    <string name="origen"> Lugar del Inventario   </string>
+    <string name="text_view_distancia">Distancia </string>
+    <string name="text_view_duracion"> Duracion </string>
+
 
 </resources>

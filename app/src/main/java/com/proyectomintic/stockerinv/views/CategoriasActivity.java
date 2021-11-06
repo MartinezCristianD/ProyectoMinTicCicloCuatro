@@ -12,11 +12,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.proyectomintic.stockerinv.R;
 
 public class CategoriasActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
+
     String textoRadioBotonEleccion ;
-    RadioButton radioBotonHogar ;
-    RadioButton radioBotonOficina;
-    RadioButton radioBotonMateriales ;
-    RadioButton radioBotonDeportes ;
+    RadioButton radioBotonCocina ;
+    RadioButton radioBotonLimpieza;
+    RadioButton radioBotonMuebles ;
+    RadioButton radioBotonJardin ;
+    RadioButton radioBotonElectrodomesticos;
+    RadioButton radioBotonTecnologia ;
+    RadioButton radioBotonDecoracion ;
     Button botonCrearCategoria;
     RadioGroup radioGroupoCategorias;
 
@@ -26,10 +30,13 @@ public class CategoriasActivity extends AppCompatActivity implements RadioGroup.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categorias);
 
-        radioBotonHogar = findViewById(R.id.radioButtonHogar);
-        radioBotonOficina = findViewById(R.id.radioButtonOficina);
-        radioBotonMateriales = findViewById(R.id.radioButtonMateriales);
-        radioBotonDeportes = findViewById(R.id.radioButtonDeportes);
+        radioBotonCocina = findViewById(R.id.radioButtonCocina);
+        radioBotonLimpieza = findViewById(R.id.radioButtonLimpieza);
+        radioBotonMuebles = findViewById(R.id.radioButtonMuebles);
+        radioBotonJardin = findViewById(R.id.radioButtonJardin);
+        radioBotonElectrodomesticos = findViewById(R.id.radioButtonElectrodomesticos);
+        radioBotonTecnologia = findViewById(R.id.radioButtonTecnologia);
+        radioBotonDecoracion = findViewById(R.id.radioButtonDecoracion);
 
         botonCrearCategoria = findViewById(R.id.botonCrearCategoria);
         radioGroupoCategorias = findViewById(R.id.radioGroupCategorias);
@@ -53,17 +60,26 @@ public class CategoriasActivity extends AppCompatActivity implements RadioGroup.
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
 
-        if (radioBotonHogar.isChecked()) {
-            textoRadioBotonEleccion = getString(R.string.categoria_hogar);
+        if (radioBotonCocina.isChecked()) {
+            textoRadioBotonEleccion = getString(R.string.categoria_cocina);
         }
-        if (radioBotonOficina.isChecked()) {
-            textoRadioBotonEleccion = getString(R.string.categoria_oficina);
+        if (radioBotonLimpieza.isChecked()) {
+            textoRadioBotonEleccion = getString(R.string.categoria_limpieza);
         }
-        if (radioBotonMateriales.isChecked()) {
-            textoRadioBotonEleccion = getString(R.string.categoria_materiales);
+        if (radioBotonMuebles.isChecked()) {
+            textoRadioBotonEleccion = getString(R.string.categoria_muebles);
         }
-        if (radioBotonDeportes.isChecked()) {
-            textoRadioBotonEleccion = getString(R.string.categoria_deportes);
+        if (radioBotonJardin.isChecked()) {
+            textoRadioBotonEleccion = getString(R.string.categoria_jardin);
+        }
+        if (radioBotonElectrodomesticos.isChecked()) {
+            textoRadioBotonEleccion = getString(R.string.categoria_electrodomesticos);
+        }
+        if (radioBotonTecnologia.isChecked()) {
+            textoRadioBotonEleccion = getString(R.string.categoria_tecnologia);
+        }
+        if (radioBotonDecoracion.isChecked()) {
+            textoRadioBotonEleccion = getString(R.string.categoria_decoracion);
         }
 
     }

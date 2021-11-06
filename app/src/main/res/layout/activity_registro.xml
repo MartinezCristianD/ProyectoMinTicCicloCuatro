@@ -8,7 +8,7 @@
     tools:context=".views.RegistroActivity">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewRegistroUsuario"
+        android:id="@+id/cardViewCategorias"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margen_minima"
@@ -31,6 +31,7 @@
                 android:layout_marginHorizontal="@dimen/margen_minima"
                 android:layout_marginVertical="@dimen/margen_media"
                 android:background="@drawable/bordes_redondos"
+                android:textColor="@color/black"
                 android:hint="@string/nombre"
                 android:inputType="textPersonName"
                 android:padding="@dimen/padding_texto"
@@ -49,6 +50,7 @@
                 android:layout_marginVertical="@dimen/margen_media"
                 android:background="@drawable/bordes_redondos"
                 android:hint="@string/crear_clave_usuario"
+                android:textColor="@color/black"
                 android:inputType="textPersonName"
                 android:padding="@dimen/padding_texto"
                 android:textColorHint="@color/grey"
@@ -78,7 +80,7 @@
         app:layout_constraintBottom_toTopOf="@id/btnRegistro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardViewRegistroUsuario" />
+        app:layout_constraintTop_toBottomOf="@id/cardViewCategorias" />
 
 
     <Button
@@ -96,7 +98,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardViewRegistroUsuario"
+        app:layout_constraintTop_toBottomOf="@id/cardViewCategorias"
         tools:ignore="TextContrastCheck,TextContrastCheck" />
 
     <ImageButton
