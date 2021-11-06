@@ -9,70 +9,82 @@
 
 
     <TextView
-        android:id="@+id/textViewCategorias"
+        android:id="@+id/textViewElementos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="@string/creacion_categorias"
         android:textSize="@dimen/texto_grande"
-        android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/cardViewCategorias"
+        app:layout_constraintBottom_toTopOf="@id/cardViewRegistroUsuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewCategorias"
+        android:id="@+id/cardViewRegistroUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/botonCrearCategoria"
         android:layout_margin="@dimen/margen_media"
-        android:backgroundTint="@color/color_terciario"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="@dimen/margen_extrema"
+        app:layout_constraintBottom_toTopOf="@id/botonCrearCategoria"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:cardCornerRadius="@dimen/margen_extrema"
-        app:layout_constraintTop_toBottomOf="@id/textViewCategorias">
+        app:layout_constraintTop_toBottomOf="@id/textViewElementos">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <RadioGroup
+                android:id="@+id/radioGroupCategorias"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/margen_minima"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <RadioButton
-                    android:id="@+id/radioButton4"
+                    android:id="@+id/radioButtonHogar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margen_minima"
+                    android:clickable="true"
                     android:text="@string/categoria_hogar"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/texto_secundario" />
 
                 <RadioButton
-                    android:id="@+id/radioButton3"
+                    android:id="@+id/radioButtonOficina"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:clickable="true"
                     android:layout_margin="@dimen/margen_minima"
                     android:text="@string/categoria_oficina"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/texto_secundario" />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/radioButtonMateriales"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:clickable="true"
                     android:layout_margin="@dimen/margen_minima"
                     android:text="@string/categoria_materiales"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/texto_secundario" />
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/radioButtonDeportes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:clickable="true"
                     android:layout_margin="@dimen/margen_minima"
                     android:text="@string/categoria_deportes"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/texto_secundario" />
             </RadioGroup>
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -91,6 +103,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardViewCategorias" />
+        app:layout_constraintTop_toBottomOf="@id/cardViewRegistroUsuario" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

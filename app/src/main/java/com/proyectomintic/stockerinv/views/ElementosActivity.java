@@ -19,7 +19,16 @@ public class ElementosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_elementos);
 
-        TextView mostrarArticulosSeekBar = (TextView) findViewById(R.id.textViewContador);
+        // String categoriaElegida = getIntent().getStringExtra("CATEGORIA_ELEGIDA");
+        Bundle datos = this.getIntent().getExtras();
+
+        String categoriaElegida = datos.getString("CATEGORIA_ELEGIDA");
+
+         TextView viewCategoriaElegida;
+        viewCategoriaElegida = findViewById(R.id.textViewCategoriaElegida);
+        if(!categoriaElegida.isEmpty()){viewCategoriaElegida.setText(categoriaElegida);}
+
+        TextView mostrarArticulosSeekBar = findViewById(R.id.textViewContador);
         SeekBar barraAgregarArticulos;
 
         ImageButton botonRegresar = findViewById(R.id.botonAtras);
@@ -35,7 +44,7 @@ public class ElementosActivity extends AppCompatActivity {
         });
 
         // SeekBar
-        barraAgregarArticulos = (SeekBar) findViewById(R.id.seekBar);
+        barraAgregarArticulos = findViewById(R.id.seekBar);
         // Valor Inicial
         barraAgregarArticulos.setProgress(0);
         // Valor Final

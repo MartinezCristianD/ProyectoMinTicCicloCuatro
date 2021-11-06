@@ -17,29 +17,28 @@
         android:textColorHint="@color/grey"
         android:textSize="@dimen/texto_secundario"
         app:counterMaxLength="15"
-        app:layout_constraintBottom_toTopOf="@+id/cardViewAgregarArticulos"
+        app:layout_constraintBottom_toTopOf="@id/cardViewAgregarArticulos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewCategorias">
+        app:layout_constraintTop_toBottomOf="@id/textViewElementos">
 
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/nombreArticulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/margen_media"
             android:background="@drawable/bordes_redondos"
             android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/textViewCategorias"
+        android:id="@id/textViewElementos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/texto_elementos"
         android:textSize="@dimen/texto_grande"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+        app:layout_constraintBottom_toTopOf="@id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -48,12 +47,12 @@
         android:id="@+id/cardViewAgregarArticulos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margen_minima"
+        android:layout_marginHorizontal="@dimen/margen_minima"
         android:backgroundTint="@color/transparente"
-        app:layout_constraintBottom_toTopOf="@+id/cardViewFotoArticulos"
+        app:layout_constraintBottom_toTopOf="@id/cardViewFotoArticulos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+        app:layout_constraintTop_toBottomOf="@id/textInputLayout">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -62,31 +61,48 @@
 
             <SeekBar
                 android:id="@+id/seekBar"
+                style="@android:style/Widget.SeekBar"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/margen_grande"
-                android:layout_margin="@dimen/margen_media"
-                android:background="@color/white"
+                android:layout_height="wrap_content"
                 android:max="20"
+                android:layout_margin="@dimen/margen_minima"
                 android:progress="1"
+                android:progressTint="@color/colorsecundario"
                 android:visibility="visible"
-                app:layout_constraintBottom_toTopOf="@+id/textViewContador"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/textViewContador" />
 
             <TextView
                 android:id="@+id/textViewContador"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margen_media"
                 android:gravity="center"
+                android:layout_margin="@dimen/margen_minima"
                 android:text="@string/text_view_contador_uno"
                 android:textSize="@dimen/texto_principal"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/seekBar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/seekBar" />
+                app:layout_constraintTop_toBottomOf="@id/textViewCategoriaElegida" />
+
+            <TextView
+                android:id="@+id/textViewCategoriaElegida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categorias"
+                android:layout_margin="@dimen/margen_minima"
+                android:textSize="@dimen/texto_principal"
+                android:textAllCaps="true"
+                android:visibility="visible"
+                android:textStyle="italic"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/textViewContador"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -94,7 +110,7 @@
         android:id="@+id/cardViewFotoArticulos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margen_grande"
+        android:layout_margin="@dimen/margen_media"
         android:backgroundTint="@color/transparente"
         app:layout_constraintBottom_toTopOf="@id/cardViewBotones"
         app:layout_constraintEnd_toEndOf="parent"
@@ -112,11 +128,12 @@
                 android:layout_margin="@dimen/margen_minima"
                 android:background="@drawable/icono_camara"
                 android:contentDescription="@string/content_description"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewFotoArticulo"
                 app:layout_constraintEnd_toStartOf="@id/imageViewFotoArticulo"
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/imageViewFotoArticulo"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
             <ImageView
                 android:id="@+id/imageViewFotoArticulo"
@@ -126,9 +143,21 @@
                 android:contentDescription="@string/content_description"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@id/imageButtonAccederCamara"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
                 app:srcCompat="@drawable/logoapp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/agrega_foto_articulo"
+                android:textSize="@dimen/texto_secundario"
+                app:layout_constraintBottom_toTopOf="@id/imageViewFotoArticulo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -149,8 +178,8 @@
 
             <ImageButton
                 android:id="@+id/botonAtras"
-                android:layout_width="@dimen/dimen_icono_cuadrado_dos"
-                android:layout_height="@dimen/dimen_icono_cuadrado_dos"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_margin="@dimen/margen_media"
                 android:background="@color/colorsecundario"
                 android:contentDescription="@string/content_description"
@@ -159,6 +188,7 @@
                 app:layout_constraintStart_toEndOf="@id/btnCrearElementos"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="?attr/homeAsUpIndicator"
+                tools:ignore="ImageContrastCheck"
                 tools:srcCompat="@android:drawable/ic_menu_revert" />
 
             <Button
@@ -168,12 +198,14 @@
                 android:layout_margin="@dimen/margen_media"
                 android:backgroundTint="@color/color_terciario"
                 android:text="@string/texto_elementos"
+                android:textColor="#4A148C"
                 android:textSize="@dimen/texto_boton_principal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/botonAtras"
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
