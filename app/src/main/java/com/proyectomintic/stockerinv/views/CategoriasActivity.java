@@ -52,6 +52,7 @@ public class CategoriasActivity extends AppCompatActivity implements RadioGroup.
 
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
+
         if (radioBotonHogar.isChecked()) {
             textoRadioBotonEleccion = getString(R.string.categoria_hogar);
         }

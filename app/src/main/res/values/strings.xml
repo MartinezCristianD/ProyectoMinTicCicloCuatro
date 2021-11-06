@@ -1,40 +1,41 @@
 <resources>
+
+    <!--- Catergorias -->
+    <string name="creacion_categorias">° ° Creacion de Categorias ° °</string>
+    <string name="texto_categorias">Ingrese el nombre de la Categoria</string>
+    <string name="crear">Crear Categoria</string>
+    <string name="categorias"> Categorias</string>
+    <string name="gracias">Gracias por Elegir °StockerInv°</string>
+    <string name="categoria_hogar"> Hogar </string>
+    <string name="categoria_oficina"> Oficina </string>
+    <string name="categoria_materiales"> Materiales </string>
+    <string name="categoria_deportes"> Deportes </string>
+
+    <!--- APP -->
     <string name="app_name">StockerInv</string>
+    <string name="ingreso_con_google">Ingrese con Google</string>
+    <string name="no_tienes_cuenta">¿Aun No Tienes Una Cuenta?</string>
+    <string name="registro">Registrate</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="texto_checkbox">Al registrarse acepta los terminos y condiciones, la politica de uso de datos disponible en www.StockerInv.com.co</string>
+    <string name="terminos_y_condiciones">Registrate</string>
+    <string name="content_description">Aqui hay algo</string>
+    <string name="text_view_contador_uno"> 0 Unidades </string>
+
+    <!--- Usuario -->
     <string name="nombre">Nombre</string>
     <string name="clave_usuario">Clave Usuario</string>
     <string name="crear_clave_usuario">Crea Una Clave de usuario</string>
     <string name="Inicio_sesion">Iniciar Sesion</string>
     <string name="usuario">Usuario</string>
     <string name="recordar_clave">¿Olvido su Clave de Usuario?</string>
-    <string name="ingreso_con_google">Ingrese con Google</string>
-    <string name="no_tienes_cuenta">¿Aun No Tienes Una Cuenta?</string>
     <string name="invitado">Invitado</string>
-    <string name="registro">Registrate</string>
-    <string name="registrarse">Registrarse</string>
-    <string name="texto_checkbox">Al registrarse acepta los terminos y condiciones, la politica de uso de datos disponible en www.StockerInv.com.co</string>
-    <string name="terminos_y_condiciones">Registrate</string>
-    <string name="content_description">Aqui hay algo</string>
-    <string name="creacion_categorias">° ° Creacion de Categorias ° °</string>
-    <string name="texto_categorias">Ingrese el nombre de la Categoria</string>
-    <string name="crear">Crear Categoria</string>
-    <string name="categorias"> Categorias</string>
-    <string name="gracias">Gracias por Elegir °StockerInv°</string>
+
+    <!--- Elementos -->
     <string name="texto_elementos">° ° Crear Elementos ° °</string>
-    <string name="text_view_contador_uno"> 0 Unidades </string>
     <string name="nombre_elemento"> Nombre del Elemento</string>
     <string name="texto_unidades"> Unidades </string>
-    <string name="categoria_hogar"> Hogar </string>
-    <string name="categoria_oficina"> Oficina </string>
-    <string name="categoria_materiales"> Materiales </string>
-    <string name="categoria_deportes"> Deportes </string>
     <string name="buscar_elemento"> Buscar Elemento </string>
     <string name="agrega_foto_articulo"> Agrega una Foto del Articulo </string>
-
-
-    <array name="array_categorias">
-        <item />
-
-    </array>
-
 
 </resources>
