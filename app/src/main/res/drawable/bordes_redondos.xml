@@ -3,7 +3,7 @@
 
     <corners android:radius="30dp" />
     <stroke android:width="3dp"  />
-    <solid android:color="@color/white"/>
+    <solid android:color="@color/cardview_dark_background"/>
 
 
 </shape>

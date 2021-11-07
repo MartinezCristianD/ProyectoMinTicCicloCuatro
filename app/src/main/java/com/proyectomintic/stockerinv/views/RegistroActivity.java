@@ -2,26 +2,23 @@ package com.proyectomintic.stockerinv.views;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.proyectomintic.stockerinv.R;
+import com.proyectomintic.stockerinv.databinding.ActivityRegistroBinding;
 
 public class RegistroActivity extends AppCompatActivity {
+
+    private ActivityRegistroBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivityRegistroBinding.inflate(getLayoutInflater());
         setTheme(R.style.Theme_AppCompat);
-        setContentView(R.layout.activity_registro);
+        setContentView(binding.getRoot());
 
-
-        Button botonRegistrarse = findViewById(R.id.btnRegistro);
-        botonRegistrarse.setOnClickListener(v -> {
+        binding.btnRegistro.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), MainActivity.class);
             startActivity(intent);
 

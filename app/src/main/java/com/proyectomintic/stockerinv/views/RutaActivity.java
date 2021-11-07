@@ -1,24 +1,39 @@
 package com.proyectomintic.stockerinv.views;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-
-import com.proyectomintic.stockerinv.R;
+import androidx.appcompat.app.AppCompatActivity;
+import com.proyectomintic.stockerinv.databinding.ActivityRutaBinding;
 
 public class RutaActivity extends AppCompatActivity {
+
+    private ActivityRutaBinding binding;
+    String eleccionOrigen;
+    String eleccionDestino;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ruta);
+        binding = ActivityRutaBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        Button botonContinuar = findViewById(R.id.buttonContinuar);
-        botonContinuar.setOnClickListener(v -> {
-            Intent i = new Intent(v.getContext(), CategoriasActivity.class);
+        eleccionOrigen = String.valueOf(binding.InputOrigen);
+        eleccionDestino = String.valueOf(binding.InputDestino);
+
+        //Evento click del boton continuar
+        binding.buttonContinuar.setOnClickListener(v -> {
+            // Ir a ElementosActivity
+            Intent i = new Intent(v.getContext(), ElementosActivity.class);
+            // Enviar datos InventarioActivity
+            i.putExtra("Eleccion_Origen",eleccionOrigen);
+            i.putExtra("Eleccion_Destino",eleccionDestino);
+
+            // Iniciar la actividad
             startActivity(i);
         });
+
+
+
+
     }
 }

@@ -2,11 +2,8 @@ package com.proyectomintic.stockerinv.views;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.proyectomintic.stockerinv.R;
 import com.proyectomintic.stockerinv.databinding.ActivityMainBinding;
 
@@ -26,22 +23,19 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
         });
 
-        Button botonInvitado = findViewById(R.id.buttonInvitado);
-        botonInvitado.setOnClickListener(v -> {
-            Intent i = new Intent(v.getContext(), CategoriasActivity.class);
+        binding.buttonInvitado.setOnClickListener(v -> {
+            Intent i = new Intent(v.getContext(), ElementosActivity.class);
             Toast.makeText(this, "Bienvenido", Toast.LENGTH_LONG).show();
             startActivity(i);
         });
 
-        Button botonIngreso = findViewById(R.id.botonIngreso);
-        botonIngreso.setOnClickListener(v -> {
+        binding.botonIngreso.setOnClickListener(v -> {
             Intent i = new Intent(v.getContext(), RutaActivity.class);
             Toast.makeText(this, "Bienvenido", Toast.LENGTH_LONG).show();
             startActivity(i);
         });
 
-        Button botonGoogle = findViewById(R.id.ingresoGoogle);
-        botonGoogle.setOnClickListener(v -> {
+        binding.ingresoGoogle.setOnClickListener(v -> {
             Intent i = new Intent(v.getContext(), RutaActivity.class);
             Toast.makeText(this, "Bienvenido", Toast.LENGTH_LONG).show();
             startActivity(i);
