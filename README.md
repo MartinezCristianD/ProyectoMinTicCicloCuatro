@@ -2,11 +2,11 @@
 
 [Documentación](https://drive.google.com/drive/folders/1bNxTsvS7xJ6svfM673nqoipLfaj8PFk3?usp=sharing)
 
-Aplicacion Android  que permite la gestion y administracion de inventarios de cualquier elemento agilizando y brindando confiabilidad a los Usuarios
+Aplicacion Android  que permite la gestion y administracion de inventarios de cualquier elemento, agilizando y brindando confiabilidad a los usuarios.
 
 ## Universidad Tecnologica de Pereira (Min-Tic)🚀
 
-**StockerInv** es una aplicacion para dispositivos moviles  mediante la cual  es posible la gestión y administración de inventarios, permitiendo el registro de elementos, la edición  en el registro  en cuanto a cantidad, además de la consulta del estado actual del inventario, la aplicacion no permite compras en línea, tampoco enlaces a sitios de compra de articulos y no especifica las condiciones del almacenamiento o distribución de los elementos.
+**StockerInv** es una aplicacion para dispositivos moviles  mediante la cual  es posible la gestión y administración de inventarios, permitiendo el registro de elementos, la edición  en el registro  en cuanto a cantidad, además de la consulta del estado actual del inventario. La aplicación no permite compras en línea ni enlaces a sitios de compra de árticulos, además, no especifica las condiciones del almacenamiento  o distribución de los elementos registrados.
 
 
 ### Herramientas 🔧
