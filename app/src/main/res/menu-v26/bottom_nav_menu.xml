@@ -3,21 +3,17 @@
     <item
         android:id="@+id/page_to_export"
         android:icon="@android:drawable/ic_menu_share"
-        android:title="@string/texto_exportar"
-        android:iconTint="@color/black"/>
+        android:title="@string/texto_exportar" />
     <item
         android:id="@+id/page_to_home"
         android:icon="@drawable/ic_baseline_home_"
-        android:title="@string/texto_home"
-        android:iconTint="@color/black"/>
+        android:title="@string/texto_home" />
     <item
         android:id="@+id/page_to_add"
         android:icon="@drawable/ic_baseline_agregar"
-        android:iconTint="@color/black"
         android:title="@string/texto_agregar" />
     <item
         android:id="@+id/page_to_back"
         android:icon="@drawable/ic_baseline_ruta"
-        android:iconTint="@color/black"
         android:title="@string/texto_regresar_ruta" />
 </menu>

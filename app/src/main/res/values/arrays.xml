@@ -3,12 +3,12 @@
     <string-array name="categorias">
 
         <item >Cocina</item>
-        <item >Cocina</item>
-        <item >Cocina</item>
-        <item >Cocina</item>
-        <item >Cocina</item>
-        <item >Cocina</item>
-        <item >Cocina</item>
+        <item >Limpieza</item>
+        <item >Jardin</item>
+        <item >Muebles</item>
+        <item >Electrodomesticos</item>
+        <item >Tecnologia</item>
+        <item >Decoracion</item>
 
 
     </string-array>

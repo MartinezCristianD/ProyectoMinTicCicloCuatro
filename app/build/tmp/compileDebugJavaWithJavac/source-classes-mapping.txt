@@ -1,0 +1,23 @@
+com/proyectomintic/stockerinv/views/RegistroActivity.java
+ com.proyectomintic.stockerinv.views.RegistroActivity
+com/proyectomintic/stockerinv/databinding/ActivityRegistroBinding.java
+ com.proyectomintic.stockerinv.databinding.ActivityRegistroBinding
+com/proyectomintic/stockerinv/views/MainActivity.java
+ com.proyectomintic.stockerinv.views.MainActivity
+com/proyectomintic/stockerinv/views/RutaActivity.java
+ com.proyectomintic.stockerinv.views.RutaActivity
+com/proyectomintic/stockerinv/views/InventarioActivity.java
+ com.proyectomintic.stockerinv.views.InventarioActivity
+com/proyectomintic/stockerinv/BuildConfig.java
+ com.proyectomintic.stockerinv.BuildConfig
+com/proyectomintic/stockerinv/databinding/ActivityMainBinding.java
+ com.proyectomintic.stockerinv.databinding.ActivityMainBinding
+com/proyectomintic/stockerinv/databinding/ActivityElementosBinding.java
+ com.proyectomintic.stockerinv.databinding.ActivityElementosBinding
+com/proyectomintic/stockerinv/views/ElementosActivity.java
+ com.proyectomintic.stockerinv.views.ElementosActivity
+ com.proyectomintic.stockerinv.views.ElementosActivity$1
+com/proyectomintic/stockerinv/databinding/ActivityRutaBinding.java
+ com.proyectomintic.stockerinv.databinding.ActivityRutaBinding
+com/proyectomintic/stockerinv/databinding/ActivityInventarioBinding.java
+ com.proyectomintic.stockerinv.databinding.ActivityInventarioBinding

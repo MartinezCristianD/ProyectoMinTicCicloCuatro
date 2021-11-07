@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\Users\\atene\\AndroidStudioProjects\\ProyectoMinTicCicloCuatro\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_inventario.xml",
+        "source": "C:\\Users\\atene\\AndroidStudioProjects\\ProyectoMinTicCicloCuatro\\app\\src\\main\\res\\layout\\activity_inventario.xml"
+    },
+    {
+        "merged": "C:\\Users\\atene\\AndroidStudioProjects\\ProyectoMinTicCicloCuatro\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_ruta.xml",
+        "source": "C:\\Users\\atene\\AndroidStudioProjects\\ProyectoMinTicCicloCuatro\\app\\src\\main\\res\\layout\\activity_ruta.xml"
+    },
+    {
+        "merged": "C:\\Users\\atene\\AndroidStudioProjects\\ProyectoMinTicCicloCuatro\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_elementos.xml",
+        "source": "C:\\Users\\atene\\AndroidStudioProjects\\ProyectoMinTicCicloCuatro\\app\\src\\main\\res\\layout\\activity_elementos.xml"
+    },
+    {
+        "merged": "C:\\Users\\atene\\AndroidStudioProjects\\ProyectoMinTicCicloCuatro\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_registro.xml",
+        "source": "C:\\Users\\atene\\AndroidStudioProjects\\ProyectoMinTicCicloCuatro\\app\\src\\main\\res\\layout\\activity_registro.xml"
+    },
+    {
+        "merged": "C:\\Users\\atene\\AndroidStudioProjects\\ProyectoMinTicCicloCuatro\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "C:\\Users\\atene\\AndroidStudioProjects\\ProyectoMinTicCicloCuatro\\app\\src\\main\\res\\layout\\activity_main.xml"
+    }
+]

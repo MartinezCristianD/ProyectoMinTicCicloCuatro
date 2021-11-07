@@ -1,0 +1,149 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.proyectomintic.stockerinv"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+8-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+11-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:5:5-81
+11-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:5:22-78
+12
+13    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+14    <!-- <uses-sdk android:minSdkVersion="14"/> -->
+15    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+15-->[com.google.firebase:firebase-database:20.0.2] C:\Users\atene\.gradle\caches\transforms-3\f0afed891b51a6b6b2205f8b5b4de433\transformed\jetified-firebase-database-20.0.2\AndroidManifest.xml:25:5-79
+15-->[com.google.firebase:firebase-database:20.0.2] C:\Users\atene\.gradle\caches\transforms-3\f0afed891b51a6b6b2205f8b5b4de433\transformed\jetified-firebase-database-20.0.2\AndroidManifest.xml:25:22-76
+16    <uses-permission android:name="android.permission.INTERNET" />
+16-->[com.google.firebase:firebase-database:20.0.2] C:\Users\atene\.gradle\caches\transforms-3\f0afed891b51a6b6b2205f8b5b4de433\transformed\jetified-firebase-database-20.0.2\AndroidManifest.xml:26:5-67
+16-->[com.google.firebase:firebase-database:20.0.2] C:\Users\atene\.gradle\caches\transforms-3\f0afed891b51a6b6b2205f8b5b4de433\transformed\jetified-firebase-database-20.0.2\AndroidManifest.xml:26:22-64
+17
+18    <application
+18-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:7:5-43:19
+19        android:allowBackup="true"
+19-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:8:9-35
+20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+20-->[androidx.core:core:1.5.0] C:\Users\atene\.gradle\caches\transforms-3\97e7ec19bd11dff7ae3d399ac9d0fa5b\transformed\core-1.5.0\AndroidManifest.xml:24:18-86
+21        android:debuggable="true"
+22        android:extractNativeLibs="false"
+23        android:fullBackupContent="@xml/backup_descriptor"
+23-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:9:9-59
+24        android:icon="@mipmap/logo_principal"
+24-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:10:9-46
+25        android:label="@string/app_name"
+25-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:11:9-41
+26        android:roundIcon="@mipmap/logo_principal_round"
+26-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:12:9-57
+27        android:supportsRtl="true"
+27-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:13:9-35
+28        android:testOnly="true"
+29        android:theme="@style/Theme.StockerInv" >
+29-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:14:9-48
+30        <activity
+30-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:15:9-18:51
+31            android:name="com.proyectomintic.stockerinv.views.RutaActivity"
+31-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:16:13-47
+32            android:exported="true"
+32-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:17:13-36
+33            android:screenOrientation="portrait" />
+33-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:18:13-49
+34        <activity
+34-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:19:9-22:52
+35            android:name="com.proyectomintic.stockerinv.views.InventarioActivity"
+35-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:20:13-53
+36            android:exported="true"
+36-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:21:13-36
+37            android:screenOrientation="portrait" />
+37-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:22:13-49
+38        <activity
+38-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:23:9-26:52
+39            android:name="com.proyectomintic.stockerinv.views.ElementosActivity"
+39-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:24:13-52
+40            android:exported="true"
+40-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:25:13-36
+41            android:screenOrientation="portrait" />
+41-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:26:13-49
+42        <activity
+42-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:27:9-31:55
+43            android:name="com.proyectomintic.stockerinv.views.RegistroActivity"
+43-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:28:13-51
+44            android:exported="true"
+44-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:29:13-36
+45            android:screenOrientation="portrait"
+45-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:30:13-49
+46            android:theme="@style/Theme.StockerInv" />
+46-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:31:13-52
+47        <activity
+47-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:32:9-42:20
+48            android:name="com.proyectomintic.stockerinv.views.MainActivity"
+48-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:33:13-47
+49            android:exported="true"
+49-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:34:13-36
+50            android:screenOrientation="portrait"
+50-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:35:13-49
+51            android:theme="@style/SplashTheme" >
+51-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:36:13-47
+52            <intent-filter>
+52-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:37:13-41:29
+53                <action android:name="android.intent.action.MAIN" />
+53-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:38:17-69
+53-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:38:25-66
+54
+55                <category android:name="android.intent.category.LAUNCHER" />
+55-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:40:17-77
+55-->C:\Users\atene\AndroidStudioProjects\ProyectoMinTicCicloCuatro\app\src\main\AndroidManifest.xml:40:27-74
+56            </intent-filter>
+57        </activity>
+58
+59        <service
+59-->[com.google.firebase:firebase-database:20.0.2] C:\Users\atene\.gradle\caches\transforms-3\f0afed891b51a6b6b2205f8b5b4de433\transformed\jetified-firebase-database-20.0.2\AndroidManifest.xml:29:9-35:19
+60            android:name="com.google.firebase.components.ComponentDiscoveryService"
+60-->[com.google.firebase:firebase-database:20.0.2] C:\Users\atene\.gradle\caches\transforms-3\f0afed891b51a6b6b2205f8b5b4de433\transformed\jetified-firebase-database-20.0.2\AndroidManifest.xml:30:13-84
+61            android:directBootAware="true"
+61-->[com.google.firebase:firebase-common:20.0.0] C:\Users\atene\.gradle\caches\transforms-3\8b132730c267997b20003b7cdab85520\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:35:13-43
+62            android:exported="false" >
+62-->[com.google.firebase:firebase-database:20.0.2] C:\Users\atene\.gradle\caches\transforms-3\f0afed891b51a6b6b2205f8b5b4de433\transformed\jetified-firebase-database-20.0.2\AndroidManifest.xml:31:13-37
+63            <meta-data
+63-->[com.google.firebase:firebase-database:20.0.2] C:\Users\atene\.gradle\caches\transforms-3\f0afed891b51a6b6b2205f8b5b4de433\transformed\jetified-firebase-database-20.0.2\AndroidManifest.xml:32:13-34:85
+64                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+64-->[com.google.firebase:firebase-database:20.0.2] C:\Users\atene\.gradle\caches\transforms-3\f0afed891b51a6b6b2205f8b5b4de433\transformed\jetified-firebase-database-20.0.2\AndroidManifest.xml:33:17-109
+65                android:value="com.google.firebase.components.ComponentRegistrar" />
+65-->[com.google.firebase:firebase-database:20.0.2] C:\Users\atene\.gradle\caches\transforms-3\f0afed891b51a6b6b2205f8b5b4de433\transformed\jetified-firebase-database-20.0.2\AndroidManifest.xml:34:17-82
+66        </service>
+67
+68        <activity
+68-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\atene\.gradle\caches\transforms-3\c7568e8705f251fef106b4b50c29e8e2\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:23:9-26:75
+69            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+69-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\atene\.gradle\caches\transforms-3\c7568e8705f251fef106b4b50c29e8e2\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:24:13-79
+70            android:exported="false"
+70-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\atene\.gradle\caches\transforms-3\c7568e8705f251fef106b4b50c29e8e2\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:25:13-37
+71            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+71-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\atene\.gradle\caches\transforms-3\c7568e8705f251fef106b4b50c29e8e2\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:26:13-72
+72
+73        <provider
+73-->[com.google.firebase:firebase-common:20.0.0] C:\Users\atene\.gradle\caches\transforms-3\8b132730c267997b20003b7cdab85520\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:26:9-31:39
+74            android:name="com.google.firebase.provider.FirebaseInitProvider"
+74-->[com.google.firebase:firebase-common:20.0.0] C:\Users\atene\.gradle\caches\transforms-3\8b132730c267997b20003b7cdab85520\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:27:13-77
+75            android:authorities="com.proyectomintic.stockerinv.firebaseinitprovider"
+75-->[com.google.firebase:firebase-common:20.0.0] C:\Users\atene\.gradle\caches\transforms-3\8b132730c267997b20003b7cdab85520\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:28:13-72
+76            android:directBootAware="true"
+76-->[com.google.firebase:firebase-common:20.0.0] C:\Users\atene\.gradle\caches\transforms-3\8b132730c267997b20003b7cdab85520\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:29:13-43
+77            android:exported="false"
+77-->[com.google.firebase:firebase-common:20.0.0] C:\Users\atene\.gradle\caches\transforms-3\8b132730c267997b20003b7cdab85520\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:30:13-37
+78            android:initOrder="100" />
+78-->[com.google.firebase:firebase-common:20.0.0] C:\Users\atene\.gradle\caches\transforms-3\8b132730c267997b20003b7cdab85520\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:31:13-36
+79
+80        <meta-data
+80-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\atene\.gradle\caches\transforms-3\7bfe9124a72ed5828bff4f6fb297c9a3\transformed\jetified-play-services-basement-17.5.0\AndroidManifest.xml:23:9-25:69
+81            android:name="com.google.android.gms.version"
+81-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\atene\.gradle\caches\transforms-3\7bfe9124a72ed5828bff4f6fb297c9a3\transformed\jetified-play-services-basement-17.5.0\AndroidManifest.xml:24:13-58
+82            android:value="@integer/google_play_services_version" />
+82-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\atene\.gradle\caches\transforms-3\7bfe9124a72ed5828bff4f6fb297c9a3\transformed\jetified-play-services-basement-17.5.0\AndroidManifest.xml:25:13-66
+83    </application>
+84
+85</manifest>
