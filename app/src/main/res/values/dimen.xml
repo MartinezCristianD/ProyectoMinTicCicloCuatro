@@ -28,5 +28,6 @@
     <dimen name="max_length_uno">25</dimen>
     <dimen name="max_length_nombres">15</dimen>
 
+    <dimen name="border_radius">16dp</dimen>
 
 </resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categorias">
+
+        <item >Cocina</item>
+        <item >Cocina</item>
+        <item >Cocina</item>
+        <item >Cocina</item>
+        <item >Cocina</item>
+        <item >Cocina</item>
+        <item >Cocina</item>
+
+
+    </string-array>
+
+
+
+</resources>

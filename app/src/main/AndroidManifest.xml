@@ -14,7 +14,8 @@
         android:theme="@style/Theme.StockerInv">
         <activity
             android:name=".views.RutaActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".views.InventarioActivity"
             android:exported="true"

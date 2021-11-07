@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_primario"
+    android:layout_margin="@dimen/margen_minima"
+    android:background="@color/colorBackground"
     tools:context=".views.ElementosActivity">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -14,21 +15,18 @@
         android:hint="@string/nombre_elemento"
         android:inputType="textEmailAddress"
         android:padding="@dimen/padding_texto"
-        android:textColorHint="@color/grey"
         android:textSize="@dimen/texto_secundario"
         app:counterMaxLength="15"
-        app:layout_constraintBottom_toTopOf="@id/cardViewAgregarArticulos"
+        app:layout_constraintBottom_toTopOf="@+id/cardViewAgregarArticulos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewElementos">
-
+        app:layout_constraintTop_toBottomOf="@+id/textViewElementos">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/nombreArticulo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bordes_redondos"
-            android:textColor="@color/black" />
+            android:layout_height="wrap_content" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -38,36 +36,34 @@
         android:gravity="center"
         android:text="@string/texto_elementos"
         android:textSize="@dimen/texto_grande"
-        app:layout_constraintBottom_toTopOf="@id/textInputLayout"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardViewAgregarArticulos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margen_minima"
-        android:backgroundTint="@color/transparente"
-        app:layout_constraintBottom_toTopOf="@id/cardViewFotoArticulos"
+        app:layout_constraintBottom_toTopOf="@+id/cardViewFotoArticulos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayout">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/transparente">
+            android:layout_margin="@dimen/margen_minima">
 
             <SeekBar
                 android:id="@+id/seekBar"
                 style="@android:style/Widget.SeekBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:max="20"
                 android:layout_margin="@dimen/margen_minima"
+                android:max="20"
                 android:progress="1"
-                android:progressTint="@color/colorsecundario"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -78,8 +74,8 @@
                 android:id="@+id/textViewContador"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_margin="@dimen/margen_minima"
+                android:gravity="center"
                 android:text="@string/text_view_contador_uno"
                 android:textSize="@dimen/texto_principal"
                 app:layout_constraintBottom_toTopOf="@id/seekBar"
@@ -87,35 +83,36 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textViewCategoriaElegida" />
 
-            <TextView
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textViewCategoriaElegida"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/sin_categorias"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
                 android:layout_margin="@dimen/margen_minima"
-                android:textSize="@dimen/texto_principal"
-                android:textAllCaps="true"
-                android:visibility="visible"
-                android:textStyle="italic"
-                android:textColor="@color/white"
+                android:hint="@string/sin_categorias"
                 app:layout_constraintBottom_toTopOf="@id/textViewContador"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent" >
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardViewFotoArticulos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margen_media"
-        android:backgroundTint="@color/transparente"
-        app:layout_constraintBottom_toTopOf="@id/cardViewBotones"
+        app:layout_constraintBottom_toTopOf="@+id/btnCrearElementos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardViewAgregarArticulos">
+        app:layout_constraintTop_toBottomOf="@+id/cardViewAgregarArticulos">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -159,55 +156,20 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewBotones"
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCrearElementos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margen_minima"
-        android:backgroundTint="@color/transparente"
+        android:text="@string/texto_elementos"
+        android:textSize="@dimen/texto_boton_principal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardViewFotoArticulos">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageButton
-                android:id="@+id/botonAtras"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_margin="@dimen/margen_media"
-                android:background="@color/colorsecundario"
-                android:contentDescription="@string/content_description"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/btnCrearElementos"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="?attr/homeAsUpIndicator"
-                tools:ignore="ImageContrastCheck"
-                tools:srcCompat="@android:drawable/ic_menu_revert" />
-
-            <Button
-                android:id="@+id/btnCrearElementos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margen_media"
-                android:backgroundTint="@color/color_terciario"
-                android:text="@string/texto_elementos"
-                android:textColor="#4A148C"
-                android:textSize="@dimen/texto_boton_principal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/botonAtras"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toBottomOf="@+id/cardViewFotoArticulos"
+        tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

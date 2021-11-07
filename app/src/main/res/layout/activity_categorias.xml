@@ -30,7 +30,6 @@
         android:layout_margin="@dimen/margen_minima"
         android:layout_marginHorizontal="@dimen/margen_media"
         android:padding="@dimen/padding_texto"
-        android:backgroundTint="@color/white"
         app:cardCornerRadius="@dimen/margen_extrema"
         app:layout_constraintBottom_toTopOf="@id/botonCrearCategoria"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +57,6 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margen_radioBoton"
                     android:text="@string/categoria_cocina"
-                    android:textColor="@color/black"
                     android:textSize="@dimen/texto_terciario" />
 
                 <RadioButton
@@ -67,7 +65,6 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margen_radioBoton"
                     android:text="@string/categoria_limpieza"
-                    android:textColor="@color/black"
                     android:textSize="@dimen/texto_terciario" />
 
                 <RadioButton
@@ -76,7 +73,6 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margen_radioBoton"
                     android:text="@string/categoria_jardin"
-                    android:textColor="@color/black"
                     android:textSize="@dimen/texto_terciario" />
 
                 <RadioButton
@@ -85,7 +81,6 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margen_radioBoton"
                     android:text="@string/categoria_electrodomesticos"
-                    android:textColor="@color/black"
                     android:textSize="@dimen/texto_terciario" />
 
                 <RadioButton
@@ -94,7 +89,6 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margen_radioBoton"
                     android:text="@string/categoria_muebles"
-                    android:textColor="@color/black"
                     android:textSize="@dimen/texto_terciario" />
 
                 <RadioButton
@@ -103,7 +97,6 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margen_radioBoton"
                     android:text="@string/categoria_tecnologia"
-                    android:textColor="@color/black"
                     android:textSize="@dimen/texto_terciario"/>
 
                 <RadioButton
@@ -112,7 +105,6 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margen_radioBoton"
                     android:text="@string/categoria_decoracion"
-                    android:textColor="@color/black"
                     android:textSize="@dimen/texto_terciario"/>
 
 
@@ -125,7 +117,6 @@
         android:id="@+id/botonCrearCategoria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorsecundario"
         android:clickable="true"
         android:focusable="true"
         android:text="@string/crear"

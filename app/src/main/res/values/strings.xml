@@ -30,12 +30,14 @@
 
     <!--- Usuario -->
     <string name="nombre">Nombre</string>
+    <string name="correo_usuario">Correo Electronico</string>
     <string name="clave_usuario">Clave Usuario</string>
     <string name="crear_clave_usuario">Crea Una Clave de usuario</string>
     <string name="Inicio_sesion">Iniciar Sesion</string>
     <string name="usuario">Usuario</string>
     <string name="recordar_clave">¿Olvido su Clave de Usuario?</string>
     <string name="invitado">Invitado</string>
+    <string name="confirmar_clave">Confirmar Clave</string>
 
     <!--- Elementos -->
     <string name="texto_elementos">° ° Crear Elementos ° °</string>
@@ -50,6 +52,13 @@
     <string name="origen"> Lugar del Inventario   </string>
     <string name="text_view_distancia">Distancia </string>
     <string name="text_view_duracion"> Duracion </string>
+
+    <!--- Elementos -->
+    <string name="texto_home"> Home </string>
+    <string name="texto_agregar"> Agregar </string>
+    <string name="texto_exportar"> Exportar </string>
+    <string name="texto_regresar_ruta"> Ruta </string>
+
 
 
 </resources>

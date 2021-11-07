@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/burbujasbackgroundazul"
     android:layout_height="match_parent"
+    android:background="@drawable/burbujasbackgroundazul"
     tools:context=".views.RutaActivity">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/CardViewMapa"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_margin="@dimen/margen_minima"
-        app:layout_constraintBottom_toTopOf="@+id/cardViewIngresoDestino"
+        app:layout_constraintBottom_toTopOf="@id/cardViewIngresoDestino"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -25,53 +25,49 @@
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/content_description"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/mapa"
-                android:contentDescription="@string/content_description" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+                app:srcCompat="@drawable/mapa" />
 
-    <androidx.cardview.widget.CardView
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardViewIngresoDestino"
-        android:layout_width="379dp"
-        android:layout_height="326dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/margen_minima"
-        android:backgroundTint="@color/transparente"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" >
+        app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margen_minima">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonContinuar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorsecundario"
+                android:layout_margin="@dimen/margen_minima"
                 android:text="@string/continuar"
-                android:textSize="@dimen/texto_boton_principal"
-                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewDuracion" />
+                app:layout_constraintTop_toBottomOf="@id/textViewDuracion" />
 
             <TextView
                 android:id="@+id/textViewDistancia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/text_view_distancia"
-                android:background="@drawable/bordes_redondos"
-                android:backgroundTint="@color/color_terciario"
-                android:textColor="@color/white"
                 android:padding="@dimen/padding_texto"
+                android:text="@string/text_view_distancia"
                 android:textSize="@dimen/texto_principal"
-                app:layout_constraintBottom_toBottomOf="@+id/textViewDuracion"
+                app:layout_constraintBottom_toBottomOf="@id/textViewDuracion"
                 app:layout_constraintEnd_toStartOf="@id/textViewDuracion"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/textViewDuracion" />
@@ -80,71 +76,51 @@
                 android:id="@+id/textViewDuracion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/texto_principal"
+                android:padding="@dimen/padding_texto"
                 android:text="@string/text_view_duracion"
+                android:textSize="@dimen/texto_principal"
                 app:layout_constraintBottom_toTopOf="@id/buttonContinuar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/textViewDistancia"
-                app:layout_constraintTop_toBottomOf="@id/textInputLayout2"
-                android:background="@drawable/bordes_redondos"
-                android:backgroundTint="@color/color_terciario"
-                android:textColor="@color/white"
-                android:padding="@dimen/padding_texto" />
+                app:layout_constraintTop_toBottomOf="@id/textInputLayout2" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout3"
+                android:id="@+id/InputOrigen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margen_minima"
+                android:hint="@string/origen"
+                app:counterMaxLength="20"
                 app:layout_constraintBottom_toTopOf="@id/textInputLayout2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:counterMaxLength="20"
-                android:hint="@string/origen"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/InputOrigen"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/texto_terciario"
-                    android:padding="@dimen/padding_texto"
-                    android:backgroundTint="@color/white"
-                    android:background="@drawable/bordes_redondos"
-                    android:inputType="text"
-                    android:textColor="@color/black"
-                    />
+                    android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@id/textViewDuracion"
-                android:layout_margin="@dimen/margen_minima"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:hint="@string/destino"
                 app:counterMaxLength="20"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"
+                app:layout_constraintBottom_toTopOf="@id/textViewDuracion"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textInputLayout3">
+                app:layout_constraintTop_toBottomOf="@id/InputOrigen">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/InputDestino"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bordes_redondos"
-                    android:backgroundTint="@color/white"
-                    android:textSize="@dimen/texto_terciario"
-                    android:padding="@dimen/padding_texto"
-                    android:inputType="text"
-                    android:textColor="@color/black"
-                    />
+                    android:inputType="text" />
+
             </com.google.android.material.textfield.TextInputLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

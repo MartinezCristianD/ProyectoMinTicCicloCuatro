@@ -19,11 +19,6 @@ public class RegistroActivity extends AppCompatActivity {
         setTheme(R.style.Theme_AppCompat);
         setContentView(R.layout.activity_registro);
 
-        ImageButton botonRegresar = findViewById(R.id.botonRegresar);
-        botonRegresar.setOnClickListener(v -> {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-        });
 
         Button botonRegistrarse = findViewById(R.id.btnRegistro);
         botonRegistrarse.setOnClickListener(v -> {

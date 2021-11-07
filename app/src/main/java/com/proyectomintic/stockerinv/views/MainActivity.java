@@ -8,17 +8,20 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.proyectomintic.stockerinv.R;
+import com.proyectomintic.stockerinv.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        Button botonRegistrarse = findViewById(R.id.botonRegistro);
-        botonRegistrarse.setOnClickListener(v -> {
+        binding.botonRegistro.setOnClickListener(v -> {
             Intent i = new Intent(v.getContext(), RegistroActivity.class);
             startActivity(i);
         });

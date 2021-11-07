@@ -2,6 +2,9 @@ package com.proyectomintic.stockerinv.views;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
@@ -11,34 +14,27 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.proyectomintic.stockerinv.R;
+import com.proyectomintic.stockerinv.databinding.ActivityElementosBinding;
+import com.proyectomintic.stockerinv.databinding.ActivityMainBinding;
 
 public class ElementosActivity extends AppCompatActivity {
-
+    private ActivityElementosBinding binding;
+    AutoCompleteTextView listaCategorias;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_elementos);
+        binding = ActivityElementosBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        // String categoriaElegida = getIntent().getStringExtra("CATEGORIA_ELEGIDA");
-        Bundle datos = this.getIntent().getExtras();
+        listaCategorias = ((AutoCompleteTextView) binding.textViewCategoriaElegida.getEditText());
+         if(listaCategorias != null){
+             listaCategorias.setAdapter(new ArrayAdapter<String>(this, android.R.layout.select_dialog_item,getResources().getStringArray(R.array.categorias)));
+         }
 
-        String categoriaElegida = datos.getString("CATEGORIA_ELEGIDA");
-
-        TextView viewCategoriaElegida;
-        viewCategoriaElegida = findViewById(R.id.textViewCategoriaElegida);
-
-        if(categoriaElegida != null && !categoriaElegida.trim().isEmpty()){
-            viewCategoriaElegida.setText(categoriaElegida);
-        }
 
         TextView mostrarArticulosSeekBar = findViewById(R.id.textViewContador);
         SeekBar barraAgregarArticulos;
 
-        ImageButton botonRegresar = findViewById(R.id.botonAtras);
-        botonRegresar.setOnClickListener(v -> {
-            Intent intent = new Intent(this, CategoriasActivity.class);
-            startActivity(intent);
-        });
 
         Button btnCrearElemento = findViewById(R.id.btnCrearElementos);
         btnCrearElemento.setOnClickListener(v -> {

@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/burbujasbackground"
-    android:backgroundTint="@color/color_primario"
+    android:backgroundTint="@color/colorBackground"
     android:backgroundTintMode="screen"
     tools:context=".views.InventarioActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/categorias"
+        android:textAllCaps="true"
+        android:textSize="@dimen/texto_principal"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cardViewCategorias"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -16,63 +31,67 @@
         android:hint="@string/buscar_elemento"
         android:inputType="text"
         android:padding="@dimen/padding_texto"
-        android:textColorHint="@color/grey"
-        android:textSize="@dimen/texto_secundario"
-        android:textColor="@color/black"
         app:counterMaxLength="15"
-        app:layout_constraintBottom_toTopOf="@+id/cardViewCategorias"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp">
+        app:layout_constraintBottom_toTopOf="@id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageViewFotoUsuario">
 
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/nombreArticulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/margen_media"
-            android:background="@drawable/bordes_redondos"
-            android:textColor="@color/black" />
+            android:layout_marginVertical="@dimen/margen_media"/>
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewCategorias"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:backgroundTint="@color/blanco_transparente"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayout">
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margen_media"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        app:layout_constraintTop_toBottomOf="@id/textView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/transparente">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView"
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="@dimen/margen_minima"
-                android:background="@color/colorsecundario"
-                android:gravity="center"
-                android:text="@string/categorias"
-                android:textAllCaps="true"
-                android:textColor="@color/white"
-                android:textSize="@dimen/texto_principal"
-                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="409dp"
-                android:layout_height="549dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        style="@style/Theme.StockerInv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/padding_texto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <ImageView
+        android:id="@+id/imageViewFotoUsuario"
+        android:layout_width="@dimen/dimen_icono_cuadrado"
+        android:layout_height="@dimen/dimen_icono_cuadrado"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/textInputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logoapp"
+        android:contentDescription="@string/content_description" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
