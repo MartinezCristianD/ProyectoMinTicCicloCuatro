@@ -6,7 +6,9 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.SeekBar;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.proyectomintic.stockerinv.R;
 import com.proyectomintic.stockerinv.databinding.ActivityElementosBinding;
 
@@ -15,7 +17,8 @@ public class ElementosActivity extends AppCompatActivity {
     // Variables
     private ActivityElementosBinding binding;
     AutoCompleteTextView listaCategorias;
-
+    String eleccionOrigen;
+    String eleccionDestino;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +28,7 @@ public class ElementosActivity extends AppCompatActivity {
 
         // Llenando la lista  para seleccionar la categoria
         listaCategorias = ((AutoCompleteTextView) binding.textViewCategoriaElegida.getEditText());
-         if(listaCategorias != null){
+        if (listaCategorias != null) {
              listaCategorias.setAdapter(new ArrayAdapter<>(this, android.R.layout.select_dialog_item, getResources().getStringArray(R.array.categorias)));
          }
 

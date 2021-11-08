@@ -38,6 +38,7 @@
     <string name="recordar_clave">¿Olvido su Clave de Usuario?</string>
     <string name="invitado">Invitado</string>
     <string name="confirmar_clave">Confirmar Clave</string>
+    <string name="eliminar">Eliminar</string>
 
     <!--- Elementos -->
     <string name="texto_elementos">° ° Crear Elementos ° °</string>
@@ -58,7 +59,8 @@
     <string name="texto_agregar"> Agregar </string>
     <string name="texto_exportar"> Exportar </string>
     <string name="texto_regresar_ruta"> Ruta </string>
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

@@ -8,8 +8,9 @@
         android:id="@+id/card_view_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margen_media"
         android:layout_marginHorizontal="@dimen/margen_horizontal"
-        android:layout_marginTop="@dimen/margen_grande"
+        app:layout_constraintBottom_toTopOf="@id/botonIngreso"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -58,9 +59,9 @@
                 android:id="@+id/textoOlvidoContraseña"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margen_media"
                 android:clickable="true"
                 android:focusable="true"
-                android:layout_margin="@dimen/margen_media"
                 android:text="@string/recordar_clave"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -74,27 +75,30 @@
         android:id="@+id/botonIngreso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margen_media"
         android:text="@string/Inicio_sesion"
+        app:layout_constraintBottom_toTopOf="@+id/ingresoGoogle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_view_login" />
+        app:layout_constraintTop_toBottomOf="@+id/card_view_login" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/ingresoGoogle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margen_media"
         android:drawableLeft="@drawable/logogoogle"
         android:text="@string/ingreso_con_google"
+        app:layout_constraintBottom_toTopOf="@+id/materialCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/botonIngreso" />
+        app:layout_constraintTop_toBottomOf="@+id/botonIngreso" />
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margen_media"
+        android:layout_marginHorizontal="@dimen/margen_media"
+        android:backgroundTint="@color/colorTransparente"
+        app:cardCornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -110,6 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/no_tienes_cuenta"
+                android:textColor="@color/colorNegro"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -128,8 +133,8 @@
                 android:id="@+id/botonRegistro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/registro"
                 android:layout_marginVertical="@dimen/margen_minima"
+                android:text="@string/registro"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/buttonInvitado"
                 app:layout_constraintStart_toStartOf="parent"

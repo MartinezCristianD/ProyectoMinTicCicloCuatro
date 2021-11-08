@@ -3,7 +3,9 @@ package com.proyectomintic.stockerinv.views;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.proyectomintic.stockerinv.R;
 import com.proyectomintic.stockerinv.databinding.ActivityMainBinding;
 
@@ -24,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.buttonInvitado.setOnClickListener(v -> {
-            Intent i = new Intent(v.getContext(), ElementosActivity.class);
+            Intent i = new Intent(v.getContext(), InventarioActivity.class);
             Toast.makeText(this, "Bienvenido", Toast.LENGTH_LONG).show();
             startActivity(i);
         });

@@ -12,6 +12,7 @@
         android:id="@+id/cardViewCategorias"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margen_minima"
         app:layout_constraintBottom_toTopOf="@id/checkBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,13 +72,11 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword"/>
+                    android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -85,6 +84,7 @@
         android:id="@+id/checkBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margen_minima"
         android:checked="true"
         android:text="@string/texto_checkbox"
         android:textSize="@dimen/texto_terciario"
