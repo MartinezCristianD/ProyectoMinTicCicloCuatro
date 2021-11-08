@@ -16,9 +16,11 @@
     <dimen name="margen_horizontal">10dp</dimen>
     <dimen name="margen_minima">15dp</dimen>
     <dimen name="margen_extrema">60dp</dimen>
+    <dimen name="margen_radioBoton">8dp</dimen>
 
 
     <dimen name="dimen_icono_cuadrado">100dp</dimen>
+    <dimen name="dimen_boton_cuadrado">50dp</dimen>
     <dimen name="dimen_icono_cuadrado_dos">45dp</dimen>
     <dimen name="dimen_icono_rectangulo">85dp</dimen>
 
@@ -26,5 +28,6 @@
     <dimen name="max_length_uno">25</dimen>
     <dimen name="max_length_nombres">15</dimen>
 
+    <dimen name="border_radius">16dp</dimen>
 
 </resources>

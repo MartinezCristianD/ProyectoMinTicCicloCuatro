@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.proyectomintic.stockerinv">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_descriptor"
@@ -11,22 +13,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StockerInv">
         <activity
+            android:name=".views.RutaActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".views.InventarioActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".views.ElementosActivity"
-            android:exported="true" />
-        <activity
-            android:name=".views.CategoriasActivity"
             android:exported="true"
-            android:theme="@style/Theme.StockerInv" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".views.RegistroActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.StockerInv" />
         <activity
             android:name=".views.MainActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -6,10 +6,16 @@
         <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/drawable/bordes_redondos.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/drawable/splashscreen.xml" value="0.11614583333333334" />
         <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/layout/activity_categorias.xml" value="0.25" />
-        <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/layout/activity_elementos.xml" value="0.1953125" />
-        <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/layout/activity_inventario.xml" value="0.209375" />
+        <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/layout/activity_elementos.xml" value="0.33" />
+        <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/layout/activity_inventario.xml" value="0.2" />
         <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/layout/activity_main.xml" value="0.2183206106870229" />
         <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/layout/activity_registro.xml" value="0.22" />
+        <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/layout/activity_ruta.xml" value="0.209375" />
+        <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/layout/fragment_cocina_elementos_list.xml" value="0.209375" />
+        <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/layout/fragment_lista_elementos_categoria.xml" value="0.22" />
+        <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/layout/fragment_lista_elementos_categoria_list.xml" value="0.25" />
+        <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/menu-v26/bottom_nav_menu.xml" value="0.209375" />
+        <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/menu/bottom_nav_menu.xml" value="0.209375" />
         <entry key="..\:/Users/davic/StudioProjects/ProyectoMinTicCicloCuatro/app/src/main/res/layout/activity_main.xml" value="0.1" />
       </map>
     </option>
