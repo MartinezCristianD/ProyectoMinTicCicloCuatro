@@ -78,8 +78,6 @@ public class ElementosActivity extends AppCompatActivity {
         Toast.makeText(this, "Gracias por Elegir °StockerInv°", Toast.LENGTH_LONG).show();
 
     }
+
 }
-
-
-
 
