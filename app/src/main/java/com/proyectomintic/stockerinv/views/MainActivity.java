@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         email = binding.registroCorreo.getEditText().toString();
         password = binding.crearClave.getEditText().toString();
 
+
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-
+        // eventos click de los botones
         binding.botonRegistro.setOnClickListener(v -> {
             Intent i = new Intent(v.getContext(), RegistroActivity.class);
             startActivity(i);
@@ -78,10 +79,10 @@ public class MainActivity extends AppCompatActivity {
 
         binding.ingresoGoogle.setOnClickListener(v -> {
             Intent i = new Intent(v.getContext(), RutaActivity.class);
-
             signIn();
         });
 
+        // Autenticacion firebase con email y password
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -102,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
                         // ...
                     }
                 });
-
 
     }
 
