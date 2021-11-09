@@ -15,18 +15,25 @@ import com.proyectomintic.stockerinv.databinding.ActivityInventarioBinding;
 public class InventarioActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     public ActivityInventarioBinding binding;
-    //  String eleccionOrigen;
-    //  String eleccionDestino;
+    String eleccionOrigen, eleccionDestino;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityInventarioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         binding.bottomNavigation.setOnNavigationItemSelectedListener(this::onNavigationItemSelected);
 
-        //Llamado al Fragment
+        // Recuperando informacion de ElementosActivity
+        eleccionOrigen = getIntent().getExtras().getString("origen");
+        eleccionDestino = getIntent().getExtras().getString("destino");
 
+        //Mostrando el String en el TextView
+        binding.textViewOrigen.setText(eleccionOrigen);
+        binding.textViewDestino.setText(eleccionDestino);
+
+        //Llamado al Fragment
 
      /*  // Commit a la transacción
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -47,14 +54,7 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
 
         });
 
-        // Recuperando informacion de RutaActivity
-        Intent recibir = getIntent();
 
-        eleccionOrigen = recibir.getExtras().getString("Eleccion_Origen");
-        eleccionDestino = recibir.getExtras().getString("Eleccion_Destino");
-
-        binding.textViewOrigen.setText("Lugar origen del inventario " + eleccionOrigen);
-        binding.textViewDestino.setText("Destino del inventario " + eleccionDestino);
 */
 
 

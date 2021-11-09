@@ -17,8 +17,7 @@ public class ElementosActivity extends AppCompatActivity {
     // Variables
     private ActivityElementosBinding binding;
     AutoCompleteTextView listaCategorias;
-    String eleccionOrigen;
-    String eleccionDestino;
+    String eleccionOrigen, eleccionDestino;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,16 +25,23 @@ public class ElementosActivity extends AppCompatActivity {
         binding = ActivityElementosBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // Recuperando informacion de RutaActivity
+        eleccionOrigen = getIntent().getExtras().getString("origen", "NO FUNCIONA");
+        eleccionDestino = getIntent().getExtras().getString("destino", "NO FUNCIONA");
+
         // Llenando la lista  para seleccionar la categoria
         listaCategorias = ((AutoCompleteTextView) binding.textViewCategoriaElegida.getEditText());
         if (listaCategorias != null) {
-             listaCategorias.setAdapter(new ArrayAdapter<>(this, android.R.layout.select_dialog_item, getResources().getStringArray(R.array.categorias)));
-         }
+            listaCategorias.setAdapter(new ArrayAdapter<>(this, android.R.layout.select_dialog_item, getResources().getStringArray(R.array.categorias)));
+        }
 
         // Evento click  para crear los Elementos
         binding.btnCrearElementos.setOnClickListener(v -> {
-            Intent intent = new Intent(this, InventarioActivity.class);
-            startActivity(intent);
+            Intent i = new Intent(this, InventarioActivity.class);
+            //pasar datos a la activity
+            i.putExtra("Eleccion_Origen", eleccionOrigen);
+            i.putExtra("Eleccion_Destino", eleccionDestino);
+            startActivity(i);
         });
 
         // SeekBar Valor Inicial

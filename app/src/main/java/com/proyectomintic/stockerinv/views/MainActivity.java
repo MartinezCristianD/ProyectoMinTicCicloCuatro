@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding.buttonInvitado.setOnClickListener(v -> {
             Intent i = new Intent(v.getContext(), InventarioActivity.class);
-            Toast.makeText(this, "Bienvenido", Toast.LENGTH_LONG).show();
+
             startActivity(i);
         });
 

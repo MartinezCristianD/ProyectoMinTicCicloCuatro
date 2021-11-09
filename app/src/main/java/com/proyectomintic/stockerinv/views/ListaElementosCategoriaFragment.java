@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.proyectomintic.stockerinv.R;
+import com.proyectomintic.stockerinv.databinding.ActivityMainBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -49,13 +50,18 @@ public class ListaElementosCategoriaFragment extends Fragment {
         return fragment;
     }
 
+    private @NonNull
+    ActivityMainBinding binding;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Nullable
@@ -64,5 +70,7 @@ public class ListaElementosCategoriaFragment extends Fragment {
             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_lista_elementos_categoria, container, false);
+
+
     }
 }
