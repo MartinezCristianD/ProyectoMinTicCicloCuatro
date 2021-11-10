@@ -27,10 +27,15 @@
         android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margen_media"
         android:hint="@string/buscar_elemento"
+        app:counterEnabled="true"
+        app:endIconDrawable="@android:drawable/ic_menu_search"
         android:padding="@dimen/padding_texto"
         app:counterMaxLength="15"
-        android:layout_marginHorizontal="@dimen/margen_media"
+        app:endIconMode="custom"
+        app:errorEnabled="true"
+        app:helperText="@string/text_helper_inventario"
         app:layout_constraintBottom_toTopOf="@id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +46,7 @@
             android:id="@+id/nombreArticulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"/>
+            android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
