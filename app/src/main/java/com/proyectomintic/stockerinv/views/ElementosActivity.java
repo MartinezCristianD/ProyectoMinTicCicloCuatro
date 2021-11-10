@@ -32,6 +32,9 @@ public class ElementosActivity extends AppCompatActivity {
         eleccionOrigen = getIntent().getExtras().getString(ORIGEN, "NO FUNCIONA");
         eleccionDestino = getIntent().getExtras().getString(DESTINO, "NO FUNCIONA");
 
+
+        //
+
         // Llenando la lista  para seleccionar la categoria
         listaCategorias = ((AutoCompleteTextView) binding.textViewCategoriaElegida.getEditText());
         if (listaCategorias != null) {
