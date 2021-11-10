@@ -1,5 +1,8 @@
 package com.proyectomintic.stockerinv.views;
 
+import static com.proyectomintic.stockerinv.views.RutaActivity.DESTINO;
+import static com.proyectomintic.stockerinv.views.RutaActivity.ORIGEN;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -12,11 +15,13 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.proyectomintic.stockerinv.R;
 import com.proyectomintic.stockerinv.databinding.ActivityInventarioBinding;
+import com.squareup.picasso.Picasso;
 
 public class InventarioActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     public ActivityInventarioBinding binding;
     String eleccionOrigen, eleccionDestino;
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
 
     @Override
@@ -26,28 +31,24 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
         setContentView(binding.getRoot());
 
 
-        //Autenticacion
+        //picaso
 
-
-   /*     //picaso
-
-
-        Picasso.with(this)
-                .load(fotoPerfil)
-                .into(binding.imageViewFotoUsuario);
-*/
-        //DATOS DE USUARIO
+        if ((mAuth.getCurrentUser() != null) && (mAuth.getCurrentUser().getPhotoUrl() != null)) {
+            Picasso.with(this)
+                    .load(mAuth.getCurrentUser().getPhotoUrl().toString())
+                    .into(binding.imageViewFotoUsuario);
+        }
 
         //Llamado a la barra de navegacion
         binding.bottomNavigation.setOnNavigationItemSelectedListener(this::onNavigationItemSelected);
 
         // Recuperando informacion de ElementosActivity
-        eleccionOrigen = getIntent().getExtras().getString("origen");
-        eleccionDestino = getIntent().getExtras().getString("destino");
+        eleccionOrigen = getIntent().getExtras().getString(ORIGEN);
+        eleccionDestino = getIntent().getExtras().getString(DESTINO);
 
         //Mostrando el String en el TextView
-        binding.textViewOrigen.setText(eleccionOrigen);
-        binding.textViewDestino.setText(eleccionDestino);
+        binding.textViewOrigen.setText("Origen" + eleccionOrigen);
+        binding.textViewDestino.setText("Destino" + eleccionDestino);
 
         //Llamado al Fragment
 

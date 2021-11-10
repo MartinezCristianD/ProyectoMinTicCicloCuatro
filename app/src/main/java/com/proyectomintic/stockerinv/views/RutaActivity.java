@@ -14,22 +14,27 @@ public class RutaActivity extends AppCompatActivity {
     String eleccionDestino;
     Bundle eleccionRuta;
 
+    public static final String ORIGEN = "origen";
+    public static final String DESTINO = "destino";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityRutaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Obteniendo el string del EditText
-        eleccionRuta = new Bundle();
-
-        eleccionOrigen = binding.inputOrigenText.getText().toString();
-        eleccionDestino = binding.inputDestinoText.getText().toString();
-        eleccionRuta.putString("origen", eleccionOrigen);
-        eleccionRuta.putString("destino", eleccionDestino);
-
         //Evento click del boton continuar
         binding.buttonContinuar.setOnClickListener(v -> {
+
+            // Obteniendo el string del EditText
+            eleccionRuta = new Bundle();
+
+            eleccionOrigen = binding.inputOrigenText.getText().toString();
+            eleccionDestino = binding.inputDestinoText.getText().toString();
+            eleccionRuta.putString(ORIGEN, eleccionOrigen);
+            eleccionRuta.putString(DESTINO, eleccionDestino);
+
             // Ir a ElementosActivity
             Intent i = new Intent(v.getContext(), ElementosActivity.class);
             //pasar datos a la activity

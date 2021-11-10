@@ -1,5 +1,8 @@
 package com.proyectomintic.stockerinv.views;
 
+import static com.proyectomintic.stockerinv.views.RutaActivity.DESTINO;
+import static com.proyectomintic.stockerinv.views.RutaActivity.ORIGEN;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -26,8 +29,8 @@ public class ElementosActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         // Recuperando informacion de RutaActivity
-        eleccionOrigen = getIntent().getExtras().getString("origen", "NO FUNCIONA");
-        eleccionDestino = getIntent().getExtras().getString("destino", "NO FUNCIONA");
+        eleccionOrigen = getIntent().getExtras().getString(ORIGEN, "NO FUNCIONA");
+        eleccionDestino = getIntent().getExtras().getString(DESTINO, "NO FUNCIONA");
 
         // Llenando la lista  para seleccionar la categoria
         listaCategorias = ((AutoCompleteTextView) binding.textViewCategoriaElegida.getEditText());
@@ -39,8 +42,8 @@ public class ElementosActivity extends AppCompatActivity {
         binding.btnCrearElementos.setOnClickListener(v -> {
             Intent i = new Intent(this, InventarioActivity.class);
             //pasar datos a la activity
-            i.putExtra("Eleccion_Origen", eleccionOrigen);
-            i.putExtra("Eleccion_Destino", eleccionDestino);
+            i.putExtra(ORIGEN, eleccionOrigen);
+            i.putExtra(DESTINO, eleccionDestino);
             startActivity(i);
         });
 
