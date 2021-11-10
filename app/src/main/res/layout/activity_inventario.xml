@@ -173,6 +173,7 @@
         android:layout_marginRight="@dimen/margen_extrema"
         android:layout_marginTop="@dimen/margen_minima"
         android:contentDescription="@string/content_description"
+        android:scaleType="centerCrop"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
