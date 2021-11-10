@@ -41,13 +41,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Firebase
-
-        mAuth = FirebaseAuth.getInstance();
 
 
-        String email = binding.registroCorreo.getEditText().toString();
-        String password = binding.crearClave.getEditText().toString();
+
 
 
         // Configure Google Sign In
@@ -58,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        mAuth = FirebaseAuth.getInstance();
 
         // eventos click de los botones
         binding.botonRegistro.setOnClickListener(v -> {
@@ -77,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(i);
         });
 
-        findViewById(R.id.ingresoGoogle).setOnClickListener(this);
+        binding.ingresoGoogle.setOnClickListener(view -> signIn());
 
     }
 
@@ -107,8 +104,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            // Signed in successfully, show authenticated UI.
-            //updateUI(account);
+            firebaseAuthWithGoogle(account.getIdToken());
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
@@ -150,10 +146,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onStart() {
         super.onStart();
         setTheme(R.style.Theme_AppCompat);
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
-
+        updateUI(mAuth.getCurrentUser());
     }
 
     private void updateUI(FirebaseUser user) {
