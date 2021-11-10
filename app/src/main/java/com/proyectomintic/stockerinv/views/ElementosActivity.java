@@ -17,6 +17,7 @@ public class ElementosActivity extends AppCompatActivity {
     AutoCompleteTextView listaCategorias;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
