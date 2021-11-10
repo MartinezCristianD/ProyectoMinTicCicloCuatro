@@ -39,6 +39,7 @@
     <string name="invitado">Invitado</string>
     <string name="confirmar_clave">Confirmar Clave</string>
     <string name="eliminar">Eliminar</string>
+    <string name="text_helper_ruta">Ciudad o Municipio</string>
 
     <!--- Elementos -->
     <string name="texto_elementos">° ° Crear Elementos ° °</string>
