@@ -3,24 +3,79 @@ package com.proyectomintic.stockerinv.views;
 import static com.proyectomintic.stockerinv.views.RutaActivity.DESTINO;
 import static com.proyectomintic.stockerinv.views.RutaActivity.ORIGEN;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.proyectomintic.stockerinv.R;
 import com.proyectomintic.stockerinv.databinding.ActivityElementosBinding;
 
-public class ElementosActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class ElementosActivity<CircleImageView> extends AppCompatActivity {
 
     // Variables
     private ActivityElementosBinding binding;
     AutoCompleteTextView listaCategorias;
     String eleccionOrigen, eleccionDestino;
+    public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 101;
+
+    // Funcion para verificar los permisos de la app
+    public static boolean checkAndRequestPermissions(final Activity context) {
+        //permiso de almacenamiento externo para guardar la foto
+        int WExtstorePermission = ContextCompat.checkSelfPermission(context,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        //permiso para utilizar la camara del celular
+        int cameraPermission = ContextCompat.checkSelfPermission(context,
+                Manifest.permission.CAMERA);
+
+        // Array donde se guardan los permisos
+        List<String> listPermissionsNeeded = new ArrayList<>();
+
+        //Agregando los permisos en el manifest
+        if (cameraPermission != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.CAMERA);
+        }
+        if (WExtstorePermission != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded
+                    .add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        }
+        // validacion de los permisos
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(context, listPermissionsNeeded
+                            .toArray(new String[listPermissionsNeeded.size()]),
+                    REQUEST_ID_MULTIPLE_PERMISSIONS);
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Toast.makeText(this, "Gracias por Elegir °StockerInv°", Toast.LENGTH_LONG).show();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +102,11 @@ public class ElementosActivity extends AppCompatActivity {
             startActivity(i);
         });
 
-        // SeekBar Valor Inicial
+        // SeekBar Valor Inicial y Valor Final
         binding.seekBar.setProgress(0);
-
-        // Valor Final
         binding.seekBar.setMax(20);
 
-        // Evento estado de cambio de la barra inferior
+        // Evento estado de cambio de la barra inferior (seekbar)
         binding.seekBar.setOnSeekBarChangeListener(
                 new SeekBar.OnSeekBarChangeListener() {
 
@@ -73,14 +126,103 @@ public class ElementosActivity extends AppCompatActivity {
                     public void onStopTrackingTouch(SeekBar seekBar) {
                     }
                 });
+
+        //Evento click para tomar una foto
+        binding.imageButtonAccederCamara.setOnClickListener(v -> {
+            //  si otorga los permisos de la camara  lanza el metodo chooseImage en el contecto de la activity actual
+            if (checkAndRequestPermissions(ElementosActivity.this)) {
+                chooseImage(ElementosActivity.this);
+            }
+
+        });
+
     }
 
+    // Handled permission Result
     @Override
-    protected void onStop() {
-        super.onStop();
-        Toast.makeText(this, "Gracias por Elegir °StockerInv°", Toast.LENGTH_LONG).show();
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case REQUEST_ID_MULTIPLE_PERMISSIONS:
+                if (ContextCompat.checkSelfPermission(ElementosActivity.this,
+                        Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(getApplicationContext(),
+                            "StokerInv Requiere el acceso a su Camara.", Toast.LENGTH_SHORT)
+                            .show();
+                } else if (ContextCompat.checkSelfPermission(ElementosActivity.this,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(getApplicationContext(),
+                            "StokerInv Requiere el acceso a su Almacenamiento.",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    chooseImage(ElementosActivity.this);
+                }
+                break;
+        }
+    }
 
+    // function to let's the user to choose image from camera or gallery
+    private void chooseImage(Context context) {
+        // crear las opciones de menu en un array
+        final CharSequence[] optionsMenu = {"Tomar Una Fotografia Del Articulo", "Elegir desde la galeria", "Regresar"};
+
+        // Creacion del dialogo para mostrar las opciones
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+        // Seleccionando los item para mostrar
+        builder.setItems(optionsMenu, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if (optionsMenu[i].equals("Tomar Una Fotografia Del Articulo")) {
+
+                    // Aqui abre la camara y toma la foto
+                    Intent takePicture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(takePicture, 0);
+                } else if (optionsMenu[i].equals("Elegir desde la galeria")) {
+                    // Elegeir una foto des de la galeria
+                    Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(pickPhoto, 1);
+                } else if (optionsMenu[i].equals("Regresar")) {
+                    // Cerramos el dialogo
+                    dialogInterface.dismiss();
+                }
+            }
+        });
+        // muestra el dialogo
+        builder.show();
+    }
+
+    // Los resultados de la seleccion en el dialogo
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode != RESULT_CANCELED) {
+            switch (requestCode) {
+                case 0:
+                    if (resultCode == RESULT_OK && data != null) {
+                        Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
+                        binding.imageViewFotoArticulo.setImageBitmap(selectedImage);
+                    }
+                    break;
+                case 1:
+                    if (resultCode == RESULT_OK && data != null) {
+                        Uri selectedImage = data.getData();
+                        String[] filePathColumn = {MediaStore.Images.Media.DATA};
+                        if (selectedImage != null) {
+                            Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
+                            if (cursor != null) {
+                                cursor.moveToFirst();
+                                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                                String picturePath = cursor.getString(columnIndex);
+                                binding.imageButtonAccederCamara.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+                                cursor.close();
+                            }
+                        }
+                    }
+                    break;
+            }
+        }
     }
 
 }
-

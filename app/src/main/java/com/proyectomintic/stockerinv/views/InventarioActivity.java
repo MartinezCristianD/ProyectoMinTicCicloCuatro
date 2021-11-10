@@ -26,6 +26,7 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         binding = ActivityInventarioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -86,13 +87,6 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
         }
         return false;
     }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        FirebaseAuth.getInstance().signOut();
-    }
-
 
 }
 
