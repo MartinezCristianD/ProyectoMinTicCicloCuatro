@@ -47,6 +47,7 @@
     <string name="buscar_elemento"> Buscar Elemento </string>
     <string name="agrega_foto_articulo"> Agrega una Foto del Articulo </string>
     <string name="text_view_contador_uno"> 0 Unidades </string>
+    <string name="texto_helper_Elementos">Seleccione el nombre de la Categoria</string>
 
     <!--- Ruta -->
     <string name="destino"> Ingrese el destino de su Inventario </string>
