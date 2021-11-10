@@ -47,33 +47,17 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
         eleccionDestino = getIntent().getExtras().getString(DESTINO);
 
         //Mostrando el String en el TextView
-        binding.textViewOrigen.setText("Origen" + eleccionOrigen);
-        binding.textViewDestino.setText("Destino" + eleccionDestino);
+        binding.textViewOrigen.setText("Origen " + eleccionOrigen);
+        binding.textViewDestino.setText("Destino " + eleccionDestino);
 
         //Llamado al Fragment
 
-     /*  // Commit a la transacción
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        ListaElementosCategoriaFragment fragment1 = new ListaElementosCategoriaFragment();
-        fragmentTransaction.add(R.id.fragmento_cocina, fragment1, "fragment");
-        fragmentTransaction.commit();
-
-        FragmentTransaction fragmenttransaction = getSupportFragmentManager().beginTransaction();
-   HomeFragment regcomplainfragment = new HomeFragment();
-   fragmenttransaction.replace(R.id.content_frame, regcomplainfragment).addToBackStack("HomeFragment");
-   fragmenttransaction.commit();
-*//*
         //Evento click boton cocina
         binding.btnCategoriaCocina.setOnClickListener(v -> {
-            Intent intent = new Intent(InventarioActivity.this,ListaElementosCategoriaFragment.class);
-            startActivity(intent);
+            ListaElementosCategoriaFragment dialogo = new ListaElementosCategoriaFragment();
+            dialogo.show(getSupportFragmentManager(), "ListaElementosCategoriaFragment");
 
         });
-
-
-*/
-
 
     }
 

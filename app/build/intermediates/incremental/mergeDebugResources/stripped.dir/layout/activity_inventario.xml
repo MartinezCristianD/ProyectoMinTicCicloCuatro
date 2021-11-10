@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/burbujasbackground"
+    android:backgroundTint="@color/colorBackground"
+    android:backgroundTintMode="screen"
+    tools:context=".views.InventarioActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/categorias"
+        android:textAllCaps="true"
+        android:textSize="@dimen/texto_principal"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cardViewCategorias"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/buscar_elemento"
+        android:padding="@dimen/padding_texto"
+        app:counterMaxLength="15"
+        android:layout_marginHorizontal="@dimen/margen_media"
+        app:layout_constraintBottom_toTopOf="@id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageViewFotoUsuario">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nombreArticulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardViewCategorias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margen_minima"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toTopOf="@+id/btnCategoriaCocina"
+            app:layout_constraintTop_toTopOf="@+id/btnCategoriaCocina">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCategoriaCocina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categoria_cocina"
+                app:icon="@drawable/icono_cocina"
+                app:iconTint="@null"
+                app:layout_constraintBottom_toBottomOf="@+id/btnCategoriaDecoracion"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btnCategoriaDecoracion"
+                app:layout_constraintTop_toTopOf="@+id/btnCategoriaDecoracion" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCategroiaMuebles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categoria_muebles"
+                app:icon="@drawable/icono_muebles"
+                app:iconTint="@null"
+                app:layout_constraintBottom_toTopOf="@+id/btnCategoriaTecnologia"
+                app:layout_constraintEnd_toStartOf="@+id/btnCategoriaLimpieza"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCategoriaJardin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:text="@string/categoria_jardin"
+                app:icon="@drawable/icono_jardin"
+                app:iconTint="@null"
+                app:layout_constraintBottom_toBottomOf="@+id/btnCategoriaTecnologia"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btnCategoriaTecnologia"
+                app:layout_constraintTop_toTopOf="@+id/btnCategoriaTecnologia" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCategoriaLimpieza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categoria_limpieza"
+                app:icon="@drawable/icono_limpieza"
+                app:iconTint="@null"
+                app:layout_constraintBottom_toBottomOf="@+id/btnCategroiaMuebles"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btnCategroiaMuebles"
+                app:layout_constraintTop_toTopOf="@+id/btnCategroiaMuebles" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCategoriaDecoracion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categoria_decoracion"
+                app:icon="@drawable/icono_decoracion"
+                app:iconTint="@null"
+                app:layout_constraintBottom_toTopOf="@+id/btnCategoriaElectrodomesticos"
+                app:layout_constraintEnd_toStartOf="@+id/btnCategoriaCocina"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnCategoriaTecnologia" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCategoriaTecnologia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categoria_tecnologia"
+                app:icon="@drawable/icono_tecnologia"
+                app:iconTint="@null"
+                app:layout_constraintBottom_toTopOf="@+id/btnCategoriaDecoracion"
+                app:layout_constraintEnd_toStartOf="@+id/btnCategoriaJardin"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnCategroiaMuebles" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCategoriaElectrodomesticos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categoria_electrodomesticos"
+                app:icon="@drawable/icono_electrodomesticos"
+                app:iconTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnCategoriaDecoracion" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        style="@style/Theme.StockerInv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/padding_texto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <ImageView
+        android:id="@+id/imageViewFotoUsuario"
+        android:layout_width="@dimen/dimen_icono_cuadrado"
+        android:layout_height="@dimen/dimen_icono_cuadrado"
+        android:layout_marginRight="@dimen/margen_extrema"
+        android:layout_marginTop="@dimen/margen_minima"
+        android:contentDescription="@string/content_description"
+        android:scaleType="centerCrop"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/textInputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logoapp" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardViewDatosRuta"
+        android:layout_width="wrap_content"
+        android:layout_margin="@dimen/margen_minima"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/textInputLayout"
+        app:layout_constraintEnd_toStartOf="@id/imageViewFotoUsuario"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margen_minima">
+
+            <TextView
+                android:id="@+id/textViewOrigen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/origen"
+                android:layout_marginHorizontal="@dimen/margen_minima"
+                app:layout_constraintBottom_toTopOf="@id/textViewDestino"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewDestino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/destino"
+                android:layout_margin="@dimen/margen_minima"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewOrigen" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
