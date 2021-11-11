@@ -24,6 +24,7 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -71,17 +72,16 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
                 break;
 
             case R.id.page_to_home:
-                Intent a = new Intent(this, MainActivity.class);
+                Intent a = new Intent(this, RutaActivity.class);
                 startActivity(a);
                 break;
             case R.id.page_to_add:
                 Intent b = new Intent(this, ElementosActivity.class);
                 startActivity(b);
                 break;
-            case R.id.page_to_ruta:
-                Intent intent = new Intent(this, RutaActivity.class);
-                startActivity(intent);
-                break;
+            case R.id.page_to_Exit:
+                finish();
+                System.exit(0);
             default:
                 throw new IllegalStateException("Unexpected value: " + item.getItemId());
         }
