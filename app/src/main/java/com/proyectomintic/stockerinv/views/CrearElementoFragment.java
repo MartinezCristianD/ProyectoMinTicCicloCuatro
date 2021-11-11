@@ -1,5 +1,7 @@
 package com.proyectomintic.stockerinv.views;
 
+import static android.app.Activity.RESULT_CANCELED;
+import static android.app.Activity.RESULT_OK;
 import static com.proyectomintic.stockerinv.views.RutaActivity.DESTINO;
 import static com.proyectomintic.stockerinv.views.RutaActivity.ORIGEN;
 
@@ -14,6 +16,10 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
@@ -21,25 +27,28 @@ import android.widget.SeekBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.proyectomintic.stockerinv.R;
-import com.proyectomintic.stockerinv.databinding.ActivityElementosBinding;
+import com.proyectomintic.stockerinv.databinding.FragmentCrearElementoBinding;
+import com.proyectomintic.stockerinv.views.utils.Dialogos;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ElementosActivity extends AppCompatActivity {
+public class CrearElementoFragment extends BottomSheetDialogFragment {
 
-    // Variables
-    private ActivityElementosBinding binding;
+    public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 101;
+    FragmentCrearElementoBinding binding;
     AutoCompleteTextView listaCategorias;
     String eleccionOrigen, eleccionDestino, textViewCategoriaElegida, textViewContador, crearNombreArticulo;
-    public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 101;
     ImageView fotoArticulo;
+    Context context = this.getContext();
+
 
     // Funcion para verificar los permisos de la app
     public static boolean checkAndRequestPermissions(final Activity context) {
@@ -73,25 +82,21 @@ public class ElementosActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        binding = ActivityElementosBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
 
-        // Recuperando informacion de RutaActivity
-        eleccionOrigen = getIntent().getExtras().getString(ORIGEN, "NO FUNCIONA");
-        eleccionDestino = getIntent().getExtras().getString(DESTINO, "NO FUNCIONA");
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
 
         // Llenando la lista  para seleccionar la categoria
         listaCategorias = ((AutoCompleteTextView) binding.textViewCategoriaElegida.getEditText());
         if (listaCategorias != null) {
-            listaCategorias.setAdapter(new ArrayAdapter<>(this, android.R.layout.select_dialog_item, getResources().getStringArray(R.array.categorias)));
+            listaCategorias.setAdapter(new ArrayAdapter<>(getContext(), android.R.layout.select_dialog_item, getResources().getStringArray(R.array.categorias)));
         }
 
 
         // Evento click  para crear los Elementos
-       /* binding.btnCrearElementos.setOnClickListener(v -> {
+        binding.btnCrearElementos.setOnClickListener(v -> {
 
             // informacion de los View de la Activity
             textViewCategoriaElegida = binding.textViewCategoriaElegidatext.getText().toString();
@@ -101,13 +106,13 @@ public class ElementosActivity extends AppCompatActivity {
             // Validar los  campos de ingreso de datos
             if (TextUtils.isEmpty(textViewCategoriaElegida) || TextUtils.isEmpty(textViewContador) || TextUtils.isEmpty(crearNombreArticulo)) {
                 // Creando dialogo de alerta
-                Dialogos.mensajePersonalizadoDialogo(this,getString(R.string.titulo_campo_vacio),getString(R.string.mensaje_campo_vacio));
+                Dialogos.mensajePersonalizadoDialogo(context, getString(R.string.titulo_campo_vacio), getString(R.string.mensaje_campo_vacio));
 
 
             } else {
 
                 // Pasar al InventarioActivity
-                Intent i = new Intent(this, InventarioActivity.class);
+                Intent i = new Intent(context, InventarioActivity.class);
 
                 //pasar datos a la activity
                 i.putExtra(ORIGEN, eleccionOrigen);
@@ -118,16 +123,16 @@ public class ElementosActivity extends AppCompatActivity {
 
                 //para provar el envio de informacion
 
-                Toast.makeText(this, textViewContador, Toast.LENGTH_SHORT).show();
-                Toast.makeText(this, textViewCategoriaElegida, Toast.LENGTH_SHORT).show();
-                Toast.makeText(this, crearNombreArticulo, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, textViewContador, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, textViewCategoriaElegida, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, crearNombreArticulo, Toast.LENGTH_SHORT).show();
 
                 //Iniciar  InventariActividad
                 startActivity(i);
 
             }
 
-        });*/
+        });
 
         // SeekBar Valor Inicial y Valor Final
         binding.seekBar.setProgress(0);
@@ -158,16 +163,24 @@ public class ElementosActivity extends AppCompatActivity {
         binding.imageButtonAccederCamara.setOnClickListener(v ->
 
         {
-            //  si otorga los permisos de la camara  lanza el metodo chooseImage en el contecto de la activity actual
-            if (checkAndRequestPermissions(ElementosActivity.this)) {
-                chooseImage(ElementosActivity.this);
+            //  si otorga los permisos de la camara  lanza el metodo chooseImage en el contexto de la activity actual
+            if (checkAndRequestPermissions((Activity) binding.getRoot().getContext())) {
+                chooseImage(context);
             }
-            AlertDialog.Builder builder = new AlertDialog.Builder(ElementosActivity.this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.create();
 
         });
 
+    }
 
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        // selecciona el layout para mostrar en el fragment
+        binding = FragmentCrearElementoBinding.inflate(inflater);
+        return binding.getRoot();
     }
 
     // Handled permission Result
@@ -175,18 +188,18 @@ public class ElementosActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == REQUEST_ID_MULTIPLE_PERMISSIONS) {
-            if (ContextCompat.checkSelfPermission(ElementosActivity.this,
+            if (ContextCompat.checkSelfPermission(context,
                     Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(getApplicationContext(),
+                Toast.makeText(context,
                         "StokerInv Requiere el acceso a su Camara.", Toast.LENGTH_SHORT)
                         .show();
-            } else if (ContextCompat.checkSelfPermission(ElementosActivity.this,
+            } else if (ContextCompat.checkSelfPermission(context,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(getApplicationContext(),
+                Toast.makeText(context,
                         "StokerInv Requiere el acceso a su Almacenamiento.",
                         Toast.LENGTH_SHORT).show();
             } else {
-                chooseImage(ElementosActivity.this);
+                chooseImage(context);
             }
         }
     }
@@ -221,14 +234,14 @@ public class ElementosActivity extends AppCompatActivity {
 
     // Los resultados de la seleccion en el dialogo
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode != RESULT_CANCELED) {
             switch (requestCode) {
                 case 0:
                     if (resultCode == RESULT_OK && data != null) {
                         Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
-                        binding.imageViewFotoArticulo.setImageBitmap(selectedImage);
+                        binding.imageButtonAccederCamara.setImageBitmap(selectedImage);
                     }
                     break;
                 case 1:
@@ -236,7 +249,7 @@ public class ElementosActivity extends AppCompatActivity {
                         Uri selectedImage = data.getData();
                         String[] filePathColumn = {MediaStore.Images.Media.DATA};
                         if (selectedImage != null) {
-                            Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
+                            Cursor cursor = getActivity().getContentResolver().query(selectedImage, filePathColumn, null, null, null);
                             if (cursor != null) {
                                 cursor.moveToFirst();
                                 int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
@@ -251,4 +264,6 @@ public class ElementosActivity extends AppCompatActivity {
         }
     }
 
+
 }
+

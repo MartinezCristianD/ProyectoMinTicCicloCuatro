@@ -4,17 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.proyectomintic.stockerinv.R;
 import com.proyectomintic.stockerinv.databinding.ActivityRutaBinding;
+import com.proyectomintic.stockerinv.views.utils.Dialogos;
 
 public class RutaActivity extends AppCompatActivity {
 
     private ActivityRutaBinding binding;
-    String eleccionOrigen;
-    String eleccionDestino;
+    String eleccionOrigen, eleccionDestino;
     Bundle eleccionRuta;
 
     public static final String ORIGEN = "origen";
@@ -39,27 +38,21 @@ public class RutaActivity extends AppCompatActivity {
             eleccionRuta.putString(DESTINO, eleccionDestino);
 
             if (TextUtils.isEmpty(eleccionOrigen) || TextUtils.isEmpty(eleccionDestino)) {
-                // Creando dialogo de alerta
-                AlertaCamposVacios();
 
+                // Creando dialogo de alerta
+                Dialogos.mensajePersonalizadoDialogo(this, getString(R.string.titulo_campo_vacio), getString(R.string.mensaje_campo_vacio));
             } else {
+
                 // Ir a ElementosActivity
-                Intent i = new Intent(v.getContext(), ElementosActivity.class);
+                Intent i = new Intent(v.getContext(), InventarioActivity.class);
+
                 //pasar datos a la activity
                 i.putExtras(eleccionRuta);
+
                 // Iniciar la actividad
                 startActivity(i);
             }
         });
-
-    }
-
-    public void AlertaCamposVacios() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.titulo_campo_vacio)
-                .setMessage(R.string.mensaje_campo_vacio);
-        builder.create();
-        builder.show();
 
     }
 }

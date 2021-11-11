@@ -6,6 +6,8 @@ import static com.proyectomintic.stockerinv.views.RutaActivity.ORIGEN;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,15 +17,17 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.proyectomintic.stockerinv.R;
 import com.proyectomintic.stockerinv.databinding.ActivityInventarioBinding;
+import com.proyectomintic.stockerinv.views.model.Elemento;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 public class InventarioActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     public ActivityInventarioBinding binding;
-    String eleccionOrigen, eleccionDestino;
+    String eleccionOrigen, eleccionDestino, textViewContador, crearNombreArticulos, textViewCategoriaElegida;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
-
-
+    ArrayList<Elemento> elementos = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,19 +51,35 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
         // Recuperando informacion de ElementosActivity
         eleccionOrigen = getIntent().getExtras().getString(ORIGEN);
         eleccionDestino = getIntent().getExtras().getString(DESTINO);
+        textViewContador = getIntent().getExtras().getString("texto_contador");
+        crearNombreArticulos = getIntent().getExtras().getString("nombre_articulo");
+        textViewCategoriaElegida = getIntent().getExtras().getString("seleccion_categoria");
+
+        Elemento elemento = new Elemento(crearNombreArticulos, textViewCategoriaElegida, textViewContador, null);
+        elementos.add(elemento);
 
         //Mostrando el String en el TextView
         binding.textViewOrigen.setText("Origen " + eleccionOrigen);
         binding.textViewDestino.setText("Destino " + eleccionDestino);
 
-        //Llamado al Fragment
-
-        //Evento click boton cocina
-        binding.btnCategoriaCocina.setOnClickListener(v -> {
+        View.OnClickListener listener = view -> {
             ListaElementosCategoriaFragment dialogo = new ListaElementosCategoriaFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("titulo_categoria", ((Button) view).getText().toString());
+            // elementos.stream().filter();
+            dialogo.setArguments(bundle);
             dialogo.show(getSupportFragmentManager(), "ListaElementosCategoriaFragment");
 
-        });
+        };
+
+        //Evento click boton cocina Llamado al Fragment
+        binding.btnCategoriaCocina.setOnClickListener(listener);
+        binding.btnCategoriaDecoracion.setOnClickListener(listener);
+        binding.btnCategoriaJardin.setOnClickListener(listener);
+        binding.btnCategoriaTecnologia.setOnClickListener(listener);
+        binding.btnCategoriaElectrodomesticos.setOnClickListener(listener);
+        binding.btnCategroiaMuebles.setOnClickListener(listener);
+        binding.btnCategoriaLimpieza.setOnClickListener(listener);
 
     }
 
@@ -69,23 +89,33 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
         switch (item.getItemId()) {
             case R.id.page_to_export:
                 Toast.makeText(this, "Enviaremos su Inventario", Toast.LENGTH_LONG).show();
-                break;
+                return true;
 
             case R.id.page_to_home:
-                Intent a = new Intent(this, RutaActivity.class);
+                Intent a = new Intent(this, MainActivity.class);
                 startActivity(a);
-                break;
+                return true;
+
             case R.id.page_to_add:
-                Intent b = new Intent(this, ElementosActivity.class);
-                startActivity(b);
-                break;
-            case R.id.page_to_Exit:
-                finish();
-                System.exit(0);
+
+                CrearElementoFragment dialogo = new CrearElementoFragment();
+
+                dialogo.show(getSupportFragmentManager(), "CrearElementoFragment");
+
+                return true;
+
+            case R.id.page_to_ruta:
+                FirebaseAuth.getInstance().signOut();
+                Intent c = new Intent(this, RutaActivity.class);
+
+                startActivity(c);
+
+                return true;
+
             default:
-                throw new IllegalStateException("Unexpected value: " + item.getItemId());
+                return false;
         }
-        return false;
+
     }
 
 }
