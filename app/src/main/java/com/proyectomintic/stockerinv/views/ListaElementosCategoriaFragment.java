@@ -19,6 +19,9 @@ public class ListaElementosCategoriaFragment extends BottomSheetDialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        if (getArguments() != null) {
+            binding.textViewCategoriaHogar.setText(getArguments().getString("titulo_categoria"));
+        }
 
         // evento click del boton continuar
         binding.btnContinuarFr.setOnClickListener(v -> {
