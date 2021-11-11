@@ -72,7 +72,7 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
                 break;
 
             case R.id.page_to_home:
-                Intent a = new Intent(this, MainActivity.class);
+                Intent a = new Intent(this, RutaActivity.class);
                 startActivity(a);
                 break;
             case R.id.page_to_add:
@@ -80,8 +80,8 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
                 startActivity(b);
                 break;
             case R.id.page_to_Exit:
-                FirebaseAuth.getInstance().signOut();
                 finish();
+                System.exit(0);
             default:
                 throw new IllegalStateException("Unexpected value: " + item.getItemId());
         }
