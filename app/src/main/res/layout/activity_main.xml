@@ -27,10 +27,10 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/clave_usuario"
                 app:endIconMode="password_toggle"
-                app:layout_constraintBottom_toTopOf="@+id/textoOlvidoContraseña"
+                app:layout_constraintBottom_toTopOf="@id/textoOlvidoContraseña"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/registroCorreo">
+                app:layout_constraintTop_toBottomOf="@id/registroCorreo">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -44,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/usuario"
-                app:layout_constraintBottom_toTopOf="@+id/crearClave"
+                app:layout_constraintBottom_toTopOf="@id/crearClave"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -76,21 +76,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Inicio_sesion"
-        app:layout_constraintBottom_toTopOf="@+id/ingresoGoogle"
+        app:layout_constraintBottom_toTopOf="@id/ingresoGoogle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_view_login" />
+        app:layout_constraintTop_toBottomOf="@id/card_view_login" />
 
-    <com.google.android.material.button.MaterialButton
+    <com.google.android.gms.common.SignInButton
         android:id="@+id/ingresoGoogle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/logogoogle"
+        android:onClick="onClick"
         android:text="@string/ingreso_con_google"
-        app:layout_constraintBottom_toTopOf="@+id/materialCardView"
+        app:layout_constraintBottom_toTopOf="@id/materialCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonIngreso" />
+        app:layout_constraintTop_toBottomOf="@id/botonIngreso" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView"

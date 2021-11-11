@@ -14,6 +14,6 @@
         android:title="@string/texto_agregar" />
     <item
         android:id="@+id/page_to_back"
-        android:icon="@drawable/ic_baseline_ruta"
-        android:title="@string/texto_regresar_ruta" />
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="@string/texto_salir_app" />
 </menu>

@@ -1,79 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragmento_cocina"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:background="@drawable/burbujasbackgroundazul"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="@dimen/margen_minima"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     tools:context=".views.ListaElementosCategoriaFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!--    en el anterior codigo las 3 ultimas  lineas son para  reconocer el fragment como dialogo-->
+
+    <TextView
+        android:id="@+id/textViewCategoriaHogar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margen_minima"
+        android:text="@string/categoria_cocina"
+        android:textAllCaps="true"
+        android:textSize="@dimen/texto_principal"
+        app:layout_constraintBottom_toTopOf="@id/listView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="100dp"
+        android:layout_marginHorizontal="@dimen/margen_media"
+        android:background="@color/colorSurface"
+        android:dividerHeight="3dp"
+        android:headerDividersEnabled="true"
+        app:layout_constraintBottom_toTopOf="@id/cardViewbotones"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewCategoriaHogar" />
 
-        <TextView
-            android:id="@+id/textViewCategoriaHogar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margen_minima"
-            android:text="@string/categoria_cocina"
-            android:textAllCaps="true"
-            android:textSize="@dimen/texto_principal"
-            app:layout_constraintBottom_toTopOf="@id/recyclerView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardViewbotones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margen_extrema"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/listView">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margen_media"
-            android:background="@color/colorSurface"
-            app:layout_constraintBottom_toTopOf="@id/cardViewbotones"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewCategoriaHogar" />
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margen_media">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardViewbotones"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margen_extrema"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/recyclerView">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnContinuarFr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margen_media"
+                android:text="@string/continuar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btnEliminarElemento"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/margen_media">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEliminarElemento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margen_media"
+                android:text="@string/eliminar"
+                app:layout_constraintBottom_toBottomOf="@id/btnContinuarFr"
+                app:layout_constraintEnd_toStartOf="@id/btnContinuarFr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/btnContinuarFr" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnContinuarFr"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margen_media"
-                    android:text="@string/continuar"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/btnEliminarElemento"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnEliminarElemento"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margen_media"
-                    android:text="@string/eliminar"
-                    app:layout_constraintBottom_toBottomOf="@id/btnContinuarFr"
-                    app:layout_constraintEnd_toStartOf="@id/btnContinuarFr"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/btnContinuarFr" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

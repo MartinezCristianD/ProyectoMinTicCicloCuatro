@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "118905358779",
+    "project_id": "stockerinv",
+    "storage_bucket": "stockerinv.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118905358779:android:e1f6b5a1b8c779f9da9c9e",
+        "android_client_info": {
+          "package_name": "com.proyectomintic.stockerinv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118905358779-q47e0hqsp247m0560km30j0qau3badpd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.proyectomintic.stockerinv",
+            "certificate_hash": "98f7c5c79e636117376efafad3dbdd2a33a76236"
+          }
+        },
+        {
+          "client_id": "118905358779-sdjbhjeve4atdgag3vj7secsb32t11mi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.proyectomintic.stockerinv",
+            "certificate_hash": "c57eb18817b56696d80de0b45bd6fa81eb5dc1c4"
+          }
+        },
+        {
+          "client_id": "118905358779-7bvksg5lj3ijfppctf0em6a1vi0hem2d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwmxRnYHY5r7pQwqZrxhnDsjXum6Q3PTk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "118905358779-7bvksg5lj3ijfppctf0em6a1vi0hem2d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -39,6 +39,8 @@
     <string name="invitado">Invitado</string>
     <string name="confirmar_clave">Confirmar Clave</string>
     <string name="eliminar">Eliminar</string>
+    <string name="titulo_campo_vacio"> Campos Vacios</string>
+    <string name="mensaje_campo_vacio">Requerimos que todos los campos esten diligenciados para  continuar </string>
 
     <!--- Elementos -->
     <string name="texto_elementos">° ° Crear Elementos ° °</string>
@@ -47,20 +49,23 @@
     <string name="buscar_elemento"> Buscar Elemento </string>
     <string name="agrega_foto_articulo"> Agrega una Foto del Articulo </string>
     <string name="text_view_contador_uno"> 0 Unidades </string>
+    <string name="texto_helper_Elementos">Seleccione el nombre de la Categoria</string>
 
-    <!--- Elementos -->
+    <!--- Ruta -->
     <string name="destino"> Ingrese el destino de su Inventario </string>
     <string name="origen"> Lugar del Inventario   </string>
-    <string name="text_view_distancia">Distancia </string>
-    <string name="text_view_duracion"> Duracion </string>
+    <string name="text_view_distancia"> 0 KM </string>
+    <string name="text_view_duracion"> 00:00 Horas </string>
+    <string name="text_helper_ruta">Ciudad o Municipio</string>
 
-    <!--- Elementos -->
+    <!--- Inventario -->
     <string name="texto_home"> Home </string>
     <string name="texto_agregar"> Agregar </string>
     <string name="texto_exportar"> Exportar </string>
-    <string name="texto_regresar_ruta"> Ruta </string>
+    <string name="texto_salir_app"> Cerrar APP </string>
+    <string name="text_helper_inventario">Ingresa el Nombre del Articulo </string>
+
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

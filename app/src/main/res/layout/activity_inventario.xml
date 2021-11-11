@@ -21,16 +21,21 @@
         app:layout_constraintBottom_toTopOf="@+id/cardViewCategorias"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintTop_toBottomOf="@id/textInputLayout" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margen_media"
         android:hint="@string/buscar_elemento"
+        app:counterEnabled="true"
+        app:endIconDrawable="@android:drawable/ic_menu_search"
         android:padding="@dimen/padding_texto"
         app:counterMaxLength="15"
-        android:layout_marginHorizontal="@dimen/margen_media"
+        app:endIconMode="custom"
+        app:errorEnabled="true"
+        app:helperText="@string/text_helper_inventario"
         app:layout_constraintBottom_toTopOf="@id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,10 +43,10 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/nombreArticulo"
+            android:id="@+id/crearNombreArticulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"/>
+            android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -49,8 +54,7 @@
         android:id="@+id/cardViewCategorias"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margen_extrema"
-        app:barrierMargin="@dimen/margen_media"
+        android:layout_margin="@dimen/margen_minima"
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,85 +63,100 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/margen_media">
+            app:layout_constraintBottom_toTopOf="@+id/btnCategoriaCocina"
+            app:layout_constraintTop_toTopOf="@+id/btnCategoriaCocina">
 
-            <Button
-                android:id="@+id/btnCategroiaMuebles"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margen_extrema"
-                android:layout_marginTop="@dimen/margen_minima"
-                android:text="@string/categoria_muebles"
-                app:layout_constraintBottom_toTopOf="@+id/btnCategoriaElectrodomesticos"
-                app:layout_constraintStart_toStartOf="@+id/btnCategoriaJardin"
-                app:layout_constraintTop_toBottomOf="@+id/btnCategoriaJardin" />
-
-            <Button
-                android:id="@+id/btnCategoriaElectrodomesticos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margen_extrema"
-                android:layout_marginTop="@dimen/margen_minima"
-                android:text="@string/categoria_electrodomesticos"
-                app:layout_constraintBottom_toTopOf="@+id/btnCategoriaTecnologia"
-                app:layout_constraintStart_toStartOf="@+id/btnCategroiaMuebles"
-                app:layout_constraintTop_toBottomOf="@+id/btnCategroiaMuebles" />
-
-            <Button
-                android:id="@+id/btnCategoriaJardin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margen_extrema"
-                android:layout_marginTop="@dimen/margen_minima"
-                android:text="@string/categoria_jardin"
-                app:layout_constraintBottom_toTopOf="@+id/btnCategroiaMuebles"
-                app:layout_constraintStart_toStartOf="@+id/btnCategoriaLimpieza"
-                app:layout_constraintTop_toBottomOf="@+id/btnCategoriaLimpieza" />
-
-            <Button
-                android:id="@+id/btnCategoriaLimpieza"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margen_extrema"
-                android:layout_marginTop="@dimen/margen_minima"
-                android:text="@string/categoria_limpieza"
-                app:layout_constraintBottom_toTopOf="@+id/btnCategoriaJardin"
-                app:layout_constraintStart_toStartOf="@+id/btnCategoriaCocina"
-                app:layout_constraintTop_toBottomOf="@+id/btnCategoriaCocina" />
-
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCategoriaCocina"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/logoapp"
-                android:layout_marginHorizontal="@dimen/margen_extrema"
-                android:layout_marginTop="@dimen/margen_minima"
                 android:text="@string/categoria_cocina"
-                app:layout_constraintBottom_toTopOf="@+id/btnCategoriaLimpieza"
+                app:icon="@drawable/icono_cocina"
+                app:iconTint="@null"
+                app:layout_constraintBottom_toBottomOf="@+id/btnCategoriaDecoracion"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btnCategoriaDecoracion"
+                app:layout_constraintTop_toTopOf="@+id/btnCategoriaDecoracion" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCategroiaMuebles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categoria_muebles"
+                app:icon="@drawable/icono_muebles"
+                app:iconTint="@null"
+                app:layout_constraintBottom_toTopOf="@+id/btnCategoriaTecnologia"
+                app:layout_constraintEnd_toStartOf="@+id/btnCategoriaLimpieza"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/btnCategoriaDecoracion"
-                android:layout_width="match_parent"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCategoriaJardin"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margen_extrema"
-                android:layout_marginTop="@dimen/margen_minima"
+                android:layout_marginTop="1dp"
+                android:text="@string/categoria_jardin"
+                app:icon="@drawable/icono_jardin"
+                app:iconTint="@null"
+                app:layout_constraintBottom_toBottomOf="@+id/btnCategoriaTecnologia"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btnCategoriaTecnologia"
+                app:layout_constraintTop_toTopOf="@+id/btnCategoriaTecnologia" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCategoriaLimpieza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categoria_limpieza"
+                app:icon="@drawable/icono_limpieza"
+                app:iconTint="@null"
+                app:layout_constraintBottom_toBottomOf="@+id/btnCategroiaMuebles"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btnCategroiaMuebles"
+                app:layout_constraintTop_toTopOf="@+id/btnCategroiaMuebles" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCategoriaDecoracion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/categoria_decoracion"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/btnCategoriaTecnologia"
+                app:icon="@drawable/icono_decoracion"
+                app:iconTint="@null"
+                app:layout_constraintBottom_toTopOf="@+id/btnCategoriaElectrodomesticos"
+                app:layout_constraintEnd_toStartOf="@+id/btnCategoriaCocina"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnCategoriaTecnologia" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCategoriaTecnologia"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margen_extrema"
-                android:layout_marginTop="@dimen/margen_minima"
                 android:text="@string/categoria_tecnologia"
+                app:icon="@drawable/icono_tecnologia"
+                app:iconTint="@null"
                 app:layout_constraintBottom_toTopOf="@+id/btnCategoriaDecoracion"
-                app:layout_constraintStart_toStartOf="@+id/btnCategoriaElectrodomesticos"
-                app:layout_constraintTop_toBottomOf="@+id/btnCategoriaElectrodomesticos" />
+                app:layout_constraintEnd_toStartOf="@+id/btnCategoriaJardin"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnCategroiaMuebles" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCategoriaElectrodomesticos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categoria_electrodomesticos"
+                app:icon="@drawable/icono_electrodomesticos"
+                app:iconTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnCategoriaDecoracion" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -156,9 +175,9 @@
         android:id="@+id/imageViewFotoUsuario"
         android:layout_width="@dimen/dimen_icono_cuadrado"
         android:layout_height="@dimen/dimen_icono_cuadrado"
-        android:layout_marginRight="@dimen/margen_extrema"
-        android:layout_marginTop="@dimen/margen_minima"
+        android:layout_margin="@dimen/margen_minima"
         android:contentDescription="@string/content_description"
+        android:scaleType="centerCrop"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
