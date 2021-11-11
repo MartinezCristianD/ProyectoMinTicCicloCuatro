@@ -43,7 +43,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/nombreArticulo"
+            android:id="@+id/crearNombreArticulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text" />
@@ -175,8 +175,7 @@
         android:id="@+id/imageViewFotoUsuario"
         android:layout_width="@dimen/dimen_icono_cuadrado"
         android:layout_height="@dimen/dimen_icono_cuadrado"
-        android:layout_marginRight="@dimen/margen_extrema"
-        android:layout_marginTop="@dimen/margen_minima"
+        android:layout_margin="@dimen/margen_minima"
         android:contentDescription="@string/content_description"
         android:scaleType="centerCrop"
         android:visibility="visible"

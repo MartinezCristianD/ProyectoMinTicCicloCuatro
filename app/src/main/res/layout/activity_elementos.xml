@@ -9,7 +9,7 @@
     tools:context=".views.ElementosActivity">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/crearNombreArticulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/nombre_elemento"
@@ -27,7 +27,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewElementos">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/nombreArticulo"
+            android:id="@+id/crearNombreArticulotext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -40,7 +40,7 @@
         android:gravity="center"
         android:text="@string/texto_elementos"
         android:textSize="@dimen/texto_grande"
-        app:layout_constraintBottom_toTopOf="@id/textInputLayout"
+        app:layout_constraintBottom_toTopOf="@id/crearNombreArticulo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -53,7 +53,7 @@
         app:layout_constraintBottom_toTopOf="@id/cardViewFotoArticulos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayout">
+        app:layout_constraintTop_toBottomOf="@id/crearNombreArticulo">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margen_minima"
                 android:gravity="center"
-                android:text="@string/text_view_contador_uno"
+                android:hint="@string/text_view_contador_uno"
                 android:textSize="@dimen/texto_principal"
                 app:layout_constraintBottom_toTopOf="@id/seekBar"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -101,6 +101,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/textViewCategoriaElegidatext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none" />

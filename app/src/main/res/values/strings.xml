@@ -39,6 +39,8 @@
     <string name="invitado">Invitado</string>
     <string name="confirmar_clave">Confirmar Clave</string>
     <string name="eliminar">Eliminar</string>
+    <string name="titulo_campo_vacio"> Campos Vacios</string>
+    <string name="mensaje_campo_vacio">Requerimos que todos los campos esten diligenciados para  continuar </string>
 
     <!--- Elementos -->
     <string name="texto_elementos">° ° Crear Elementos ° °</string>
@@ -60,7 +62,7 @@
     <string name="texto_home"> Home </string>
     <string name="texto_agregar"> Agregar </string>
     <string name="texto_exportar"> Exportar </string>
-    <string name="texto_regresar_ruta"> Ruta </string>
+    <string name="texto_salir_app"> Cerrar APP </string>
     <string name="text_helper_inventario">Ingresa el Nombre del Articulo </string>
 
     <!-- TODO: Remove or change this placeholder text -->

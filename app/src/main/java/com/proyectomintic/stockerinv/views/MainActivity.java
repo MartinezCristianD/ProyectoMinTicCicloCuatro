@@ -157,11 +157,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        FirebaseAuth.getInstance().signOut();
-
-    }
 
 }
