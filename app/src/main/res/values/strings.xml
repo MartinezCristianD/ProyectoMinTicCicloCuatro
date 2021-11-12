@@ -19,13 +19,14 @@
     <!--- APP -->
     <string name="app_name">StockerInv</string>
     <string name="ingreso_con_google">Ingrese con Google</string>
-    <string name="no_tienes_cuenta">¿Aun No Tienes Una Cuenta?</string>
+    <string name="no_tienes_cuenta">Desliza Hacia Abajo \n Prueba Nuestra app</string>
     <string name="registro">Registrate</string>
     <string name="registrarse">Registrarse</string>
     <string name="texto_checkbox">Al registrarse acepta los terminos y condiciones, la politica de uso de datos disponible en www.StockerInv.com.co</string>
     <string name="terminos_y_condiciones">Registrate</string>
     <string name="content_description">Aqui hay algo</string>
     <string name="continuar">Continuar</string>
+    <string name="slogan">Hacemos Las Cosas Faciles Para Ti</string>
 
 
     <!--- Usuario -->
