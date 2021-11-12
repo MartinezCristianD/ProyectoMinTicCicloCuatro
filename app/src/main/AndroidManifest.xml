@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/logo_principal_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StockerInv">
-        <activity
+
+    <activity
             android:name=".views.RutaActivity"
             android:exported="true"
             android:screenOrientation="portrait"/>

@@ -148,7 +148,8 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         mGoogleSignInClient.signOut();
         FirebaseAuth.getInstance().signOut();
-
+        finish();
+        System.runFinalization();
 
     }
 

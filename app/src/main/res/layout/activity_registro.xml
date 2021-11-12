@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margen_minima"
-        app:layout_constraintBottom_toTopOf="@id/checkBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -80,21 +79,6 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margen_minima"
-        android:checked="true"
-        android:text="@string/texto_checkbox"
-        android:textSize="@dimen/texto_terciario"
-        android:textStyle="italic"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@id/btnRegistro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardViewCategorias" />
-
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnRegistro"
@@ -103,7 +87,6 @@
         android:text="@string/registrarse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/checkBox" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

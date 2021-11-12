@@ -19,7 +19,7 @@
     <!--- APP -->
     <string name="app_name">StockerInv</string>
     <string name="ingreso_con_google">Ingrese con Google</string>
-    <string name="no_tienes_cuenta">Desliza Hacia Abajo \n Prueba Nuestra app</string>
+    <string name="no_tienes_cuenta"> Desliza  \n Prueba Nuestra app</string>
     <string name="registro">Registrate</string>
     <string name="registrarse">Registrarse</string>
     <string name="texto_checkbox">Al registrarse acepta los terminos y condiciones, la politica de uso de datos disponible en www.StockerInv.com.co</string>
@@ -67,7 +67,6 @@
     <string name="texto_exportar"> Exportar </string>
     <string name="texto_salir_app"> Cerrar APP </string>
     <string name="text_helper_inventario">Ingresa el Nombre del Articulo </string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

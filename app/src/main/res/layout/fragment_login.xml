@@ -9,11 +9,25 @@
     tools:context=".views.LoginFragment">
 
 
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margen_media"
+        android:checked="true"
+        android:text="@string/texto_checkbox"
+        android:textSize="@dimen/texto_terciario"
+        android:textStyle="italic"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/materialCardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ingresoGoogle" />
+
     <TextView
         android:id="@+id/textoOlvidoContraseña"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margen_media"
         android:clickable="true"
         android:elevation="@dimen/margen_media"
         android:focusable="true"
@@ -32,10 +46,9 @@
         android:id="@+id/ingresoGoogle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margen_minima"
         android:onClick="onClick"
         android:text="@string/ingreso_con_google"
-        app:layout_constraintBottom_toTopOf="@+id/materialCardView"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textoOlvidoContraseña" />
@@ -44,13 +57,12 @@
         android:id="@+id/materialCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margen_media"
         android:backgroundTint="@color/colorTransparente"
         app:cardCornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ingresoGoogle">
+        app:layout_constraintTop_toBottomOf="@+id/checkBox">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -61,8 +73,8 @@
                 android:id="@+id/textAunSinCuenta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/no_tienes_cuenta"
                 android:layout_marginTop="@dimen/margen_grande"
+                android:text="@string/no_tienes_cuenta"
                 android:textColor="@color/colorNegro"
                 android:textSize="@dimen/texto_secundario"
                 app:layout_constraintBottom_toTopOf="@+id/imageView2"
@@ -73,8 +85,8 @@
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/margen_extrema"
                 android:layout_height="@dimen/margen_extrema"
+                android:layout_marginTop="@dimen/margen_extrema"
                 android:src="@android:drawable/arrow_down_float"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
