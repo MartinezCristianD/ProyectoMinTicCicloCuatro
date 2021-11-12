@@ -42,7 +42,7 @@ public class RutaActivity extends AppCompatActivity {
             } else {
 
                 // Ir a ElementosActivity
-                Intent i = new Intent(v.getContext(), InventarioActivity.class);
+                Intent i = new Intent(this, InventarioActivity.class);
 
                 //pasar datos a la activity
                 i.putExtras(eleccionRuta);
