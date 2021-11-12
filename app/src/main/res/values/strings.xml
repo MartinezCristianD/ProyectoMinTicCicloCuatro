@@ -66,5 +66,7 @@
     <string name="texto_exportar"> Exportar </string>
     <string name="texto_salir_app"> Cerrar APP </string>
     <string name="text_helper_inventario">Ingresa el Nombre del Articulo </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

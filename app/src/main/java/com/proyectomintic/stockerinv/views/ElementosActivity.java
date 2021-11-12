@@ -1,7 +1,6 @@
 package com.proyectomintic.stockerinv.views;
 
-import static com.proyectomintic.stockerinv.views.RutaActivity.DESTINO;
-import static com.proyectomintic.stockerinv.views.RutaActivity.ORIGEN;
+
 
 import android.Manifest;
 import android.app.Activity;
@@ -80,8 +79,8 @@ public class ElementosActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         // Recuperando informacion de RutaActivity
-        eleccionOrigen = getIntent().getExtras().getString(ORIGEN, "NO FUNCIONA");
-        eleccionDestino = getIntent().getExtras().getString(DESTINO, "NO FUNCIONA");
+        //  eleccionOrigen = getIntent().getExtras().getString(ORIGEN, "NO FUNCIONA");
+        // eleccionDestino = getIntent().getExtras().getString(DESTINO, "NO FUNCIONA");
 
         // Llenando la lista  para seleccionar la categoria
         listaCategorias = ((AutoCompleteTextView) binding.textViewCategoriaElegida.getEditText());

@@ -16,8 +16,6 @@ public class RutaActivity extends AppCompatActivity {
     String eleccionOrigen, eleccionDestino;
     Bundle eleccionRuta;
 
-    public static final String ORIGEN = "origen";
-    public static final String DESTINO = "destino";
 
 
     @Override
@@ -34,8 +32,8 @@ public class RutaActivity extends AppCompatActivity {
 
             eleccionOrigen = binding.inputOrigenText.getText().toString();
             eleccionDestino = binding.inputDestinoText.getText().toString();
-            eleccionRuta.putString(ORIGEN, eleccionOrigen);
-            eleccionRuta.putString(DESTINO, eleccionDestino);
+            // eleccionRuta.putString(ORIGEN, eleccionOrigen);
+            //eleccionRuta.putString(DESTINO, eleccionDestino);
 
             if (TextUtils.isEmpty(eleccionOrigen) || TextUtils.isEmpty(eleccionDestino)) {
 
