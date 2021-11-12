@@ -17,15 +17,15 @@
         android:inputType="textEmailAddress"
         android:padding="@dimen/padding_texto"
         android:textSize="@dimen/texto_secundario"
-        app:counterEnabled="true"
         app:counterMaxLength="15"
         app:endIconDrawable="@drawable/ic_baseline_agregar"
         app:endIconMode="custom"
         app:errorEnabled="true"
-        app:layout_constraintBottom_toTopOf="@+id/cardViewAgregarArticulos"
+        android:layout_margin="@dimen/margen_grande"
+        app:layout_constraintBottom_toTopOf="@id/cardViewAgregarArticulos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewElementos">
+        app:layout_constraintTop_toBottomOf="@+id/textViewElementos">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/crearNombreArticulotext"
@@ -143,6 +143,7 @@
                 android:id="@+id/textViewAgregarFoto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:layout_marginHorizontal="@dimen/margen_minima"
                 android:text="@string/agrega_foto_articulo"
                 android:textSize="@dimen/texto_secundario"

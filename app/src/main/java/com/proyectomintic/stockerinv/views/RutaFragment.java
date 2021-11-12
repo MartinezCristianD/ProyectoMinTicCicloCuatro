@@ -11,22 +11,45 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.UiSettings;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.proyectomintic.stockerinv.R;
 import com.proyectomintic.stockerinv.databinding.FragmentRutaBinding;
-import com.proyectomintic.stockerinv.views.utils.Dialogos;
+import com.proyectomintic.stockerinv.utils.Dialogos;
 
 
-public class RutaFragment extends BottomSheetDialogFragment {
+public class RutaFragment extends BottomSheetDialogFragment implements OnMapReadyCallback {
+
+    private static final String MAP_VIEW_BUNDLE_KEY = "MapViewBundleKey";
     public static final String ORIGEN = "origen";
     public static final String DESTINO = "destino";
     FragmentRutaBinding binding;
     String eleccionOrigen, eleccionDestino;
     Bundle eleccionRuta;
+    private MapView mapView;
+    private GoogleMap gmap;
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
+        Bundle mapViewBundle = null;
+        if (savedInstanceState != null) {
+            mapViewBundle = savedInstanceState.getBundle(MAP_VIEW_BUNDLE_KEY);
+        }
+        // google maps
+        mapView = binding.mapView;
+        mapView.onCreate(mapViewBundle);
+        mapView.getMapAsync(this);
+
 
         //Evento click del boton continuar
         binding.buttonContinuar.setOnClickListener(v -> {
@@ -68,6 +91,87 @@ public class RutaFragment extends BottomSheetDialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentRutaBinding.inflate(inflater);
+
         return binding.getRoot();
+        // Gets the MapView from the XML layout and creates it
     }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        Bundle mapViewBundle = outState.getBundle(MAP_VIEW_BUNDLE_KEY);
+        if (mapViewBundle == null) {
+            mapViewBundle = new Bundle();
+            outState.putBundle(MAP_VIEW_BUNDLE_KEY, mapViewBundle);
+        }
+
+        mapView.onSaveInstanceState(mapViewBundle);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mapView.onResume();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mapView.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mapView.onStop();
+    }
+
+    @Override
+    public void onPause() {
+        mapView.onPause();
+        super.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        mapView.onDestroy();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
+    }
+
+    // Configuraion de google maps
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        gmap = googleMap;
+        gmap.setMinZoomPreference(12);
+        LatLng pereira = new LatLng(4.81321, -75.6946);
+        gmap.moveCamera(CameraUpdateFactory.newLatLng(pereira));
+
+
+        gmap.getUiSettings().setMyLocationButtonEnabled(true);
+        gmap.setIndoorEnabled(true);
+        UiSettings uiSettings = gmap.getUiSettings();
+
+        uiSettings.setIndoorLevelPickerEnabled(true);
+        uiSettings.setMyLocationButtonEnabled(true);
+        uiSettings.setMapToolbarEnabled(true);
+        uiSettings.setCompassEnabled(true);
+        uiSettings.setZoomControlsEnabled(true);
+
+
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(pereira);
+        gmap.addMarker(markerOptions);
+
+
+    }
+
 }
+
+

@@ -1,4 +1,4 @@
-package com.proyectomintic.stockerinv.views.model;
+package com.proyectomintic.stockerinv.model;
 
 import android.graphics.Bitmap;
 

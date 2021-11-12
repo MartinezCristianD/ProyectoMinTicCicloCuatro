@@ -33,7 +33,7 @@ import androidx.core.content.ContextCompat;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.proyectomintic.stockerinv.R;
 import com.proyectomintic.stockerinv.databinding.FragmentCrearElementoBinding;
-import com.proyectomintic.stockerinv.views.utils.Dialogos;
+import com.proyectomintic.stockerinv.utils.Dialogos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -157,9 +157,7 @@ public class CrearElementoFragment extends BottomSheetDialogFragment {
                 });
 
         //Evento click para tomar una foto
-        binding.imageButtonAccederCamara.setOnClickListener(v ->
-
-        {
+        binding.imageButtonAccederCamara.setOnClickListener(v -> {
             //  si otorga los permisos de la camara  lanza el metodo chooseImage en el contexto de la activity actual
             if (checkAndRequestPermissions(requireActivity())) {
                 chooseImage(requireContext());
