@@ -44,7 +44,7 @@
     <string name="mensaje_campo_vacio">Requerimos que todos los campos esten diligenciados para  continuar </string>
 
     <!--- Elementos -->
-    <string name="texto_elementos">° ° Agregar Nuevo Elemento ° °</string>
+    <string name="texto_elementos">° ° Nuevo Elemento ° °</string>
     <string name="texto_crear_elemento">° ° Crear Elemento ° °</string>
     <string name="nombre_elemento"> Nombre del Elemento</string>
     <string name="texto_unidades"> Unidades </string>

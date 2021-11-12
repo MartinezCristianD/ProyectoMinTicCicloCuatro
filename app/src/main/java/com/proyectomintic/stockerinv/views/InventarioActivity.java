@@ -9,6 +9,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,19 +25,22 @@ import java.util.ArrayList;
 public class InventarioActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     public ActivityInventarioBinding binding;
-    private static final String TAG = "LoginScreen";
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     ArrayList<Elemento> elementos = new ArrayList<>();
-    public static final String ORIGEN = "origen";
-    public static final String DESTINO = "destino";
+    public static final String ORIGEN = "origen", DESTINO = "destino";
     String textViewContador, crearNombreArticulos, textViewCategoriaElegida, eleccionDestino, eleccionOrigen;
+    GoogleSignInClient mGoogleSignInClient;
+    GoogleSignInOptions gso;
 
     @Override
     protected void onStart() {
         super.onStart();
-        // validando el ingreso del usuario
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user == null) {
+            LoginFragment dialogo_cero = new LoginFragment();
+            dialogo_cero.show(getSupportFragmentManager(), "LoginFragment");
+        }
+
     }
 
     @Override
@@ -44,6 +50,7 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
         setTheme(R.style.Theme_AppCompat);
         binding = ActivityInventarioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
 
         //Picaso para importar la imagende usuario
         if ((mAuth.getCurrentUser() != null) && (mAuth.getCurrentUser().getPhotoUrl() != null)) {
@@ -87,8 +94,17 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
         elementos.add(elemento);
 
         //Mostrando el String en el TextView
-        binding.textViewOrigen.setText("Origen " + eleccionOrigen);
-        binding.textViewDestino.setText("Destino " + eleccionDestino);
+        if (eleccionOrigen != null || eleccionDestino != null) {
+            binding.textViewOrigen.setText(eleccionOrigen);
+            binding.textViewDestino.setText(eleccionDestino);
+        } else {
+            String uno = getString(R.string.origen);
+            String dos = getString(R.string.destino);
+            binding.textViewOrigen.setText(uno);
+            binding.textViewDestino.setText(dos);
+
+        }
+
 
     }
 
@@ -125,20 +141,15 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
 
     }
 
-    private void updateUI(FirebaseUser user) {
-        if (user == null) {
-            LoginFragment dialogo = new LoginFragment();
-            dialogo.show(getSupportFragmentManager(), "LoginFragment");
-        }
-
-    }
-
-
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        mGoogleSignInClient.signOut();
         FirebaseAuth.getInstance().signOut();
-        finish();
+
+
     }
 
 }

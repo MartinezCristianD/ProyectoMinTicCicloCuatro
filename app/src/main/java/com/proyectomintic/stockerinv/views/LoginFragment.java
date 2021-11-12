@@ -1,6 +1,7 @@
 package com.proyectomintic.stockerinv.views;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,9 +27,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.proyectomintic.stockerinv.R;
 import com.proyectomintic.stockerinv.databinding.FragmentLoginBinding;
 
-import java.util.concurrent.Executor;
-
-
 public class LoginFragment extends BottomSheetDialogFragment implements View.OnClickListener {
 
     // Rename and change types of parameters
@@ -36,6 +34,8 @@ public class LoginFragment extends BottomSheetDialogFragment implements View.OnC
     private static final int RC_SIGN_IN = 9001;
     FragmentLoginBinding binding;
     GoogleSignInClient mGoogleSignInClient;
+    GoogleSignInOptions gso;
+
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     @Override
@@ -50,7 +50,7 @@ public class LoginFragment extends BottomSheetDialogFragment implements View.OnC
         super.onCreate(savedInstanceState);
 
         // Configure Google Sign In
-        GoogleSignInOptions gso = new GoogleSignInOptions
+        gso = new GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))// este String queda rojo con error pero  pero si agarra el recurso no borrar                .requestEmail()
                 .build();
@@ -72,7 +72,6 @@ public class LoginFragment extends BottomSheetDialogFragment implements View.OnC
         return binding.getRoot();
 
     }
-
 
     @Override
     public void onClick(View v) {
@@ -110,7 +109,7 @@ public class LoginFragment extends BottomSheetDialogFragment implements View.OnC
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener((Executor) this, task -> {
+                .addOnCompleteListener((Activity) requireContext(), task -> {
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d(TAG, "signInWithCredential:success");
@@ -139,6 +138,5 @@ public class LoginFragment extends BottomSheetDialogFragment implements View.OnC
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
-
 
 }
