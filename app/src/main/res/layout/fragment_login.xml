@@ -44,7 +44,7 @@
         android:id="@+id/materialCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margen_media"
+        android:layout_marginTop="@dimen/margen_media"
         android:backgroundTint="@color/colorTransparente"
         app:cardCornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -55,13 +55,14 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/margen_media">
+            android:layout_margin="@dimen/margen_minima">
 
             <TextView
                 android:id="@+id/textAunSinCuenta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/no_tienes_cuenta"
+                android:layout_marginTop="@dimen/margen_grande"
                 android:textColor="@color/colorNegro"
                 android:textSize="@dimen/texto_secundario"
                 app:layout_constraintBottom_toTopOf="@+id/imageView2"
@@ -72,6 +73,7 @@
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/margen_extrema"
                 android:layout_height="@dimen/margen_extrema"
                 android:src="@android:drawable/arrow_down_float"
                 app:layout_constraintBottom_toBottomOf="parent"
