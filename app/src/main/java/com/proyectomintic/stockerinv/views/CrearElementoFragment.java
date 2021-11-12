@@ -47,7 +47,7 @@ public class CrearElementoFragment extends BottomSheetDialogFragment {
     AutoCompleteTextView listaCategorias;
     String eleccionOrigen, eleccionDestino, textViewCategoriaElegida, textViewContador, crearNombreArticulo;
     ImageView fotoArticulo;
-    Context context = this.getContext();
+
 
 
     // Funcion para verificar los permisos de la app
@@ -106,13 +106,13 @@ public class CrearElementoFragment extends BottomSheetDialogFragment {
             // Validar los  campos de ingreso de datos
             if (TextUtils.isEmpty(textViewCategoriaElegida) || TextUtils.isEmpty(textViewContador) || TextUtils.isEmpty(crearNombreArticulo)) {
                 // Creando dialogo de alerta
-                Dialogos.mensajePersonalizadoDialogo(context, getString(R.string.titulo_campo_vacio), getString(R.string.mensaje_campo_vacio));
+                Dialogos.mensajePersonalizadoDialogo(requireContext(), getString(R.string.titulo_campo_vacio), getString(R.string.mensaje_campo_vacio));
 
 
             } else {
 
                 // Pasar al InventarioActivity
-                Intent i = new Intent(context, InventarioActivity.class);
+                Intent i = new Intent(requireContext(), InventarioActivity.class);
 
                 //pasar datos a la activity
                 i.putExtra(ORIGEN, eleccionOrigen);
@@ -123,9 +123,9 @@ public class CrearElementoFragment extends BottomSheetDialogFragment {
 
                 //para provar el envio de informacion
 
-                Toast.makeText(context, textViewContador, Toast.LENGTH_SHORT).show();
-                Toast.makeText(context, textViewCategoriaElegida, Toast.LENGTH_SHORT).show();
-                Toast.makeText(context, crearNombreArticulo, Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), textViewContador, Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), textViewCategoriaElegida, Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), crearNombreArticulo, Toast.LENGTH_SHORT).show();
 
                 //Iniciar  InventariActividad
                 startActivity(i);
@@ -164,10 +164,10 @@ public class CrearElementoFragment extends BottomSheetDialogFragment {
 
         {
             //  si otorga los permisos de la camara  lanza el metodo chooseImage en el contexto de la activity actual
-            if (checkAndRequestPermissions((Activity) binding.getRoot().getContext())) {
-                chooseImage(context);
+            if (checkAndRequestPermissions(requireActivity())) {
+                chooseImage(requireContext());
             }
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
             builder.create();
 
         });
@@ -188,18 +188,18 @@ public class CrearElementoFragment extends BottomSheetDialogFragment {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == REQUEST_ID_MULTIPLE_PERMISSIONS) {
-            if (ContextCompat.checkSelfPermission(context,
+            if (ContextCompat.checkSelfPermission(requireContext(),
                     Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(context,
+                Toast.makeText(requireContext(),
                         "StokerInv Requiere el acceso a su Camara.", Toast.LENGTH_SHORT)
                         .show();
-            } else if (ContextCompat.checkSelfPermission(context,
+            } else if (ContextCompat.checkSelfPermission(requireContext(),
                     Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(context,
+                Toast.makeText(requireContext(),
                         "StokerInv Requiere el acceso a su Almacenamiento.",
                         Toast.LENGTH_SHORT).show();
             } else {
-                chooseImage(context);
+                chooseImage(requireContext());
             }
         }
     }
