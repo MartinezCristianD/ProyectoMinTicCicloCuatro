@@ -2,8 +2,6 @@ package com.proyectomintic.stockerinv.views;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
-import static com.proyectomintic.stockerinv.views.RutaActivity.DESTINO;
-import static com.proyectomintic.stockerinv.views.RutaActivity.ORIGEN;
 
 import android.Manifest;
 import android.app.Activity;
@@ -115,8 +113,7 @@ public class CrearElementoFragment extends BottomSheetDialogFragment {
                 Intent i = new Intent(requireContext(), InventarioActivity.class);
 
                 //pasar datos a la activity
-                i.putExtra(ORIGEN, eleccionOrigen);
-                i.putExtra(DESTINO, eleccionDestino);
+
                 i.putExtra("texto_contador", textViewContador);
                 i.putExtra("nombre_articulo", crearNombreArticulo);
                 i.putExtra("seleccion_categoria", textViewCategoriaElegida);

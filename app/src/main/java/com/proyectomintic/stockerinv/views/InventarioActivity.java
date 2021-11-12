@@ -1,8 +1,5 @@
 package com.proyectomintic.stockerinv.views;
 
-import static com.proyectomintic.stockerinv.views.RutaActivity.DESTINO;
-import static com.proyectomintic.stockerinv.views.RutaActivity.ORIGEN;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -28,6 +25,8 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
     String eleccionOrigen, eleccionDestino, textViewContador, crearNombreArticulos, textViewCategoriaElegida;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     ArrayList<Elemento> elementos = new ArrayList<>();
+    public static final String ORIGEN = "origen";
+    public static final String DESTINO = "destino";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,16 +98,14 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
             case R.id.page_to_add:
 
                 CrearElementoFragment dialogo = new CrearElementoFragment();
-
                 dialogo.show(getSupportFragmentManager(), "CrearElementoFragment");
 
                 return true;
 
             case R.id.page_to_ruta:
-                FirebaseAuth.getInstance().signOut();
-                Intent c = new Intent(this, RutaActivity.class);
 
-                startActivity(c);
+                RutaFragment dialogo_uno = new RutaFragment();
+                dialogo_uno.show(getSupportFragmentManager(), "RutaFragment");
 
                 return true;
 
@@ -116,6 +113,12 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
                 return false;
         }
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        FirebaseAuth.getInstance().signOut();
     }
 
 }
