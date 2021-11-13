@@ -4,10 +4,8 @@ import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -20,78 +18,36 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.proyectomintic.stockerinv.R;
 import com.proyectomintic.stockerinv.databinding.FragmentCrearElementoBinding;
 import com.proyectomintic.stockerinv.utils.Dialogos;
+import com.proyectomintic.stockerinv.utils.PermisosFragment;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class CrearElementoFragment extends BottomSheetDialogFragment {
+//PASO 1 Heredar de la clase permisos fregment
+public class CrearElementoFragment extends PermisosFragment {
 
-    public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 101;
     FragmentCrearElementoBinding binding;
-    AutoCompleteTextView listaCategorias;
-    String eleccionOrigen, eleccionDestino, textViewCategoriaElegida, textViewContador, crearNombreArticulo;
-    ImageView fotoArticulo;
-
-
-
-    // Funcion para verificar los permisos de la app
-    public static boolean checkAndRequestPermissions(final Activity context) {
-
-        //permiso de almacenamiento externo para guardar la foto
-        int WExtstorePermission = ContextCompat.checkSelfPermission(context,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE);
-
-        //permiso para utilizar la camara del celular
-        int cameraPermission = ContextCompat.checkSelfPermission(context,
-                Manifest.permission.CAMERA);
-
-        // Array donde se guardan los permisos
-        List<String> listPermissionsNeeded = new ArrayList<>();
-
-        //Agregando los permisos en el manifest
-        if (cameraPermission != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(Manifest.permission.CAMERA);
-        }
-        if (WExtstorePermission != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded
-                    .add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        }
-        // validacion de los permisos
-        if (!listPermissionsNeeded.isEmpty()) {
-            ActivityCompat.requestPermissions(context, listPermissionsNeeded
-                            .toArray(new String[0]),
-                    REQUEST_ID_MULTIPLE_PERMISSIONS);
-            return false;
-        }
-        return true;
-    }
-
+    String textViewCategoriaElegida, textViewContador, crearNombreArticulo;
+    Bitmap fotoArticulo;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
         // Llenando la lista  para seleccionar la categoria
-        listaCategorias = ((AutoCompleteTextView) binding.textViewCategoriaElegida.getEditText());
+        AutoCompleteTextView listaCategorias = ((AutoCompleteTextView) binding.textViewCategoriaElegida.getEditText());
         if (listaCategorias != null) {
             listaCategorias.setAdapter(new ArrayAdapter<>(getContext(), android.R.layout.select_dialog_item, getResources().getStringArray(R.array.categorias)));
         }
-
 
         // Evento click  para crear los Elementos
         binding.btnCrearElementos.setOnClickListener(v -> {
@@ -159,11 +115,7 @@ public class CrearElementoFragment extends BottomSheetDialogFragment {
         //Evento click para tomar una foto
         binding.imageButtonAccederCamara.setOnClickListener(v -> {
             //  si otorga los permisos de la camara  lanza el metodo chooseImage en el contexto de la activity actual
-            if (checkAndRequestPermissions(requireActivity())) {
-                chooseImage(requireContext());
-            }
-            AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-            builder.create();
+            chooseImage(requireContext());
 
         });
 
@@ -175,28 +127,8 @@ public class CrearElementoFragment extends BottomSheetDialogFragment {
 
         // selecciona el layout para mostrar en el fragment
         binding = FragmentCrearElementoBinding.inflate(inflater);
-        return binding.getRoot();
-    }
 
-    // Handled permission Result
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_ID_MULTIPLE_PERMISSIONS) {
-            if (ContextCompat.checkSelfPermission(requireContext(),
-                    Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(requireContext(),
-                        "StokerInv Requiere el acceso a su Camara.", Toast.LENGTH_SHORT)
-                        .show();
-            } else if (ContextCompat.checkSelfPermission(requireContext(),
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(requireContext(),
-                        "StokerInv Requiere el acceso a su Almacenamiento.",
-                        Toast.LENGTH_SHORT).show();
-            } else {
-                chooseImage(requireContext());
-            }
-        }
+        return binding.getRoot();
     }
 
     // function to let's the user to choose image from camera or gallery
@@ -209,15 +141,47 @@ public class CrearElementoFragment extends BottomSheetDialogFragment {
 
         // Seleccionando los item para mostrar
         builder.setItems(optionsMenu, (dialogInterface, i) -> {
+
+            // PASO 2 permisos acceso _crear el array con los permisos 1 o mas
+            ArrayList<String> permisoRequerido = new ArrayList<>();
+
             if (optionsMenu[i].equals("Tomar Una Fotografia Del Articulo")) {
 
                 // Aqui abre la camara y toma la foto
-                Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(takePicture, 0);
+
+                // Agregamos el permiso requerido al array de permisos
+                permisoRequerido.add(Manifest.permission.CAMERA);
+
+                // PASO 3 lugar donde se quiere pedir el permiso
+                verificarPermisos(permisoRequerido, (otorgados, noOtorgados) -> {
+
+                    if (otorgados.contains(Manifest.permission.CAMERA)) {
+                        Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        startActivityForResult(takePicture, 0);
+                    } else {
+                        Dialogos.mensajePersonalizadoDialogo(requireContext(), "Requerimiento",
+                                "Para acceder a la camara se requiere la autorizacion");
+                    }
+
+                });
+
             } else if (optionsMenu[i].equals("Elegir desde la galeria")) {
                 // Elegeir una foto des de la galeria
-                Intent pickPhoto = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(pickPhoto, 1);
+
+                // Agregamos el permiso requerido al array de permisos
+                permisoRequerido.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+                // PASO 3 lugar donde se quiere pedir el permiso
+                verificarPermisos(permisoRequerido, (otorgados, noOtorgados) -> {
+                    if (otorgados.contains(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                        Intent pickPhoto = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        startActivityForResult(pickPhoto, 1);
+                    } else {
+                        Dialogos.mensajePersonalizadoDialogo(requireContext(), "Requerimiento",
+                                "Para acceder a la galeria de fotos  se requiere la autorizacion");
+                    }
+                });
+
             } else if (optionsMenu[i].equals("Regresar")) {
                 // Cerramos el dialogo
                 dialogInterface.dismiss();
@@ -258,7 +222,6 @@ public class CrearElementoFragment extends BottomSheetDialogFragment {
             }
         }
     }
-
 
 }
 

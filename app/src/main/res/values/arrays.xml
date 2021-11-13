@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="categorias">
-
         <item >Cocina</item>
         <item>Limpieza</item>
         <item>Jardin</item>
@@ -9,19 +8,19 @@
         <item>Electrodomesticos</item>
         <item>Tecnologia</item>
         <item>Decoracion</item>
-
-
     </string-array>
 
-
     <string-array name="campos_elementos">
-
         <item>Nombre del Articulo</item>
         <item>Seleccionar categoria</item>
         <item>Cantidas de Elementos  </item>
         <item>Foto de Articulo(opcional)</item>
-
     </string-array>
 
+    <string-array name="ciudades">
+        <item>Pereira</item>
+        <item>Bogota</item>
+        <item>Medellin</item>
+    </string-array>
 
 </resources>

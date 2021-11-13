@@ -23,7 +23,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.proyectomintic.stockerinv.R;
 import com.proyectomintic.stockerinv.databinding.ActivityInventarioBinding;
 import com.proyectomintic.stockerinv.model.Elemento;
-import com.proyectomintic.stockerinv.utils.Dialogos;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -152,6 +151,7 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+
             case R.id.page_to_export:
                 Toast.makeText(this, "Enviaremos su Inventario", Toast.LENGTH_LONG).show();
                 return true;
@@ -162,29 +162,14 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
                 return true;
 
             case R.id.page_to_add:
-
                 CrearElementoFragment dialogo_dos = new CrearElementoFragment();
                 dialogo_dos.show(getSupportFragmentManager(), "CrearElementoFragment");
 
                 return true;
 
             case R.id.page_to_ruta:
-
-                RutaFragment dialogo_uno = new RutaFragment();
-                dialogo_uno.show(getSupportFragmentManager(), "RutaFragment");
-
-                //  si otorga los permisos de la camara  lanza el metodo chooseImage en el contexto de la activity actual
-                if (checkAndRequestPermissions(this)) {
-
                     RutaFragment dialogo_uno = new RutaFragment();
                     dialogo_uno.show(getSupportFragmentManager(), "RutaFragment");
-
-                } else {
-
-                    Dialogos.mensajePersonalizadoDialogo(this, "Permisos Necesarios para continuar", "Gracias");
-
-
-                }
 
                 return true;
 
@@ -197,16 +182,11 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
     //cierre de sesion
     @Override
     public void onDestroy() {
-        super.onDestroy();
-
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         mGoogleSignInClient.signOut();
         FirebaseAuth.getInstance().signOut();
-        finish();
-        System.runFinalization();
+        super.onDestroy();
 
     }
 
 }
-
-

@@ -1,20 +1,20 @@
 package com.proyectomintic.stockerinv.views;
 
+
 import android.Manifest;
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -28,11 +28,12 @@ import com.proyectomintic.stockerinv.databinding.FragmentRutaBinding;
 import com.proyectomintic.stockerinv.utils.Dialogos;
 import com.proyectomintic.stockerinv.utils.PermisosFragment;
 
+import java.util.ArrayList;
+
 
 public class RutaFragment extends PermisosFragment implements OnMapReadyCallback {
 
     private static final String MAP_VIEW_BUNDLE_KEY = "MapViewBundleKey";
-    public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 101;
     public static final String ORIGEN = "origen";
     public static final String DESTINO = "destino";
     FragmentRutaBinding binding;
@@ -41,29 +42,27 @@ public class RutaFragment extends PermisosFragment implements OnMapReadyCallback
     private MapView mapView;
     private GoogleMap gmap;
 
-    public static boolean permisoUbicacionCheck(final Activity context) {
+    ArrayList<String> permisoRequerido = new ArrayList<String>() {
+        {
+            add(Manifest.permission.ACCESS_FINE_LOCATION);
 
-        //permiso de ubicacion detallada
-        int permisoUbicacion = ContextCompat.checkSelfPermission(context,
-                Manifest.permission.ACCESS_FINE_LOCATION);
-
-        if (permisoUbicacion != PackageManager.PERMISSION_GRANTED) {
-
-            // Preguntar al usuario por los permisos
-            ActivityCompat.requestPermissions(context, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-
-                    REQUEST_ID_MULTIPLE_PERMISSIONS);
-
-            return false;
         }
-        return true;
-    }
-
+    };
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // como se busca la distancia  entre dos puntos
+        Location pereira = new Location("");
+        pereira.setLatitude(4.81321);
+        pereira.setLongitude(-75.6946);
+        Location medellin = new Location("");
+        medellin.setLatitude(6.2518);
+        medellin.setLongitude(-75.5636);
+        float distancia = pereira.distanceTo(medellin) / 1000;// esta distancia hay que dividirla entre 1000 para que den kilometros
+
+        binding.textViewDistancia.setText(String.valueOf(distancia));
 
         Bundle mapViewBundle = null;
         if (savedInstanceState != null) {
@@ -74,6 +73,9 @@ public class RutaFragment extends PermisosFragment implements OnMapReadyCallback
         mapView.onCreate(mapViewBundle);
         mapView.getMapAsync(this);
 
+        // Llenando la lista  para seleccionar  la ciudad de origen
+        binding.inputOrigenText.setAdapter(new ArrayAdapter<>(getContext(), android.R.layout.select_dialog_item, getResources().getStringArray(R.array.ciudades)));
+        binding.inputDestinoText.setAdapter(new ArrayAdapter<>(getContext(), android.R.layout.select_dialog_item, getResources().getStringArray(R.array.ciudades)));
 
         //Evento click del boton continuar
         binding.buttonContinuar.setOnClickListener(v -> {
@@ -136,7 +138,6 @@ public class RutaFragment extends PermisosFragment implements OnMapReadyCallback
     @Override
     public void onResume() {
         super.onResume();
-        permisoUbicacionCheck(getActivity());
         mapView.onResume();
     }
 
@@ -171,6 +172,7 @@ public class RutaFragment extends PermisosFragment implements OnMapReadyCallback
     }
 
     // Configuraion de google maps
+    @SuppressLint("MissingPermission")
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         gmap = googleMap;
@@ -178,11 +180,12 @@ public class RutaFragment extends PermisosFragment implements OnMapReadyCallback
         LatLng pereira = new LatLng(4.81321, -75.6946);
         gmap.moveCamera(CameraUpdateFactory.newLatLng(pereira));
 
+        verificarPermisos(permisoRequerido, (otorgados, noOtorgados) -> {
+            if (otorgados.contains(Manifest.permission.ACCESS_FINE_LOCATION)) {
+                gmap.setMyLocationEnabled(true);
+            }
+        });
 
-        gmap.setMyLocationEnabled(true);
-
-        gmap.getUiSettings().setMyLocationButtonEnabled(true);
-        gmap.setIndoorEnabled(true);
         UiSettings uiSettings = gmap.getUiSettings();
 
         uiSettings.setIndoorLevelPickerEnabled(true);
@@ -191,14 +194,10 @@ public class RutaFragment extends PermisosFragment implements OnMapReadyCallback
         uiSettings.setCompassEnabled(true);
         uiSettings.setZoomControlsEnabled(true);
 
-
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(pereira);
         gmap.addMarker(markerOptions);
 
-
     }
 
 }
-
-

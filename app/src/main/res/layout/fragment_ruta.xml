@@ -86,48 +86,40 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/InputOrigen"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/origen"
-                app:counterEnabled="true"
-                app:counterMaxLength="15"
-                app:endIconDrawable="@drawable/ic_baseline_home_"
-                app:endIconMode="custom"
-                app:errorEnabled="true"
                 app:helperText="@string/text_helper_ruta"
                 app:layout_constraintBottom_toTopOf="@id/InputDestino"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
                     android:id="@+id/inputOrigenText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text" />
+                    android:inputType="none" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/InputDestino"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/destino"
-                app:counterEnabled="true"
-                app:counterMaxLength="15"
-                app:endIconDrawable="@drawable/ic_baseline_ruta"
-                app:endIconMode="custom"
-                app:errorEnabled="true"
                 app:helperText="@string/text_helper_ruta"
                 app:layout_constraintBottom_toTopOf="@id/textViewDuracion"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/InputOrigen">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
                     android:id="@+id/inputDestinoText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text" />
+                    android:inputType="none" />
 
             </com.google.android.material.textfield.TextInputLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
