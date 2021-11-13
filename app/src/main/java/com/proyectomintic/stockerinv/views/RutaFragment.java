@@ -1,6 +1,9 @@
 package com.proyectomintic.stockerinv.views;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -10,6 +13,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -18,15 +23,16 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.proyectomintic.stockerinv.R;
 import com.proyectomintic.stockerinv.databinding.FragmentRutaBinding;
 import com.proyectomintic.stockerinv.utils.Dialogos;
+import com.proyectomintic.stockerinv.utils.PermisosFragment;
 
 
-public class RutaFragment extends BottomSheetDialogFragment implements OnMapReadyCallback {
+public class RutaFragment extends PermisosFragment implements OnMapReadyCallback {
 
     private static final String MAP_VIEW_BUNDLE_KEY = "MapViewBundleKey";
+    public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 101;
     public static final String ORIGEN = "origen";
     public static final String DESTINO = "destino";
     FragmentRutaBinding binding;
@@ -34,6 +40,24 @@ public class RutaFragment extends BottomSheetDialogFragment implements OnMapRead
     Bundle eleccionRuta;
     private MapView mapView;
     private GoogleMap gmap;
+
+    public static boolean permisoUbicacionCheck(final Activity context) {
+
+        //permiso de ubicacion detallada
+        int permisoUbicacion = ContextCompat.checkSelfPermission(context,
+                Manifest.permission.ACCESS_FINE_LOCATION);
+
+        if (permisoUbicacion != PackageManager.PERMISSION_GRANTED) {
+
+            // Preguntar al usuario por los permisos
+            ActivityCompat.requestPermissions(context, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+
+                    REQUEST_ID_MULTIPLE_PERMISSIONS);
+
+            return false;
+        }
+        return true;
+    }
 
 
     @Override
@@ -112,6 +136,7 @@ public class RutaFragment extends BottomSheetDialogFragment implements OnMapRead
     @Override
     public void onResume() {
         super.onResume();
+        permisoUbicacionCheck(getActivity());
         mapView.onResume();
     }
 
@@ -153,6 +178,8 @@ public class RutaFragment extends BottomSheetDialogFragment implements OnMapRead
         LatLng pereira = new LatLng(4.81321, -75.6946);
         gmap.moveCamera(CameraUpdateFactory.newLatLng(pereira));
 
+
+        gmap.setMyLocationEnabled(true);
 
         gmap.getUiSettings().setMyLocationButtonEnabled(true);
         gmap.setIndoorEnabled(true);

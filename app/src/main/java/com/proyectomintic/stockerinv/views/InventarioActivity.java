@@ -51,6 +51,7 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
 
     }
 
+    //Verificando los permisos de la app
     public static boolean checkAndRequestPermissions(final Activity context) {
 
         //permiso de almacenamiento externo para guardar la foto
@@ -169,6 +170,9 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
 
             case R.id.page_to_ruta:
 
+                RutaFragment dialogo_uno = new RutaFragment();
+                dialogo_uno.show(getSupportFragmentManager(), "RutaFragment");
+
                 //  si otorga los permisos de la camara  lanza el metodo chooseImage en el contexto de la activity actual
                 if (checkAndRequestPermissions(this)) {
 
@@ -190,6 +194,7 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
 
     }
 
+    //cierre de sesion
     @Override
     public void onDestroy() {
         super.onDestroy();
