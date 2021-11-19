@@ -1,6 +1,5 @@
 package com.proyectomintic.stockerinv.views;
 
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -23,6 +22,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.proyectomintic.stockerinv.R;
 import com.proyectomintic.stockerinv.databinding.FragmentRutaBinding;
 import com.proyectomintic.stockerinv.utils.Dialogos;
@@ -37,7 +38,6 @@ public class RutaFragment extends PermisosFragment implements OnMapReadyCallback
     public static final String DESTINO = "destino";
     FragmentRutaBinding binding;
     String eleccionOrigen, eleccionDestino;
-    Bundle eleccionRuta;
     private MapView mapView;
     private GoogleMap gmap;
     Double origenLat, origenLon, destinoLat, destinoLon;
@@ -58,7 +58,6 @@ public class RutaFragment extends PermisosFragment implements OnMapReadyCallback
             mapViewBundle = savedInstanceState.getBundle(MAP_VIEW_BUNDLE_KEY);
         }
 
-
         // google maps
         mapView = binding.mapView;
         mapView.onCreate(mapViewBundle);
@@ -77,12 +76,9 @@ public class RutaFragment extends PermisosFragment implements OnMapReadyCallback
         binding.buttonContinuar.setOnClickListener(v -> {
 
             // Obteniendo el string del EditText
-            eleccionRuta = new Bundle();
-
             eleccionOrigen = binding.inputOrigenText.getText().toString();
             eleccionDestino = binding.inputDestinoText.getText().toString();
-            eleccionRuta.putString(ORIGEN, eleccionOrigen);
-            eleccionRuta.putString(DESTINO, eleccionDestino);
+
 
             if (TextUtils.isEmpty(eleccionOrigen) || TextUtils.isEmpty(eleccionDestino)) {
 
@@ -376,6 +372,12 @@ public class RutaFragment extends PermisosFragment implements OnMapReadyCallback
             LatLng destinoM = new LatLng(destinoLat, destinoLon);
             gmap.addMarker(new MarkerOptions().position(destinoM).title("Marker in Destino"));
 
+            Polyline polyline1 = gmap.addPolyline(new PolylineOptions()
+                    .clickable(true)
+                    .color(R.color.primary)
+                    .add(
+                            new LatLng(origenLat, origenLon),
+                            new LatLng(destinoLat, destinoLon)));
         });
 
     }

@@ -1,8 +1,5 @@
 package com.proyectomintic.stockerinv.views;
 
-import android.Manifest;
-import android.app.Activity;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,8 +8,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -26,7 +21,6 @@ import com.proyectomintic.stockerinv.model.Elemento;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class InventarioActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -37,7 +31,6 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
     String textViewContador, crearNombreArticulos, textViewCategoriaElegida, eleccionDestino, eleccionOrigen;
     GoogleSignInClient mGoogleSignInClient;
     GoogleSignInOptions gso;
-    public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 101;
 
     @Override
     protected void onStart() {
@@ -48,38 +41,6 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
             dialogo_cero.show(getSupportFragmentManager(), "LoginFragment");
         }
 
-    }
-
-    //Verificando los permisos de la app
-    public static boolean checkAndRequestPermissions(final Activity context) {
-
-        //permiso de almacenamiento externo para guardar la foto
-        int WExtstorePermission = ContextCompat.checkSelfPermission(context,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE);
-
-        //permiso para utilizar la camara del celular
-        int cameraPermission = ContextCompat.checkSelfPermission(context,
-                Manifest.permission.CAMERA);
-
-        // Array donde se guardan los permisos
-        List<String> listPermissionsNeeded = new ArrayList<>();
-
-        //Agregando los permisos en el manifest
-        if (cameraPermission != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(Manifest.permission.CAMERA);
-        }
-        if (WExtstorePermission != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded
-                    .add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        }
-        // validacion de los permisos
-        if (!listPermissionsNeeded.isEmpty()) {
-            ActivityCompat.requestPermissions(context, listPermissionsNeeded
-                            .toArray(new String[0]),
-                    REQUEST_ID_MULTIPLE_PERMISSIONS);
-            return false;
-        }
-        return true;
     }
 
     @Override
