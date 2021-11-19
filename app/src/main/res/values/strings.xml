@@ -19,13 +19,14 @@
     <!--- APP -->
     <string name="app_name">StockerInv</string>
     <string name="ingreso_con_google">Ingrese con Google</string>
-    <string name="no_tienes_cuenta">¿Aun No Tienes Una Cuenta?</string>
+    <string name="no_tienes_cuenta"> Desliza  \n Prueba Nuestra app</string>
     <string name="registro">Registrate</string>
     <string name="registrarse">Registrarse</string>
     <string name="texto_checkbox">Al registrarse acepta los terminos y condiciones, la politica de uso de datos disponible en www.StockerInv.com.co</string>
     <string name="terminos_y_condiciones">Registrate</string>
     <string name="content_description">Aqui hay algo</string>
     <string name="continuar">Continuar</string>
+    <string name="slogan">Hacemos Las Cosas Faciles Para Ti</string>
 
 
     <!--- Usuario -->
@@ -43,11 +44,12 @@
     <string name="mensaje_campo_vacio">Requerimos que todos los campos esten diligenciados para  continuar </string>
 
     <!--- Elementos -->
-    <string name="texto_elementos">° ° Crear Elementos ° °</string>
+    <string name="texto_elementos">° ° Nuevo Elemento ° °</string>
+    <string name="texto_crear_elemento">° ° Crear Elemento ° °</string>
     <string name="nombre_elemento"> Nombre del Elemento</string>
     <string name="texto_unidades"> Unidades </string>
     <string name="buscar_elemento"> Buscar Elemento </string>
-    <string name="agrega_foto_articulo"> Agrega una Foto del Articulo </string>
+    <string name="agrega_foto_articulo"> Agrega una Foto \n del Articulo </string>
     <string name="text_view_contador_uno"> 0 Unidades </string>
     <string name="texto_helper_Elementos">Seleccione el nombre de la Categoria</string>
 
@@ -57,6 +59,8 @@
     <string name="text_view_distancia"> 0 KM </string>
     <string name="text_view_duracion"> 00:00 Horas </string>
     <string name="text_helper_ruta">Ciudad o Municipio</string>
+    <string name="ruta_text"> Ruta</string>
+    <string name="probar_ruta"> Verificar Ruta</string>
 
     <!--- Inventario -->
     <string name="texto_home"> Home </string>
@@ -64,8 +68,6 @@
     <string name="texto_exportar"> Exportar </string>
     <string name="texto_salir_app"> Cerrar APP </string>
     <string name="text_helper_inventario">Ingresa el Nombre del Articulo </string>
-
-    <!-- TODO: Remove or change this placeholder text -->
 
 
 </resources>

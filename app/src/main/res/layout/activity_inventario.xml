@@ -18,7 +18,7 @@
         android:textAllCaps="true"
         android:textSize="@dimen/texto_principal"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/cardViewCategorias"
+        app:layout_constraintBottom_toTopOf="@id/cardViewCategorias"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textInputLayout" />
@@ -29,17 +29,17 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margen_media"
         android:hint="@string/buscar_elemento"
-        app:counterEnabled="true"
-        app:endIconDrawable="@android:drawable/ic_menu_search"
         android:padding="@dimen/padding_texto"
+        app:counterEnabled="true"
         app:counterMaxLength="15"
+        app:endIconDrawable="@android:drawable/ic_menu_search"
         app:endIconMode="custom"
         app:errorEnabled="true"
         app:helperText="@string/text_helper_inventario"
         app:layout_constraintBottom_toTopOf="@id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageViewFotoUsuario">
+        app:layout_constraintTop_toBottomOf="@id/cardViewDatosRuta">
 
 
         <com.google.android.material.textfield.TextInputEditText
@@ -54,7 +54,6 @@
         android:id="@+id/cardViewCategorias"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margen_minima"
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,8 +62,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintBottom_toTopOf="@+id/btnCategoriaCocina"
-            app:layout_constraintTop_toTopOf="@+id/btnCategoriaCocina">
+            app:layout_constraintBottom_toTopOf="@id/btnCategoriaCocina"
+            app:layout_constraintTop_toTopOf="@id/btnCategoriaCocina">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCategoriaCocina"
@@ -73,11 +72,10 @@
                 android:text="@string/categoria_cocina"
                 app:icon="@drawable/icono_cocina"
                 app:iconTint="@null"
-                app:layout_constraintBottom_toBottomOf="@+id/btnCategoriaDecoracion"
+                app:layout_constraintBottom_toBottomOf="@id/btnCategoriaDecoracion"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/btnCategoriaDecoracion"
-                app:layout_constraintTop_toTopOf="@+id/btnCategoriaDecoracion" />
+                app:layout_constraintStart_toEndOf="@id/btnCategoriaDecoracion"
+                app:layout_constraintTop_toTopOf="@id/btnCategoriaDecoracion" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCategroiaMuebles"
@@ -86,9 +84,8 @@
                 android:text="@string/categoria_muebles"
                 app:icon="@drawable/icono_muebles"
                 app:iconTint="@null"
-                app:layout_constraintBottom_toTopOf="@+id/btnCategoriaTecnologia"
-                app:layout_constraintEnd_toStartOf="@+id/btnCategoriaLimpieza"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintBottom_toTopOf="@id/btnCategoriaTecnologia"
+                app:layout_constraintEnd_toStartOf="@id/btnCategoriaLimpieza"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -100,11 +97,10 @@
                 android:text="@string/categoria_jardin"
                 app:icon="@drawable/icono_jardin"
                 app:iconTint="@null"
-                app:layout_constraintBottom_toBottomOf="@+id/btnCategoriaTecnologia"
+                app:layout_constraintBottom_toBottomOf="@id/btnCategoriaTecnologia"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/btnCategoriaTecnologia"
-                app:layout_constraintTop_toTopOf="@+id/btnCategoriaTecnologia" />
+                app:layout_constraintStart_toEndOf="@id/btnCategoriaTecnologia"
+                app:layout_constraintTop_toTopOf="@id/btnCategoriaTecnologia" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCategoriaLimpieza"
@@ -113,11 +109,10 @@
                 android:text="@string/categoria_limpieza"
                 app:icon="@drawable/icono_limpieza"
                 app:iconTint="@null"
-                app:layout_constraintBottom_toBottomOf="@+id/btnCategroiaMuebles"
+                app:layout_constraintBottom_toBottomOf="@id/btnCategroiaMuebles"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/btnCategroiaMuebles"
-                app:layout_constraintTop_toTopOf="@+id/btnCategroiaMuebles" />
+                app:layout_constraintStart_toEndOf="@id/btnCategroiaMuebles"
+                app:layout_constraintTop_toTopOf="@id/btnCategroiaMuebles" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCategoriaDecoracion"
@@ -126,11 +121,10 @@
                 android:text="@string/categoria_decoracion"
                 app:icon="@drawable/icono_decoracion"
                 app:iconTint="@null"
-                app:layout_constraintBottom_toTopOf="@+id/btnCategoriaElectrodomesticos"
-                app:layout_constraintEnd_toStartOf="@+id/btnCategoriaCocina"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintBottom_toTopOf="@id/btnCategoriaElectrodomesticos"
+                app:layout_constraintEnd_toStartOf="@id/btnCategoriaCocina"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnCategoriaTecnologia" />
+                app:layout_constraintTop_toBottomOf="@id/btnCategoriaTecnologia" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCategoriaTecnologia"
@@ -139,11 +133,10 @@
                 android:text="@string/categoria_tecnologia"
                 app:icon="@drawable/icono_tecnologia"
                 app:iconTint="@null"
-                app:layout_constraintBottom_toTopOf="@+id/btnCategoriaDecoracion"
-                app:layout_constraintEnd_toStartOf="@+id/btnCategoriaJardin"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintBottom_toTopOf="@id/btnCategoriaDecoracion"
+                app:layout_constraintEnd_toStartOf="@id/btnCategoriaJardin"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnCategroiaMuebles" />
+                app:layout_constraintTop_toBottomOf="@id/btnCategroiaMuebles" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCategoriaElectrodomesticos"
@@ -155,7 +148,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnCategoriaDecoracion" />
+                app:layout_constraintTop_toBottomOf="@id/btnCategoriaDecoracion" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
@@ -169,28 +162,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardViewCategorias"
         app:menu="@menu/bottom_nav_menu" />
-
-    <ImageView
-        android:id="@+id/imageViewFotoUsuario"
-        android:layout_width="@dimen/dimen_icono_cuadrado"
-        android:layout_height="@dimen/dimen_icono_cuadrado"
-        android:layout_margin="@dimen/margen_minima"
-        android:contentDescription="@string/content_description"
-        android:scaleType="centerCrop"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@id/textInputLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logoapp" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardViewDatosRuta"
-        android:layout_width="wrap_content"
-        android:layout_margin="@dimen/margen_minima"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@id/textInputLayout"
-        app:layout_constraintEnd_toStartOf="@id/imageViewFotoUsuario"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -203,8 +183,8 @@
                 android:id="@+id/textViewOrigen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/origen"
                 android:layout_marginHorizontal="@dimen/margen_minima"
+                android:text="@string/origen"
                 app:layout_constraintBottom_toTopOf="@id/textViewDestino"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -213,11 +193,24 @@
                 android:id="@+id/textViewDestino"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/destino"
                 android:layout_margin="@dimen/margen_minima"
+                android:text="@string/destino"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewOrigen" />
+                app:layout_constraintTop_toBottomOf="@id/textViewOrigen" />
+
+            <ImageView
+                android:id="@+id/imageViewFotoUsuario"
+                android:layout_width="@dimen/dimen_icono_cuadrado"
+                android:layout_height="@dimen/dimen_icono_cuadrado"
+                android:contentDescription="@string/content_description"
+                android:scaleType="centerCrop"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/textViewDestino"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logoapp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
