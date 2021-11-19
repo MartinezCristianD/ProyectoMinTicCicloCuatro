@@ -1,4 +1,4 @@
-package com.proyectomintic.stockerinv.views.utils;
+package com.proyectomintic.stockerinv.utils;
 
 import android.content.Context;
 

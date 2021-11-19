@@ -1,5 +1,8 @@
 package com.proyectomintic.stockerinv.views;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -8,33 +11,75 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.proyectomintic.stockerinv.R;
 import com.proyectomintic.stockerinv.databinding.ActivityInventarioBinding;
-import com.proyectomintic.stockerinv.views.model.Elemento;
+import com.proyectomintic.stockerinv.model.Elemento;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class InventarioActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     public ActivityInventarioBinding binding;
-    private static final String TAG = "LoginScreen";
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     ArrayList<Elemento> elementos = new ArrayList<>();
-    public static final String ORIGEN = "origen";
-    public static final String DESTINO = "destino";
+    public static final String ORIGEN = "origen", DESTINO = "destino";
     String textViewContador, crearNombreArticulos, textViewCategoriaElegida, eleccionDestino, eleccionOrigen;
+    GoogleSignInClient mGoogleSignInClient;
+    GoogleSignInOptions gso;
+    public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 101;
 
     @Override
     protected void onStart() {
         super.onStart();
-        // validando el ingreso del usuario
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user == null) {
+            LoginFragment dialogo_cero = new LoginFragment();
+            dialogo_cero.show(getSupportFragmentManager(), "LoginFragment");
+        }
+
+    }
+
+    //Verificando los permisos de la app
+    public static boolean checkAndRequestPermissions(final Activity context) {
+
+        //permiso de almacenamiento externo para guardar la foto
+        int WExtstorePermission = ContextCompat.checkSelfPermission(context,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        //permiso para utilizar la camara del celular
+        int cameraPermission = ContextCompat.checkSelfPermission(context,
+                Manifest.permission.CAMERA);
+
+        // Array donde se guardan los permisos
+        List<String> listPermissionsNeeded = new ArrayList<>();
+
+        //Agregando los permisos en el manifest
+        if (cameraPermission != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.CAMERA);
+        }
+        if (WExtstorePermission != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded
+                    .add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        }
+        // validacion de los permisos
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(context, listPermissionsNeeded
+                            .toArray(new String[0]),
+                    REQUEST_ID_MULTIPLE_PERMISSIONS);
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -44,6 +89,7 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
         setTheme(R.style.Theme_AppCompat);
         binding = ActivityInventarioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
 
         //Picaso para importar la imagende usuario
         if ((mAuth.getCurrentUser() != null) && (mAuth.getCurrentUser().getPhotoUrl() != null)) {
@@ -87,8 +133,17 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
         elementos.add(elemento);
 
         //Mostrando el String en el TextView
-        binding.textViewOrigen.setText("Origen " + eleccionOrigen);
-        binding.textViewDestino.setText("Destino " + eleccionDestino);
+        if (eleccionOrigen != null || eleccionDestino != null) {
+            binding.textViewOrigen.setText(eleccionOrigen);
+            binding.textViewDestino.setText(eleccionDestino);
+        } else {
+            String uno = getString(R.string.origen);
+            String dos = getString(R.string.destino);
+            binding.textViewOrigen.setText(uno);
+            binding.textViewDestino.setText(dos);
+
+        }
+
 
     }
 
@@ -96,6 +151,7 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+
             case R.id.page_to_export:
                 Toast.makeText(this, "Enviaremos su Inventario", Toast.LENGTH_LONG).show();
                 return true;
@@ -106,16 +162,14 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
                 return true;
 
             case R.id.page_to_add:
-
                 CrearElementoFragment dialogo_dos = new CrearElementoFragment();
                 dialogo_dos.show(getSupportFragmentManager(), "CrearElementoFragment");
 
                 return true;
 
             case R.id.page_to_ruta:
-
-                RutaFragment dialogo_uno = new RutaFragment();
-                dialogo_uno.show(getSupportFragmentManager(), "RutaFragment");
+                    RutaFragment dialogo_uno = new RutaFragment();
+                    dialogo_uno.show(getSupportFragmentManager(), "RutaFragment");
 
                 return true;
 
@@ -125,22 +179,14 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
 
     }
 
-    private void updateUI(FirebaseUser user) {
-        if (user == null) {
-            LoginFragment dialogo = new LoginFragment();
-            dialogo.show(getSupportFragmentManager(), "LoginFragment");
-        }
-
-    }
-
-
+    //cierre de sesion
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    public void onDestroy() {
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        mGoogleSignInClient.signOut();
         FirebaseAuth.getInstance().signOut();
-        finish();
+        super.onDestroy();
+
     }
 
 }
-
-

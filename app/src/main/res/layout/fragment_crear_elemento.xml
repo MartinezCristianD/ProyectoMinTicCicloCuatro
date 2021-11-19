@@ -17,15 +17,14 @@
         android:inputType="textEmailAddress"
         android:padding="@dimen/padding_texto"
         android:textSize="@dimen/texto_secundario"
-        app:counterEnabled="true"
         app:counterMaxLength="15"
         app:endIconDrawable="@drawable/ic_baseline_agregar"
         app:endIconMode="custom"
         app:errorEnabled="true"
-        app:layout_constraintBottom_toTopOf="@+id/cardViewAgregarArticulos"
+        app:layout_constraintBottom_toTopOf="@id/cardViewAgregarArticulos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewElementos">
+        app:layout_constraintTop_toBottomOf="@id/btnCrearElementos">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/crearNombreArticulotext"
@@ -41,20 +40,20 @@
         android:gravity="center"
         android:text="@string/texto_elementos"
         android:textSize="@dimen/texto_grande"
-        app:layout_constraintBottom_toTopOf="@+id/crearNombreArticulo"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/cardViewFotoArticulos" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardViewAgregarArticulos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margen_minima"
-        app:layout_constraintBottom_toTopOf="@+id/cardViewFotoArticulos"
+        app:layout_constraintBottom_toTopOf="@id/cardViewFotoArticulos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/crearNombreArticulo">
+        app:layout_constraintTop_toBottomOf="@id/crearNombreArticulo">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -117,10 +116,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margen_minima"
-        app:layout_constraintBottom_toTopOf="@+id/btnCrearElementos"
+        app:layout_constraintBottom_toTopOf="@+id/textViewElementos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardViewAgregarArticulos">
+        app:layout_constraintTop_toBottomOf="@id/cardViewAgregarArticulos">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -133,24 +132,23 @@
                 android:layout_marginVertical="@dimen/margen_media"
                 android:background="@drawable/icono_camara_dos"
                 android:contentDescription="@string/content_description"
-                app:layout_constraintBottom_toBottomOf="@+id/textView2"
-                app:layout_constraintEnd_toStartOf="@+id/textView2"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintBottom_toBottomOf="@id/textViewAgregarFoto"
+                app:layout_constraintEnd_toStartOf="@id/textViewAgregarFoto"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView2"
+                app:layout_constraintTop_toTopOf="@id/textViewAgregarFoto"
                 tools:ignore="DuplicateSpeakableTextCheck" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textViewAgregarFoto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margen_minima"
+                android:gravity="center"
                 android:text="@string/agrega_foto_articulo"
                 android:textSize="@dimen/texto_secundario"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/imageButtonAccederCamara"
+                app:layout_constraintStart_toEndOf="@id/imageButtonAccederCamara"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -162,10 +160,10 @@
         android:layout_height="wrap_content"
         android:text="@string/texto_crear_elemento"
         android:textSize="@dimen/texto_boton_principal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/crearNombreArticulo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardViewFotoArticulos" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
