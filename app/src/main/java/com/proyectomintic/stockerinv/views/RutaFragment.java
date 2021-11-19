@@ -367,7 +367,7 @@ public class RutaFragment extends PermisosFragment implements OnMapReadyCallback
             int distancia = (int) origen.distanceTo(destino) / 1000;
 
             //Mostrando la distancia en el textView
-            binding.textViewDistancia.setText(String.valueOf(distancia) + "Km");
+            binding.textViewDistancia.setText(distancia + "Km");
 
             // Linea marcador de ruta
             LatLng origenM = new LatLng(origenLat, origenLon);
