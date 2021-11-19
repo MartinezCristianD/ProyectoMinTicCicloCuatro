@@ -364,17 +364,10 @@ public class RutaFragment extends PermisosFragment implements OnMapReadyCallback
             destino.setLongitude(destinoLon);
 
             // esta distancia hay que dividirla entre 1000 para que de KM
-            float distancia = origen.distanceTo(destino) / 1000;
+            int distancia = (int) origen.distanceTo(destino) / 1000;
 
             //Mostrando la distancia en el textView
-            binding.textViewDistancia.setText(String.valueOf(distancia));
-
-            // Asignando la duracion del viaje
-            float horas = distancia * 2;
-
-
-            //Mostrando la distancia en el textView
-            binding.textViewDuracion.setText(String.valueOf(horas));
+            binding.textViewDistancia.setText(String.valueOf(distancia) + "Km");
 
             // Linea marcador de ruta
             LatLng origenM = new LatLng(origenLat, origenLon);
