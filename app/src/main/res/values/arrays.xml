@@ -18,9 +18,38 @@
     </string-array>
 
     <string-array name="ciudades">
-        <item>Pereira</item>
+        <item>Arauca</item>
+        <item>Armenia</item>
+        <item>Barranquilla</item>
         <item>Bogota</item>
+        <item>Bucaramanga</item>
+        <item>Cali</item>
+        <item>Cartagena</item>
+        <item>Florencia</item>
+        <item>Ibague</item>
+        <item>Inirida</item>
+        <item>Leticia</item>
+        <item>Manizales</item>
         <item>Medellin</item>
+        <item>Mitu</item>
+        <item>Mocoa</item>
+        <item>Monteria</item>
+        <item>Neiva</item>
+        <item>Pereira</item>
+        <item>Popayan</item>
+        <item>Puerto Carreño</item>
+        <item>Quibdo</item>
+        <item>Riohacha</item>
+        <item>San Andres </item>
+        <item>Cucuta</item>
+        <item>Guaviare</item>
+        <item>Pasto</item>
+        <item>Santa Marta</item>
+        <item>Sincelejo</item>
+        <item>Tunja</item>
+        <item>Valledupar</item>
+        <item>Villavicencio</item>
+        <item>Yopal</item>
     </string-array>
 
 </resources>

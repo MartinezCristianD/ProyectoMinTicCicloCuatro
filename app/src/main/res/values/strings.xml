@@ -60,6 +60,7 @@
     <string name="text_view_duracion"> 00:00 Horas </string>
     <string name="text_helper_ruta">Ciudad o Municipio</string>
     <string name="ruta_text"> Ruta</string>
+    <string name="probar_ruta"> Verificar Ruta</string>
 
     <!--- Inventario -->
     <string name="texto_home"> Home </string>

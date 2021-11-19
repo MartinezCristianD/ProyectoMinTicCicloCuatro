@@ -21,11 +21,10 @@
         app:endIconDrawable="@drawable/ic_baseline_agregar"
         app:endIconMode="custom"
         app:errorEnabled="true"
-        android:layout_margin="@dimen/margen_grande"
         app:layout_constraintBottom_toTopOf="@id/cardViewAgregarArticulos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewElementos">
+        app:layout_constraintTop_toBottomOf="@id/btnCrearElementos">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/crearNombreArticulotext"
@@ -41,10 +40,10 @@
         android:gravity="center"
         android:text="@string/texto_elementos"
         android:textSize="@dimen/texto_grande"
-        app:layout_constraintBottom_toTopOf="@id/crearNombreArticulo"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/cardViewFotoArticulos" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardViewAgregarArticulos"
@@ -117,7 +116,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margen_minima"
-        app:layout_constraintBottom_toTopOf="@id/btnCrearElementos"
+        app:layout_constraintBottom_toTopOf="@+id/textViewElementos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardViewAgregarArticulos">
@@ -143,8 +142,8 @@
                 android:id="@+id/textViewAgregarFoto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginHorizontal="@dimen/margen_minima"
+                android:gravity="center"
                 android:text="@string/agrega_foto_articulo"
                 android:textSize="@dimen/texto_secundario"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -161,10 +160,10 @@
         android:layout_height="wrap_content"
         android:text="@string/texto_crear_elemento"
         android:textSize="@dimen/texto_boton_principal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/crearNombreArticulo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardViewFotoArticulos" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

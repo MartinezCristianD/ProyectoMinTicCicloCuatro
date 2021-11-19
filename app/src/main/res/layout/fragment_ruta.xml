@@ -14,11 +14,10 @@
         android:id="@+id/CardViewMapa"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_margin="@dimen/margen_minima"
         app:layout_constraintBottom_toTopOf="@id/cardViewIngresoDestino"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/buttonContinuar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -42,32 +41,23 @@
         android:layout_margin="@dimen/margen_minima"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/CardViewMapa">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margen_minima">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonContinuar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margen_minima"
-                android:text="@string/continuar"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textViewDuracion" />
-
             <TextView
                 android:id="@+id/textViewDistancia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margen_minima"
                 android:padding="@dimen/padding_texto"
                 android:text="@string/text_view_distancia"
                 android:textSize="@dimen/texto_principal"
-                app:layout_constraintBottom_toBottomOf="@id/textViewDuracion"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewDuracion"
                 app:layout_constraintEnd_toStartOf="@id/textViewDuracion"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/textViewDuracion" />
@@ -79,7 +69,8 @@
                 android:padding="@dimen/padding_texto"
                 android:text="@string/text_view_duracion"
                 android:textSize="@dimen/texto_principal"
-                app:layout_constraintBottom_toTopOf="@id/buttonContinuar"
+                android:layout_margin="@dimen/margen_minima"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/textViewDistancia"
                 app:layout_constraintTop_toBottomOf="@id/InputDestino" />
@@ -91,9 +82,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/origen"
                 app:helperText="@string/text_helper_ruta"
+                android:layout_margin="@dimen/margen_minima"
                 app:layout_constraintBottom_toTopOf="@id/InputDestino"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.MaterialAutoCompleteTextView
@@ -110,9 +100,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/destino"
                 app:helperText="@string/text_helper_ruta"
+                android:layout_margin="@dimen/margen_minima"
                 app:layout_constraintBottom_toTopOf="@id/textViewDuracion"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/InputOrigen">
 
                 <com.google.android.material.textfield.MaterialAutoCompleteTextView
@@ -124,5 +113,28 @@
             </com.google.android.material.textfield.TextInputLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonContinuar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margen_minima"
+        android:text="@string/continuar"
+        app:layout_constraintBottom_toTopOf="@id/CardViewMapa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnVerificarRuta"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnVerificarRuta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margen_minima"
+        android:text="@string/probar_ruta"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonContinuar"
+        app:layout_constraintEnd_toStartOf="@+id/buttonContinuar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonContinuar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
