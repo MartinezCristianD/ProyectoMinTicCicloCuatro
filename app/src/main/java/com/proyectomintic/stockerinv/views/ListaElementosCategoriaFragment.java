@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.proyectomintic.stockerinv.R;
 import com.proyectomintic.stockerinv.databinding.FragmentListaElementosCategoriaBinding;
 import com.proyectomintic.stockerinv.model.Elemento;
 
@@ -29,13 +30,17 @@ public class ListaElementosCategoriaFragment extends BottomSheetDialogFragment {
         if (getArguments() != null) {
 
             ArrayList<Elemento> listaCategorias = getArguments().getParcelableArrayList(LISTA_CATEGORIAS);
+
             ArrayList<String> nombresElementos = new ArrayList<>();
+            ArrayList<String> cantidadElementos = new ArrayList<>();
             for (Elemento elemento : listaCategorias) {
-                nombresElementos.add(elemento.nombre.concat(" cantidad: ").concat(elemento.cantidad));
+                nombresElementos.add(elemento.nombre);
+                cantidadElementos.add(elemento.cantidad);
             }
 
             binding.textViewCategoriaHogar.setText(getArguments().getString(CATEGORIA_ELEGIDA));
-            binding.listView.setAdapter(new ArrayAdapter<>(getContext(), android.R.layout.select_dialog_item, nombresElementos));
+            binding.listView.setAdapter(new ArrayAdapter<>(getContext(), R.layout.items_layout, nombresElementos));
+
 
         }
 

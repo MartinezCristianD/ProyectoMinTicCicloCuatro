@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/margen_minima"
+    android:paddingRight="@dimen/margen_minima"
+    android:paddingBottom="8dp">
+
+    <ImageView
+        android:id="@+id/nombreElementos"
+        android:layout_width="@dimen/dimen_icono_rectangulo"
+        android:layout_height="@dimen/dimen_icono_cuadrado"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/margen_media"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logoapp" />
+
+    <TextView
+        android:id="@+id/cantidadArticulos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margen_minima"
+        android:text="@string/nombre_elemento"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/nombreElemento"
+        app:layout_constraintStart_toStartOf="@+id/nombreElemento"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nombreElemento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/cantidadArticulos"
+        android:layout_margin="@dimen/margen_minima"
+        android:text="@string/nombre_elemento"
+        app:layout_constraintBottom_toTopOf="@+id/cantidadArticulos"
+        app:layout_constraintStart_toEndOf="@+id/nombreElementos"
+        app:layout_constraintTop_toTopOf="@+id/nombreElementos" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
