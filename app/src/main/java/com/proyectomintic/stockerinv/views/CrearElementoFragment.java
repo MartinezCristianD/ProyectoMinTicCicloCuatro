@@ -19,7 +19,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.SeekBar;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,6 +36,10 @@ public class CrearElementoFragment extends PermisosFragment {
 
     FragmentCrearElementoBinding binding;
     String textViewCategoriaElegida, textViewContador, crearNombreArticulo;
+    public static final String CATEGORIA_ELEGIDA = "CATEGORIA_ELEGIDA";
+    public static final String NOMBRE_ARTICULO = "NOMBRE_ARTICULO";
+    public static final String CONTADOR = "CONTADOR";
+    public static final String FRAGMENT_ELEMENTO_RESULT_KEY = "FRAGMENT_ELEMENTO_RESULT_KEY";
     Bitmap fotoArticulo;
 
     @Override
@@ -62,26 +65,15 @@ public class CrearElementoFragment extends PermisosFragment {
                 // Creando dialogo de alerta
                 Dialogos.mensajePersonalizadoDialogo(requireContext(), getString(R.string.titulo_campo_vacio), getString(R.string.mensaje_campo_vacio));
 
-
             } else {
 
-                // Pasar al InventarioActivity
-                Intent i = new Intent(requireContext(), InventarioActivity.class);
+                Bundle i = new Bundle();
+                i.putString(CONTADOR, textViewContador);
+                i.putString(NOMBRE_ARTICULO, crearNombreArticulo);
+                i.putString(CATEGORIA_ELEGIDA, textViewCategoriaElegida);
 
-                //pasar datos a la activity
-
-                i.putExtra("texto_contador", textViewContador);
-                i.putExtra("nombre_articulo", crearNombreArticulo);
-                i.putExtra("seleccion_categoria", textViewCategoriaElegida);
-
-                //para provar el envio de informacion
-
-                Toast.makeText(requireContext(), textViewContador, Toast.LENGTH_SHORT).show();
-                Toast.makeText(requireContext(), textViewCategoriaElegida, Toast.LENGTH_SHORT).show();
-                Toast.makeText(requireContext(), crearNombreArticulo, Toast.LENGTH_SHORT).show();
-
-                //Iniciar  InventariActividad
-                startActivity(i);
+                getParentFragmentManager().setFragmentResult(FRAGMENT_ELEMENTO_RESULT_KEY, i);
+                dismiss();
 
             }
 

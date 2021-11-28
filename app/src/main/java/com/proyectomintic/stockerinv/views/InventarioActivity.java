@@ -1,5 +1,8 @@
 package com.proyectomintic.stockerinv.views;
 
+import static com.proyectomintic.stockerinv.views.CrearElementoFragment.FRAGMENT_ELEMENTO_RESULT_KEY;
+import static com.proyectomintic.stockerinv.views.RutaFragment.FRAGMENT_RUTA_RESULT_KEY;
+
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -52,6 +55,22 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
         setContentView(binding.getRoot());
 
 
+        // Actualizar los datos de origen y destino
+        getSupportFragmentManager().setFragmentResultListener(FRAGMENT_RUTA_RESULT_KEY, this, (requestKey, result) -> {
+            eleccionOrigen = result.getString(ORIGEN);
+            eleccionDestino = result.getString(DESTINO);
+            actualizarRuta();
+
+        });
+
+        // Actualizar los datos elementos
+        getSupportFragmentManager().setFragmentResultListener(FRAGMENT_ELEMENTO_RESULT_KEY, this, (requestKey, result) -> {
+            eleccionOrigen = result.getString(ORIGEN);
+            eleccionDestino = result.getString(DESTINO);
+            actualizarRuta();
+
+        });
+
         //Picaso para importar la imagende usuario
         if ((mAuth.getCurrentUser() != null) && (mAuth.getCurrentUser().getPhotoUrl() != null)) {
             Picasso.with(this)
@@ -73,6 +92,9 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
 
         };
 
+        // Actualizar  los datos de origen y destino( antes de que el usuario ingrese algun dato)
+        actualizarRuta();
+
         //Evento click boton cocina Llamado al Fragment
         binding.btnCategoriaCocina.setOnClickListener(listener);
         binding.btnCategoriaDecoracion.setOnClickListener(listener);
@@ -82,10 +104,8 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
         binding.btnCategroiaMuebles.setOnClickListener(listener);
         binding.btnCategoriaLimpieza.setOnClickListener(listener);
 
-
       /*  // Recuperando informacion de ElementosActivity
-        eleccionOrigen = getIntent().getExtras().getString(ORIGEN);
-        eleccionDestino = getIntent().getExtras().getString(DESTINO);
+
         textViewContador = getIntent().getExtras().getString("texto_contador");
         crearNombreArticulos = getIntent().getExtras().getString("nombre_articulo");
         textViewCategoriaElegida = getIntent().getExtras().getString("seleccion_categoria");*/
@@ -93,10 +113,13 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
         Elemento elemento = new Elemento(crearNombreArticulos, textViewCategoriaElegida, textViewContador, null);
         elementos.add(elemento);
 
+    }
+
+    private void actualizarRuta() {
         //Mostrando el String en el TextView
         if (eleccionOrigen != null || eleccionDestino != null) {
-            binding.textViewOrigen.setText(eleccionOrigen);
-            binding.textViewDestino.setText(eleccionDestino);
+            binding.textViewOrigen.setText(String.valueOf(eleccionOrigen));
+            binding.textViewDestino.setText(String.valueOf(eleccionDestino));
         } else {
             String uno = getString(R.string.origen);
             String dos = getString(R.string.destino);
@@ -104,8 +127,6 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
             binding.textViewDestino.setText(dos);
 
         }
-
-
     }
 
     // Configuracion de la barra inferior
