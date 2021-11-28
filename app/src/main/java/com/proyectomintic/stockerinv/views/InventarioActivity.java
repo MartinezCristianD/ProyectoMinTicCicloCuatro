@@ -1,6 +1,9 @@
 package com.proyectomintic.stockerinv.views;
 
+import static com.proyectomintic.stockerinv.views.CrearElementoFragment.CATEGORIA_ELEGIDA;
+import static com.proyectomintic.stockerinv.views.CrearElementoFragment.CONTADOR;
 import static com.proyectomintic.stockerinv.views.CrearElementoFragment.FRAGMENT_ELEMENTO_RESULT_KEY;
+import static com.proyectomintic.stockerinv.views.CrearElementoFragment.NOMBRE_ARTICULO;
 import static com.proyectomintic.stockerinv.views.RutaFragment.FRAGMENT_RUTA_RESULT_KEY;
 
 import android.os.Bundle;
@@ -21,6 +24,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.proyectomintic.stockerinv.R;
 import com.proyectomintic.stockerinv.databinding.ActivityInventarioBinding;
 import com.proyectomintic.stockerinv.model.Elemento;
+import com.proyectomintic.stockerinv.utils.Dialogos;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -30,8 +34,8 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
     public ActivityInventarioBinding binding;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     ArrayList<Elemento> elementos = new ArrayList<>();
-    public static final String ORIGEN = "origen", DESTINO = "destino";
-    String textViewContador, crearNombreArticulos, textViewCategoriaElegida, eleccionDestino, eleccionOrigen;
+    public static final String ORIGEN = "origen", DESTINO = "destino", LISTA_CATEGORIAS = "LISTA_CATEGORIAS";
+    String textViewContador, crearNombreArticulo, textViewCategoriaElegida, eleccionDestino, eleccionOrigen;
     GoogleSignInClient mGoogleSignInClient;
     GoogleSignInOptions gso;
 
@@ -54,7 +58,6 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
         binding = ActivityInventarioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
         // Actualizar los datos de origen y destino
         getSupportFragmentManager().setFragmentResultListener(FRAGMENT_RUTA_RESULT_KEY, this, (requestKey, result) -> {
             eleccionOrigen = result.getString(ORIGEN);
@@ -65,9 +68,14 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
 
         // Actualizar los datos elementos
         getSupportFragmentManager().setFragmentResultListener(FRAGMENT_ELEMENTO_RESULT_KEY, this, (requestKey, result) -> {
-            eleccionOrigen = result.getString(ORIGEN);
-            eleccionDestino = result.getString(DESTINO);
-            actualizarRuta();
+            textViewCategoriaElegida = result.getString(CATEGORIA_ELEGIDA);
+            textViewContador = result.getString(CONTADOR);
+            crearNombreArticulo = result.getString(NOMBRE_ARTICULO);
+
+            Elemento elemento = new Elemento(crearNombreArticulo, textViewCategoriaElegida, textViewContador, null);
+            elementos.add(elemento);
+
+            actualizarListaElementos();
 
         });
 
@@ -85,8 +93,17 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
         View.OnClickListener listener = view -> {
             ListaElementosCategoriaFragment dialogo = new ListaElementosCategoriaFragment();
             Bundle bundle = new Bundle();
-            bundle.putString("titulo_categoria", ((Button) view).getText().toString());
-            // elementos.stream().filter();
+            String categoriaElegida = ((Button) view).getText().toString();
+
+            ArrayList<Elemento> listaFiltrada = new ArrayList<>();
+            for (Elemento elemento : elementos) {
+                if (elemento.categoria.equals(categoriaElegida)) {
+                    listaFiltrada.add(elemento);
+                }
+            }
+
+            bundle.putString(CATEGORIA_ELEGIDA, categoriaElegida);
+            bundle.putParcelableArrayList(LISTA_CATEGORIAS, listaFiltrada);
             dialogo.setArguments(bundle);
             dialogo.show(getSupportFragmentManager(), "ListaElementosCategoriaFragment");
 
@@ -104,15 +121,38 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
         binding.btnCategroiaMuebles.setOnClickListener(listener);
         binding.btnCategoriaLimpieza.setOnClickListener(listener);
 
-      /*  // Recuperando informacion de ElementosActivity
+    }
 
-        textViewContador = getIntent().getExtras().getString("texto_contador");
-        crearNombreArticulos = getIntent().getExtras().getString("nombre_articulo");
-        textViewCategoriaElegida = getIntent().getExtras().getString("seleccion_categoria");*/
+    private void actualizarListaElementos() {
+        elementos.forEach(elemento -> {
+            switch (elemento.categoria) {
 
-        Elemento elemento = new Elemento(crearNombreArticulos, textViewCategoriaElegida, textViewContador, null);
-        elementos.add(elemento);
+                case ("Cocina"):
 
+                    break;
+                case ("Limpieza"):
+
+                    break;
+                case ("Jardin"):
+
+                    break;
+                case ("Muebles"):
+
+                    break;
+                case ("Electrodomesticos"):
+
+                    break;
+                case ("Tecnologia"):
+
+                    break;
+                case ("Decoracion"):
+
+                    break;
+
+                default:
+                    Dialogos.mensajePersonalizadoDialogo(this, "REQUERIDO", "Selecciona una categoria de la lista");
+            }
+        });
     }
 
     private void actualizarRuta() {
@@ -150,8 +190,8 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
                 return true;
 
             case R.id.page_to_ruta:
-                    RutaFragment dialogo_uno = new RutaFragment();
-                    dialogo_uno.show(getSupportFragmentManager(), "RutaFragment");
+                RutaFragment dialogo_uno = new RutaFragment();
+                dialogo_uno.show(getSupportFragmentManager(), "RutaFragment");
 
                 return true;
 
