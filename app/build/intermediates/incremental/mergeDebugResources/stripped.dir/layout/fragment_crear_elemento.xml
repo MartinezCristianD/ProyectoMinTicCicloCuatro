@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="@dimen/margen_minima"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    tools:context=".views.CrearElementoFragment">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/crearNombreArticulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nombre_elemento"
+        android:inputType="textEmailAddress"
+        android:padding="@dimen/padding_texto"
+        android:textSize="@dimen/texto_secundario"
+        app:counterMaxLength="15"
+        app:endIconDrawable="@drawable/ic_baseline_agregar"
+        app:endIconMode="custom"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@id/cardViewAgregarArticulos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnCrearElementos">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/crearNombreArticulotext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@id/textViewElementos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/texto_elementos"
+        android:textSize="@dimen/texto_grande"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardViewFotoArticulos" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardViewAgregarArticulos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margen_minima"
+        app:layout_constraintBottom_toTopOf="@id/cardViewFotoArticulos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/crearNombreArticulo">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margen_minima">
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                style="@android:style/Widget.SeekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margen_minima"
+                android:max="20"
+                android:progress="1"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewContador" />
+
+            <TextView
+                android:id="@+id/textViewContador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margen_minima"
+                android:gravity="center"
+                android:hint="@string/text_view_contador_uno"
+                android:textSize="@dimen/texto_principal"
+                app:layout_constraintBottom_toTopOf="@id/seekBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewCategoriaElegida" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textViewCategoriaElegida"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margen_minima"
+                android:hint="@string/categoria_cocina"
+                app:helperText="@string/texto_helper_Elementos"
+                app:layout_constraintBottom_toTopOf="@id/textViewContador"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/textViewCategoriaElegidatext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardViewFotoArticulos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margen_minima"
+        app:layout_constraintBottom_toTopOf="@+id/textViewElementos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardViewAgregarArticulos">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/imageButtonAccederCamara"
+                android:layout_width="@dimen/dimen_icono_cuadrado"
+                android:layout_height="@dimen/dimen_icono_rectangulo"
+                android:layout_marginVertical="@dimen/margen_media"
+                android:background="@drawable/icono_camara_dos"
+                android:contentDescription="@string/content_description"
+                app:layout_constraintBottom_toBottomOf="@id/textViewAgregarFoto"
+                app:layout_constraintEnd_toStartOf="@id/textViewAgregarFoto"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textViewAgregarFoto"
+                tools:ignore="DuplicateSpeakableTextCheck" />
+
+            <TextView
+                android:id="@+id/textViewAgregarFoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margen_minima"
+                android:gravity="center"
+                android:text="@string/agrega_foto_articulo"
+                android:textSize="@dimen/texto_secundario"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imageButtonAccederCamara"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCrearElementos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/texto_crear_elemento"
+        android:textSize="@dimen/texto_boton_principal"
+        app:layout_constraintBottom_toTopOf="@id/crearNombreArticulo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "C:\\Users\\davic\\ProyectoMinTicCicloCuatro\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_inventario.xml",
+        "source": "C:\\Users\\davic\\ProyectoMinTicCicloCuatro\\app\\src\\main\\res\\layout\\activity_inventario.xml"
+    },
+    {
+        "merged": "C:\\Users\\davic\\ProyectoMinTicCicloCuatro\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_lista_elementos_categoria.xml",
+        "source": "C:\\Users\\davic\\ProyectoMinTicCicloCuatro\\app\\src\\main\\res\\layout\\fragment_lista_elementos_categoria.xml"
+    },
+    {
+        "merged": "C:\\Users\\davic\\ProyectoMinTicCicloCuatro\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_login.xml",
+        "source": "C:\\Users\\davic\\ProyectoMinTicCicloCuatro\\app\\src\\main\\res\\layout\\fragment_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\davic\\ProyectoMinTicCicloCuatro\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_ruta_map.xml",
+        "source": "C:\\Users\\davic\\ProyectoMinTicCicloCuatro\\app\\src\\main\\res\\layout\\fragment_ruta_map.xml"
+    },
+    {
+        "merged": "C:\\Users\\davic\\ProyectoMinTicCicloCuatro\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_ruta.xml",
+        "source": "C:\\Users\\davic\\ProyectoMinTicCicloCuatro\\app\\src\\main\\res\\layout\\fragment_ruta.xml"
+    },
+    {
+        "merged": "C:\\Users\\davic\\ProyectoMinTicCicloCuatro\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_crear_elemento.xml",
+        "source": "C:\\Users\\davic\\ProyectoMinTicCicloCuatro\\app\\src\\main\\res\\layout\\fragment_crear_elemento.xml"
+    }
+]

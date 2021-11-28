@@ -1,0 +1,27 @@
+Index: app/src/main/java/com/proyectomintic/stockerinv/views/RutaFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.proyectomintic.stockerinv.views;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.text.TextUtils;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.Toast;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.annotation.Nullable;\r\n\r\nimport com.google.android.material.bottomsheet.BottomSheetDialogFragment;\r\nimport com.proyectomintic.stockerinv.R;\r\nimport com.proyectomintic.stockerinv.databinding.FragmentRutaBinding;\r\nimport com.proyectomintic.stockerinv.views.utils.Dialogos;\r\n\r\n\r\npublic class RutaFragment extends BottomSheetDialogFragment {\r\n    public static final String ORIGEN = \"origen\";\r\n    public static final String DESTINO = \"destino\";\r\n    FragmentRutaBinding binding;\r\n    String eleccionOrigen, eleccionDestino;\r\n    Bundle eleccionRuta;\r\n\r\n    @Override\r\n    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {\r\n        super.onViewCreated(view, savedInstanceState);\r\n\r\n        //Evento click del boton continuar\r\n        binding.buttonContinuar.setOnClickListener(v -> {\r\n\r\n            // Obteniendo el string del EditText\r\n            eleccionRuta = new Bundle();\r\n\r\n            eleccionOrigen = binding.inputOrigenText.getText().toString();\r\n            eleccionDestino = binding.inputDestinoText.getText().toString();\r\n            eleccionRuta.putString(ORIGEN, eleccionOrigen);\r\n            eleccionRuta.putString(DESTINO, eleccionDestino);\r\n\r\n            if (TextUtils.isEmpty(eleccionOrigen) || TextUtils.isEmpty(eleccionDestino)) {\r\n\r\n                // Creando dialogo de alerta\r\n                Dialogos.mensajePersonalizadoDialogo(requireContext(), getString(R.string.titulo_campo_vacio), getString(R.string.mensaje_campo_vacio));\r\n\r\n            } else {\r\n                // Pasar al InventarioActivity\r\n                Intent i = new Intent(requireContext(), InventarioActivity.class);\r\n\r\n                //pasar datos a la activity\r\n\r\n                i.putExtra(ORIGEN, eleccionOrigen);\r\n                i.putExtra(DESTINO, eleccionDestino);\r\n\r\n                //para provar el envio de informacion\r\n\r\n                Toast.makeText(requireContext(), eleccionDestino, Toast.LENGTH_SHORT).show();\r\n                Toast.makeText(requireContext(), eleccionOrigen, Toast.LENGTH_SHORT).show();\r\n\r\n                //Iniciar  InventariActividad\r\n                startActivity(i);\r\n            }\r\n        });\r\n    }\r\n\r\n    @Nullable\r\n    @Override\r\n    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {\r\n        binding = FragmentRutaBinding.inflate(inflater);\r\n        return binding.getRoot();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/proyectomintic/stockerinv/views/RutaFragment.java b/app/src/main/java/com/proyectomintic/stockerinv/views/RutaFragment.java
+--- a/app/src/main/java/com/proyectomintic/stockerinv/views/RutaFragment.java	
++++ b/app/src/main/java/com/proyectomintic/stockerinv/views/RutaFragment.java	
+@@ -7,16 +7,13 @@
+ import android.view.View;
+ import android.view.ViewGroup;
+ import android.widget.Toast;
+-
+ import androidx.annotation.NonNull;
+ import androidx.annotation.Nullable;
+-
+ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+ import com.proyectomintic.stockerinv.R;
+ import com.proyectomintic.stockerinv.databinding.FragmentRutaBinding;
+ import com.proyectomintic.stockerinv.views.utils.Dialogos;
+ 
+-
+ public class RutaFragment extends BottomSheetDialogFragment {
+     public static final String ORIGEN = "origen";
+     public static final String DESTINO = "destino";
