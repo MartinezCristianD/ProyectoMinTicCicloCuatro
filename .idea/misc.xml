@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/davic/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/select_dialog_item.xml" value="0.209375" />
         <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/drawable/bordes_redondos.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/drawable/splashscreen.xml" value="0.11614583333333334" />
         <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/layout/activity_categorias.xml" value="0.25" />
@@ -17,6 +18,7 @@
         <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/layout/fragment_lista_elementos_categoria_list.xml" value="0.25" />
         <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/layout/fragment_login.xml" value="0.209375" />
         <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/layout/fragment_ruta.xml" value="0.1" />
+        <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/layout/items_layout.xml" value="0.1953125" />
         <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/menu-v26/bottom_nav_menu.xml" value="0.1" />
         <entry key="..\:/Users/davic/ProyectoMinTicCicloCuatro/app/src/main/res/menu/bottom_nav_menu.xml" value="0.209375" />
         <entry key="..\:/Users/davic/StudioProjects/ProyectoMinTicCicloCuatro/app/src/main/res/layout/activity_main.xml" value="0.1" />

@@ -1,5 +1,13 @@
 package com.proyectomintic.stockerinv.views;
 
+import static com.proyectomintic.stockerinv.views.CrearElementoFragment.CATEGORIA_ELEGIDA;
+import static com.proyectomintic.stockerinv.views.CrearElementoFragment.CONTADOR;
+import static com.proyectomintic.stockerinv.views.CrearElementoFragment.FRAGMENT_ELEMENTO_RESULT_KEY;
+import static com.proyectomintic.stockerinv.views.CrearElementoFragment.NOMBRE_ARTICULO;
+import static com.proyectomintic.stockerinv.views.ListaElementosCategoriaFragment.LISTA_ELEMENTOS_CATEGORIA_KEY;
+import static com.proyectomintic.stockerinv.views.RutaFragment.FRAGMENT_RUTA_RESULT_KEY;
+
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,10 +35,12 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
     public ActivityInventarioBinding binding;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     ArrayList<Elemento> elementos = new ArrayList<>();
-    public static final String ORIGEN = "origen", DESTINO = "destino";
-    String textViewContador, crearNombreArticulos, textViewCategoriaElegida, eleccionDestino, eleccionOrigen;
+    public static final String ORIGEN = "origen", DESTINO = "destino", LISTA_CATEGORIAS = "LISTA_CATEGORIAS";
+    public static final String FOTO = "FOTO";
+    String textViewContador, crearNombreArticulo, textViewCategoriaElegida, eleccionDestino, eleccionOrigen;
     GoogleSignInClient mGoogleSignInClient;
     GoogleSignInOptions gso;
+    Bitmap fotoArticulo;
 
     @Override
     protected void onStart() {
@@ -51,6 +61,29 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
         binding = ActivityInventarioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // Actualizar los datos de origen y destino
+        getSupportFragmentManager().setFragmentResultListener(FRAGMENT_RUTA_RESULT_KEY, this, (requestKey, result) -> {
+            eleccionOrigen = result.getString(ORIGEN);
+            eleccionDestino = result.getString(DESTINO);
+            actualizarRuta();
+
+        });
+        // Actualizar los datos de CATEGORIAS
+        getSupportFragmentManager().setFragmentResultListener(LISTA_ELEMENTOS_CATEGORIA_KEY, this, (requestKey, result) -> {
+            elementos = result.getParcelableArrayList(LISTA_CATEGORIAS);
+        });
+
+        // Actualizar los datos elementos
+        getSupportFragmentManager().setFragmentResultListener(FRAGMENT_ELEMENTO_RESULT_KEY, this, (requestKey, result) -> {
+            textViewCategoriaElegida = result.getString(CATEGORIA_ELEGIDA);
+            textViewContador = result.getString(CONTADOR);
+            crearNombreArticulo = result.getString(NOMBRE_ARTICULO);
+            fotoArticulo = result.getParcelable(FOTO);
+
+            Elemento elemento = new Elemento(crearNombreArticulo, textViewCategoriaElegida, textViewContador, fotoArticulo);
+            elementos.add(elemento);
+
+        });
 
         //Picaso para importar la imagende usuario
         if ((mAuth.getCurrentUser() != null) && (mAuth.getCurrentUser().getPhotoUrl() != null)) {
@@ -66,12 +99,24 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
         View.OnClickListener listener = view -> {
             ListaElementosCategoriaFragment dialogo = new ListaElementosCategoriaFragment();
             Bundle bundle = new Bundle();
-            bundle.putString("titulo_categoria", ((Button) view).getText().toString());
-            // elementos.stream().filter();
+            String categoriaElegida = ((Button) view).getText().toString();
+
+            ArrayList<Elemento> listaFiltrada = new ArrayList<>();
+            for (Elemento elemento : elementos) {
+                if (elemento.categoria.equals(categoriaElegida)) {
+                    listaFiltrada.add(elemento);
+                }
+            }
+
+            bundle.putString(CATEGORIA_ELEGIDA, categoriaElegida);
+            bundle.putParcelableArrayList(LISTA_CATEGORIAS, listaFiltrada);
             dialogo.setArguments(bundle);
             dialogo.show(getSupportFragmentManager(), "ListaElementosCategoriaFragment");
 
         };
+
+        // Actualizar  los datos de origen y destino( antes de que el usuario ingrese algun dato)
+        actualizarRuta();
 
         //Evento click boton cocina Llamado al Fragment
         binding.btnCategoriaCocina.setOnClickListener(listener);
@@ -82,21 +127,13 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
         binding.btnCategroiaMuebles.setOnClickListener(listener);
         binding.btnCategoriaLimpieza.setOnClickListener(listener);
 
+    }
 
-      /*  // Recuperando informacion de ElementosActivity
-        eleccionOrigen = getIntent().getExtras().getString(ORIGEN);
-        eleccionDestino = getIntent().getExtras().getString(DESTINO);
-        textViewContador = getIntent().getExtras().getString("texto_contador");
-        crearNombreArticulos = getIntent().getExtras().getString("nombre_articulo");
-        textViewCategoriaElegida = getIntent().getExtras().getString("seleccion_categoria");*/
-
-        Elemento elemento = new Elemento(crearNombreArticulos, textViewCategoriaElegida, textViewContador, null);
-        elementos.add(elemento);
-
+    private void actualizarRuta() {
         //Mostrando el String en el TextView
         if (eleccionOrigen != null || eleccionDestino != null) {
-            binding.textViewOrigen.setText(eleccionOrigen);
-            binding.textViewDestino.setText(eleccionDestino);
+            binding.textViewOrigen.setText(String.valueOf(eleccionOrigen));
+            binding.textViewDestino.setText(String.valueOf(eleccionDestino));
         } else {
             String uno = getString(R.string.origen);
             String dos = getString(R.string.destino);
@@ -104,8 +141,6 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
             binding.textViewDestino.setText(dos);
 
         }
-
-
     }
 
     // Configuracion de la barra inferior
@@ -129,8 +164,8 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
                 return true;
 
             case R.id.page_to_ruta:
-                    RutaFragment dialogo_uno = new RutaFragment();
-                    dialogo_uno.show(getSupportFragmentManager(), "RutaFragment");
+                RutaFragment dialogo_uno = new RutaFragment();
+                dialogo_uno.show(getSupportFragmentManager(), "RutaFragment");
 
                 return true;
 

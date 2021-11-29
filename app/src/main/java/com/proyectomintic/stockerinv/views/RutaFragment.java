@@ -2,7 +2,6 @@ package com.proyectomintic.stockerinv.views;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,6 +34,7 @@ public class RutaFragment extends PermisosFragment implements OnMapReadyCallback
     private static final String MAP_VIEW_BUNDLE_KEY = "MapViewBundleKey";
     public static final String ORIGEN = "origen";
     public static final String DESTINO = "destino";
+    public static final String FRAGMENT_RUTA_RESULT_KEY = "FRAGMENT_RUTA_RESULT_KEY";
     FragmentRutaBinding binding;
     String eleccionOrigen, eleccionDestino;
     private MapView mapView;
@@ -86,21 +85,13 @@ public class RutaFragment extends PermisosFragment implements OnMapReadyCallback
                 Dialogos.mensajePersonalizadoDialogo(requireContext(), getString(R.string.titulo_campo_vacio), getString(R.string.mensaje_campo_vacio));
 
             } else {
-                // Pasar al InventarioActivity
-                Intent i = new Intent(requireContext(), InventarioActivity.class);
+                Bundle i = new Bundle();
+                i.putString(ORIGEN, eleccionOrigen);
+                i.putString(DESTINO, eleccionDestino);
 
-                //pasar datos a la activity
+                getParentFragmentManager().setFragmentResult(FRAGMENT_RUTA_RESULT_KEY, i);
+                dismiss();
 
-                i.putExtra(ORIGEN, eleccionOrigen);
-                i.putExtra(DESTINO, eleccionDestino);
-
-                //para provar el envio de informacion
-
-                Toast.makeText(requireContext(), eleccionDestino, Toast.LENGTH_SHORT).show();
-                Toast.makeText(requireContext(), eleccionOrigen, Toast.LENGTH_SHORT).show();
-
-                //Iniciar  InventariActividad
-                startActivity(i);
             }
         });
 
@@ -111,105 +102,139 @@ public class RutaFragment extends PermisosFragment implements OnMapReadyCallback
             eleccionOrigen = binding.inputOrigenText.getText().toString();
             eleccionDestino = binding.inputDestinoText.getText().toString();
 
-            if ("Arauca".equals(eleccionOrigen)) {
-                origenLat = 7.083;
-                origenLon = -70.757;
-            } else if ("Armenia".equals(eleccionOrigen)) {
-                origenLat = 40.069099;
-                origenLon = -75.68111;
-            } else if ("Barranquilla".equals(eleccionOrigen)) {
-                origenLat = 10.96854;
-                origenLon = -74.78132;
-            } else if ("Bogotá".equals(eleccionOrigen)) {
-                origenLat = 4.60971;
-                origenLon = -74.08175;
-            } else if ("Bucaramanga".equals(eleccionOrigen)) {
-                origenLat = 7.12539;
-                origenLon = -73.1198;
-            } else if ("Cali".equals(eleccionOrigen)) {
-                origenLat = 3.43722;
-                origenLon = -76.5225;
-            } else if ("Cartagena".equals(eleccionOrigen)) {
-                origenLat = 10.39972;
-                origenLon = -75.51444;
-            } else if ("Florencia".equals(eleccionOrigen)) {
-                origenLat = 1.61389;
-                origenLon = -75.6128;
-            } else if ("Ibague".equals(eleccionOrigen)) {
-                origenLat = 4.43889;
-                origenLon = -75.23222;
-            } else if ("Inírida".equals(eleccionOrigen)) {
-                origenLat = 3.867;
-                origenLon = -67.917;
-            } else if ("Leticia".equals(eleccionOrigen)) {
-                origenLat = -4.21528;
-                origenLon = -69.94056;
-            } else if ("Manizales".equals(eleccionOrigen)) {
-                origenLat = 5.06889;
-                origenLon = -75.51738;
-            } else if ("Medellin".equals(eleccionOrigen)) {
-                origenLat = 6.25184;
-                origenLon = -75.56359;
-            } else if ("Mitu".equals(eleccionOrigen)) {
-                origenLat = 1.25509;
-                origenLon = -70.235;
-            } else if ("Mocoa".equals(eleccionOrigen)) {
-                origenLat = 1.15284;
-                origenLon = -76.65208;
-            } else if ("Montería".equals(eleccionOrigen)) {
-                origenLat = 8.74798;
-                origenLon = -75.88143;
-            } else if ("Neiva".equals(eleccionOrigen)) {
-                origenLat = 2.9273;
-                origenLon = -75.28189;
-            } else if ("Pereira".equals(eleccionOrigen)) {
-                origenLat = 4.81333;
-                origenLon = -75.69611;
-            } else if ("Popayán".equals(eleccionOrigen)) {
-                origenLat = 2.43823;
-                origenLon = -76.61316;
-            } else if ("Puerto Carreño".equals(eleccionOrigen)) {
-                origenLat = 6.18493;
-                origenLon = -67.4894;
-            } else if ("Quibdó".equals(eleccionOrigen)) {
-                origenLat = 5.683;
-                origenLon = -76.65;
-            } else if ("Riohacha".equals(eleccionOrigen)) {
-                origenLat = 11.54444;
-                origenLon = -72.90722;
-            } else if ("San Andrés".equals(eleccionOrigen)) {
-                origenLat = 12.58317;
-                origenLon = -81.70636;
-            } else if ("Cúcuta".equals(eleccionOrigen)) {
-                origenLat = 7.89391;
-                origenLon = -72.50782;
-            } else if ("Guaviare".equals(eleccionOrigen)) {
-                origenLat = 2.567;
-                origenLon = -72.633;
-            } else if ("Pasto".equals(eleccionOrigen)) {
-                origenLat = 1.2;
-                origenLon = -77.267;
-            } else if ("Santa Marta".equals(eleccionOrigen)) {
-                origenLat = 11.24079;
-                origenLon = -74.19904;
-            } else if ("Sincelejo".equals(eleccionOrigen)) {
-                origenLat = 9.30472;
-                origenLon = -75.39778;
-            } else if ("Tunja".equals(eleccionOrigen)) {
-                origenLat = 5.53528;
-                origenLon = -73.36778;
-            } else if ("Valledupar".equals(eleccionOrigen)) {
-                origenLat = 10.46314;
-                origenLon = -73.25322;
-            } else if ("Villavicencio".equals(eleccionOrigen)) {
-                origenLat = 4.15;
-                origenLon = -73.633;
-            } else if ("Yopal".equals(eleccionOrigen)) {
-                origenLat = 5.33775;
-                origenLon = -72.39586;
-            } else {
-                origenLat = 4.81333;
-                origenLon = -75.69611;
+            switch (eleccionOrigen) {
+                case "Arauca":
+                    origenLat = 7.083;
+                    origenLon = -70.757;
+                    break;
+                case "Armenia":
+                    origenLat = 40.069099;
+                    origenLon = -75.68111;
+                    break;
+                case "Barranquilla":
+                    origenLat = 10.96854;
+                    origenLon = -74.78132;
+                    break;
+                case "Bogotá":
+                    origenLat = 4.60971;
+                    origenLon = -74.08175;
+                    break;
+                case "Bucaramanga":
+                    origenLat = 7.12539;
+                    origenLon = -73.1198;
+                    break;
+                case "Cali":
+                    origenLat = 3.43722;
+                    origenLon = -76.5225;
+                    break;
+                case "Cartagena":
+                    origenLat = 10.39972;
+                    origenLon = -75.51444;
+                    break;
+                case "Florencia":
+                    origenLat = 1.61389;
+                    origenLon = -75.6128;
+                    break;
+                case "Ibague":
+                    origenLat = 4.43889;
+                    origenLon = -75.23222;
+                    break;
+                case "Inírida":
+                    origenLat = 3.867;
+                    origenLon = -67.917;
+                    break;
+                case "Leticia":
+                    origenLat = -4.21528;
+                    origenLon = -69.94056;
+                    break;
+                case "Manizales":
+                    origenLat = 5.06889;
+                    origenLon = -75.51738;
+                    break;
+                case "Medellin":
+                    origenLat = 6.25184;
+                    origenLon = -75.56359;
+                    break;
+                case "Mitu":
+                    origenLat = 1.25509;
+                    origenLon = -70.235;
+                    break;
+                case "Mocoa":
+                    origenLat = 1.15284;
+                    origenLon = -76.65208;
+                    break;
+                case "Montería":
+                    origenLat = 8.74798;
+                    origenLon = -75.88143;
+                    break;
+                case "Neiva":
+                    origenLat = 2.9273;
+                    origenLon = -75.28189;
+                    break;
+                case "Pereira":
+                    origenLat = 4.81333;
+                    origenLon = -75.69611;
+                    break;
+                case "Popayán":
+                    origenLat = 2.43823;
+                    origenLon = -76.61316;
+                    break;
+                case "Puerto Carreño":
+                    origenLat = 6.18493;
+                    origenLon = -67.4894;
+                    break;
+                case "Quibdó":
+                    origenLat = 5.683;
+                    origenLon = -76.65;
+                    break;
+                case "Riohacha":
+                    origenLat = 11.54444;
+                    origenLon = -72.90722;
+                    break;
+                case "San Andrés":
+                    origenLat = 12.58317;
+                    origenLon = -81.70636;
+                    break;
+                case "Cúcuta":
+                    origenLat = 7.89391;
+                    origenLon = -72.50782;
+                    break;
+                case "Guaviare":
+                    origenLat = 2.567;
+                    origenLon = -72.633;
+                    break;
+                case "Pasto":
+                    origenLat = 1.2;
+                    origenLon = -77.267;
+                    break;
+                case "Santa Marta":
+                    origenLat = 11.24079;
+                    origenLon = -74.19904;
+                    break;
+                case "Sincelejo":
+                    origenLat = 9.30472;
+                    origenLon = -75.39778;
+                    break;
+                case "Tunja":
+                    origenLat = 5.53528;
+                    origenLon = -73.36778;
+                    break;
+                case "Valledupar":
+                    origenLat = 10.46314;
+                    origenLon = -73.25322;
+                    break;
+                case "Villavicencio":
+                    origenLat = 4.15;
+                    origenLon = -73.633;
+                    break;
+                case "Yopal":
+                    origenLat = 5.33775;
+                    origenLon = -72.39586;
+                    break;
+                default:
+                    origenLat = 4.81333;
+                    origenLon = -75.69611;
+                    break;
             }
 
             switch (eleccionDestino) {
