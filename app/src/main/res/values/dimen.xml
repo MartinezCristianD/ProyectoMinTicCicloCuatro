@@ -13,10 +13,11 @@
 
     <dimen name="margen_grande">45dp</dimen>
     <dimen name="margen_media">25dp</dimen>
-    <dimen name="margen_horizontal">10dp</dimen>
+    <dimen name="margen_horizontal">15dp</dimen>
     <dimen name="margen_minima">15dp</dimen>
     <dimen name="margen_extrema">60dp</dimen>
     <dimen name="margen_radioBoton">8dp</dimen>
+    <dimen name="tamaño_boton_icono">30dp</dimen>
 
 
     <dimen name="dimen_icono_cuadrado">100dp</dimen>

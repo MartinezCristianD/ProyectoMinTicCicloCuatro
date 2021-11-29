@@ -155,7 +155,7 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
-        style="@style/Theme.StockerInv"
+        android:theme="@style/Theme.StockerInv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="@dimen/padding_texto"
