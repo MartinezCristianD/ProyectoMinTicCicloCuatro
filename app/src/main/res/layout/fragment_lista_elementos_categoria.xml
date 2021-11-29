@@ -15,6 +15,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listView"
         android:layout_width="match_parent"
+        tools:itemCount="4"
+        tools:listitem="@layout/items_layout"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margen_media"
         android:background="@color/colorSurface"
