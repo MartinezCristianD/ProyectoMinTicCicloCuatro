@@ -12,13 +12,12 @@
 
     <!--    en el anterior codigo las 3 ultimas  lineas son para  reconocer el fragment como dialogo-->
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margen_media"
         android:background="@color/colorSurface"
-        android:headerDividersEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

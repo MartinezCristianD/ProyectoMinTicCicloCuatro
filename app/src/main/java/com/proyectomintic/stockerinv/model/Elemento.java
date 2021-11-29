@@ -17,6 +17,7 @@ public class Elemento implements Parcelable {
         }
     };
     Bitmap imagen;
+    public String nombre, categoria, cantidad;
 
     public Elemento(String nombre, String categoria, String cantidad, Bitmap imagen) {
         this.nombre = nombre;
@@ -25,8 +26,6 @@ public class Elemento implements Parcelable {
         this.imagen = imagen;
 
     }
-
-    public String nombre, categoria, cantidad;
 
     protected Elemento(Parcel in) {
         nombre = in.readString();

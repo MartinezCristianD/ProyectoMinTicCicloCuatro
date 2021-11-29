@@ -39,6 +39,7 @@ public class CrearElementoFragment extends PermisosFragment {
     public static final String CATEGORIA_ELEGIDA = "CATEGORIA_ELEGIDA";
     public static final String NOMBRE_ARTICULO = "NOMBRE_ARTICULO";
     public static final String CONTADOR = "CONTADOR";
+    public static final String FOTO = "FOTO";
     public static final String FRAGMENT_ELEMENTO_RESULT_KEY = "FRAGMENT_ELEMENTO_RESULT_KEY";
     Bitmap fotoArticulo;
 
@@ -52,32 +53,7 @@ public class CrearElementoFragment extends PermisosFragment {
             listaCategorias.setAdapter(new ArrayAdapter<>(getContext(), android.R.layout.select_dialog_item, getResources().getStringArray(R.array.categorias)));
         }
 
-        // Evento click  para crear los Elementos
-        binding.btnCrearElementos.setOnClickListener(v -> {
 
-            // informacion de los View de la Activity
-            textViewCategoriaElegida = binding.textViewCategoriaElegidatext.getText().toString();
-            textViewContador = binding.textViewContador.getText().toString();
-            crearNombreArticulo = binding.crearNombreArticulotext.getText().toString();
-
-            // Validar los  campos de ingreso de datos
-            if (TextUtils.isEmpty(textViewCategoriaElegida) || TextUtils.isEmpty(textViewContador) || TextUtils.isEmpty(crearNombreArticulo)) {
-                // Creando dialogo de alerta
-                Dialogos.mensajePersonalizadoDialogo(requireContext(), getString(R.string.titulo_campo_vacio), getString(R.string.mensaje_campo_vacio));
-
-            } else {
-
-                Bundle i = new Bundle();
-                i.putString(CONTADOR, textViewContador);
-                i.putString(NOMBRE_ARTICULO, crearNombreArticulo);
-                i.putString(CATEGORIA_ELEGIDA, textViewCategoriaElegida);
-
-                getParentFragmentManager().setFragmentResult(FRAGMENT_ELEMENTO_RESULT_KEY, i);
-                dismiss();
-
-            }
-
-        });
 
         // SeekBar Valor Inicial y Valor Final
         binding.seekBar.setProgress(0);
@@ -108,6 +84,35 @@ public class CrearElementoFragment extends PermisosFragment {
         binding.imageButtonAccederCamara.setOnClickListener(v -> {
             //  si otorga los permisos de la camara  lanza el metodo chooseImage en el contexto de la activity actual
             chooseImage(requireContext());
+
+        });
+
+        // Evento click  para crear los Elementos
+        binding.btnCrearElementos.setOnClickListener(v -> {
+
+            // informacion de los View de la Activity
+            textViewCategoriaElegida = binding.textViewCategoriaElegidatext.getText().toString();
+            textViewContador = binding.textViewContador.getText().toString();
+            crearNombreArticulo = binding.crearNombreArticulotext.getText().toString();
+
+            // Validar los  campos de ingreso de datos
+            if (TextUtils.isEmpty(textViewCategoriaElegida) || TextUtils.isEmpty(textViewContador) || TextUtils.isEmpty(crearNombreArticulo)) {
+                // Creando dialogo de alerta
+                Dialogos.mensajePersonalizadoDialogo(requireContext(), getString(R.string.titulo_campo_vacio), getString(R.string.mensaje_campo_vacio));
+
+            } else {
+
+                Bundle i = new Bundle();
+                i.putString(CONTADOR, textViewContador);
+                i.putString(NOMBRE_ARTICULO, crearNombreArticulo);
+                i.putString(CATEGORIA_ELEGIDA, textViewCategoriaElegida);
+                if (fotoArticulo != null) {
+                    i.putParcelable(FOTO, fotoArticulo);
+                }
+                getParentFragmentManager().setFragmentResult(FRAGMENT_ELEMENTO_RESULT_KEY, i);
+                dismiss();
+
+            }
 
         });
 
@@ -191,8 +196,9 @@ public class CrearElementoFragment extends PermisosFragment {
             switch (requestCode) {
                 case 0:
                     if (resultCode == RESULT_OK && data != null) {
-                        Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
-                        binding.imageButtonAccederCamara.setImageBitmap(selectedImage);
+                        fotoArticulo = (Bitmap) data.getExtras().get("data");
+                        binding.imageButtonAccederCamara.setImageBitmap(fotoArticulo);
+
                     }
                     break;
                 case 1:
@@ -206,6 +212,7 @@ public class CrearElementoFragment extends PermisosFragment {
                                 int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                                 String picturePath = cursor.getString(columnIndex);
                                 binding.imageButtonAccederCamara.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+                                fotoArticulo = BitmapFactory.decodeFile(picturePath);
                                 cursor.close();
                             }
                         }

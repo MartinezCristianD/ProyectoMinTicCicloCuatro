@@ -33,18 +33,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@id/textViewElementos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/texto_elementos"
-        android:textSize="@dimen/texto_grande"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardViewFotoArticulos" />
-
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardViewAgregarArticulos"
         android:layout_width="match_parent"
@@ -116,7 +104,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margen_minima"
-        app:layout_constraintBottom_toTopOf="@+id/textViewElementos"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardViewAgregarArticulos">

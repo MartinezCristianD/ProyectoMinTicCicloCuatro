@@ -4,8 +4,10 @@ import static com.proyectomintic.stockerinv.views.CrearElementoFragment.CATEGORI
 import static com.proyectomintic.stockerinv.views.CrearElementoFragment.CONTADOR;
 import static com.proyectomintic.stockerinv.views.CrearElementoFragment.FRAGMENT_ELEMENTO_RESULT_KEY;
 import static com.proyectomintic.stockerinv.views.CrearElementoFragment.NOMBRE_ARTICULO;
+import static com.proyectomintic.stockerinv.views.ListaElementosCategoriaFragment.LISTA_ELEMENTOS_CATEGORIA_KEY;
 import static com.proyectomintic.stockerinv.views.RutaFragment.FRAGMENT_RUTA_RESULT_KEY;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,7 +26,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.proyectomintic.stockerinv.R;
 import com.proyectomintic.stockerinv.databinding.ActivityInventarioBinding;
 import com.proyectomintic.stockerinv.model.Elemento;
-import com.proyectomintic.stockerinv.utils.Dialogos;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -35,9 +36,11 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     ArrayList<Elemento> elementos = new ArrayList<>();
     public static final String ORIGEN = "origen", DESTINO = "destino", LISTA_CATEGORIAS = "LISTA_CATEGORIAS";
+    public static final String FOTO = "FOTO";
     String textViewContador, crearNombreArticulo, textViewCategoriaElegida, eleccionDestino, eleccionOrigen;
     GoogleSignInClient mGoogleSignInClient;
     GoogleSignInOptions gso;
+    Bitmap fotoArticulo;
 
     @Override
     protected void onStart() {
@@ -65,17 +68,20 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
             actualizarRuta();
 
         });
+        // Actualizar los datos de CATEGORIAS
+        getSupportFragmentManager().setFragmentResultListener(LISTA_ELEMENTOS_CATEGORIA_KEY, this, (requestKey, result) -> {
+            elementos = result.getParcelableArrayList(LISTA_CATEGORIAS);
+        });
 
         // Actualizar los datos elementos
         getSupportFragmentManager().setFragmentResultListener(FRAGMENT_ELEMENTO_RESULT_KEY, this, (requestKey, result) -> {
             textViewCategoriaElegida = result.getString(CATEGORIA_ELEGIDA);
             textViewContador = result.getString(CONTADOR);
             crearNombreArticulo = result.getString(NOMBRE_ARTICULO);
+            fotoArticulo = result.getParcelable(FOTO);
 
-            Elemento elemento = new Elemento(crearNombreArticulo, textViewCategoriaElegida, textViewContador, null);
+            Elemento elemento = new Elemento(crearNombreArticulo, textViewCategoriaElegida, textViewContador, fotoArticulo);
             elementos.add(elemento);
-
-            actualizarListaElementos();
 
         });
 
@@ -121,38 +127,6 @@ public class InventarioActivity extends AppCompatActivity implements NavigationV
         binding.btnCategroiaMuebles.setOnClickListener(listener);
         binding.btnCategoriaLimpieza.setOnClickListener(listener);
 
-    }
-
-    private void actualizarListaElementos() {
-        elementos.forEach(elemento -> {
-            switch (elemento.categoria) {
-
-                case ("Cocina"):
-
-                    break;
-                case ("Limpieza"):
-
-                    break;
-                case ("Jardin"):
-
-                    break;
-                case ("Muebles"):
-
-                    break;
-                case ("Electrodomesticos"):
-
-                    break;
-                case ("Tecnologia"):
-
-                    break;
-                case ("Decoracion"):
-
-                    break;
-
-                default:
-                    Dialogos.mensajePersonalizadoDialogo(this, "REQUERIDO", "Selecciona una categoria de la lista");
-            }
-        });
     }
 
     private void actualizarRuta() {
