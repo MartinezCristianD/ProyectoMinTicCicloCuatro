@@ -4,25 +4,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondoburbujas"
+    android:theme="@style/Theme.StockerInv"
     app:behavior_peekHeight="@dimen/margen_minima"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     tools:context=".views.LoginFragment">
 
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCrearCuentaGoogle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margen_media"
+        android:text="@string/crear_cuenta"
+        android:textSize="@dimen/texto_boton_principal"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ingresoGoogle" />
+
     <com.google.android.material.checkbox.MaterialCheckBox
         android:id="@+id/checkBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margen_media"
         android:checked="true"
         android:text="@string/texto_checkbox"
+        android:layout_margin="@dimen/margen_minima"
         android:textSize="@dimen/texto_terciario"
         android:textStyle="italic"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/materialCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ingresoGoogle" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCrearCuentaGoogle" />
 
     <TextView
         android:id="@+id/textoOlvidoContraseña"
@@ -33,6 +46,7 @@
         android:elevation="@dimen/margen_media"
         android:focusable="true"
         android:fontFamily="casual"
+        android:layout_marginTop="@dimen/margen_media"
         android:foregroundGravity="center"
         android:gravity="center"
         android:lineSpacingExtra="@dimen/margen_media"
@@ -49,8 +63,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onClick"
+        android:layout_margin="@dimen/margen_minima"
         android:text="@string/ingreso_con_google"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox"
+        app:layout_constraintBottom_toTopOf="@+id/btnCrearCuentaGoogle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textoOlvidoContraseña" />
@@ -61,6 +76,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorTransparente"
         app:cardCornerRadius="0dp"
+        android:layout_margin="@dimen/margen_media"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

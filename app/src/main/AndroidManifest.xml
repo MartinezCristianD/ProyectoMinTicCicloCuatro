@@ -32,6 +32,7 @@
         android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/logo_principal"
         android:label="@string/app_name"
+        android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/logo_principal_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StockerInv">

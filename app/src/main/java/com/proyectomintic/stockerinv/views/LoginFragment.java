@@ -3,6 +3,7 @@ package com.proyectomintic.stockerinv.views;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,6 +36,7 @@ public class LoginFragment extends BottomSheetDialogFragment implements View.OnC
     FragmentLoginBinding binding;
     GoogleSignInClient mGoogleSignInClient;
     GoogleSignInOptions gso;
+    private String url;
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
@@ -52,7 +54,7 @@ public class LoginFragment extends BottomSheetDialogFragment implements View.OnC
         // Configure Google Sign In
         gso = new GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))// este String queda rojo con error pero  pero si agarra el recurso no borrar                .requestEmail()
+                .requestIdToken("default_web_client_id")// este String queda rojo con error pero  pero si agarra el recurso no borrar                .requestEmail()
                 .build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(requireContext(), gso);
@@ -61,6 +63,15 @@ public class LoginFragment extends BottomSheetDialogFragment implements View.OnC
         // eventos click de los botones
 
         binding.ingresoGoogle.setOnClickListener(v -> signIn());
+
+        binding.btnCrearCuentaGoogle.setOnClickListener(v -> {
+            url = "https://support.google.com/accounts/answer/27441?hl=es-419";
+            Uri uri;
+            uri = Uri.parse(url);
+            Intent i = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(i);
+
+        });
 
     }
 

@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margen_minima"
     android:orientation="vertical"
+    android:background="@drawable/bordes_redondos"
     android:paddingLeft="@dimen/margen_minima"
     android:paddingRight="@dimen/margen_minima"
     android:paddingBottom="8dp">
@@ -14,7 +16,7 @@
         android:layout_width="@dimen/dimen_icono_rectangulo"
         android:layout_height="@dimen/dimen_icono_cuadrado"
         android:layout_centerVertical="true"
-        android:layout_marginStart="36dp"
+        android:layout_margin="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -26,6 +28,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margen_minima"
+        android:textSize="@dimen/texto_secundario"
         android:maxLines="1"
         android:ellipsize="end"
         android:text="@string/nombre_elemento"
@@ -39,9 +42,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:maxLines="1"
+        android:text="@string/texto_unidades"
         android:layout_margin="@dimen/margen_minima"
         android:ellipsize="end"
-        android:text="@string/nombre_elemento"
+        android:textSize="@dimen/texto_secundario"
         app:layout_constraintEnd_toStartOf="@id/borrarArticulo"
         app:layout_constraintStart_toEndOf="@id/imagenElementos"
         app:layout_constraintTop_toBottomOf="@id/nombreElemento" />
@@ -49,11 +53,13 @@
 
     <ImageButton
         android:id="@+id/borrarArticulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/tamaño_boton_icono"
+        android:layout_height="@dimen/tamaño_boton_icono"
+        android:background="@color/colorTransparente"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/content_description"
         app:srcCompat="@drawable/ic_baseline_delete_forever_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

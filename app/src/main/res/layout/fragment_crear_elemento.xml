@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/Theme.StockerInv"
     app:behavior_hideable="true"
     app:behavior_peekHeight="@dimen/margen_minima"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
