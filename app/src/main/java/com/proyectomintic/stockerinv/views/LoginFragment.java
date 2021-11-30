@@ -54,7 +54,7 @@ public class LoginFragment extends BottomSheetDialogFragment implements View.OnC
         // Configure Google Sign In
         gso = new GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))// este String queda rojo con error pero  pero si agarra el recurso no borrar                .requestEmail()
+                .requestIdToken("default_web_client_id")// este String queda rojo con error pero  pero si agarra el recurso no borrar                .requestEmail()
                 .build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(requireContext(), gso);
