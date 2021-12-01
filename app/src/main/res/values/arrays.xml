@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="categorias">
-        <item >Cocina</item>
+        <item>Cocina</item>
         <item>Limpieza</item>
-        <item>Jardin</item>
+        <item>Jardín</item>
         <item>Muebles</item>
-        <item>Electrodomesticos</item>
-        <item>Tecnologia</item>
-        <item>Decoracion</item>
+        <item>Electrodomésticos</item>
+        <item>Tecnología</item>
+        <item>Decoración</item>
     </string-array>
 
     <string-array name="campos_elementos">
-        <item>Nombre del Articulo</item>
-        <item>Seleccionar categoria</item>
-        <item>Cantidas de Elementos  </item>
-        <item>Foto de Articulo(opcional)</item>
+        <item>Nombre del Artículo</item>
+        <item>Seleccionar categoría</item>
+        <item>Cantidad de Elementos  </item>
+        <item>Foto de Artículo (opcional)</item>
     </string-array>
 
     <string-array name="ciudades">
         <item>Arauca</item>
         <item>Armenia</item>
         <item>Barranquilla</item>
-        <item>Bogota</item>
+        <item>Bogotá</item>
         <item>Bucaramanga</item>
         <item>Cali</item>
         <item>Cartagena</item>
         <item>Florencia</item>
-        <item>Ibague</item>
-        <item>Inirida</item>
+        <item>Ibagué</item>
+        <item>Inírida</item>
         <item>Leticia</item>
         <item>Manizales</item>
-        <item>Medellin</item>
-        <item>Mitu</item>
+        <item>Medellín</item>
+        <item>Mitú</item>
         <item>Mocoa</item>
-        <item>Monteria</item>
+        <item>Montería</item>
         <item>Neiva</item>
         <item>Pereira</item>
-        <item>Popayan</item>
+        <item>Popayán</item>
         <item>Puerto Carreño</item>
-        <item>Quibdo</item>
+        <item>Quibdó</item>
         <item>Riohacha</item>
-        <item>San Andres </item>
-        <item>Cucuta</item>
+        <item>San Andrés </item>
+        <item>Cúcuta</item>
         <item>Guaviare</item>
         <item>Pasto</item>
         <item>Santa Marta</item>
