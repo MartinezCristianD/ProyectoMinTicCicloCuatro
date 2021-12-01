@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="texto_categorias">" Enter the name of the Category"</string>
+    <string name="crear">" Create Category"</string>
+    <string name="categorias">Categories</string>
+    <string name="sin_categorias">" Without category"</string>
+    <string name="gracias">" Thank you for choosing ° StockerInv °"</string>
+    <string name="categoria_limpieza">Cleaning</string>
+    <string name="categoria_cocina">" Kitchen room"</string>
+    <string name="categoria_muebles">" Furniture"</string>
+    <string name="categoria_electrodomesticos">" Home appliances"</string>
+    <string name="categoria_tecnologia">" Technology"</string>
+    <string name="categoria_decoracion">" Decor"</string>
+    <string name="categoria_jardin">" Yard"</string>
+    <string name="ingreso_con_google">Login with Google</string>
+    <string name="no_tienes_cuenta">" Swipe       Try Our app"</string>
+    <string name="texto_checkbox" translatable="false">By registering you accept the terms and conditions, the data use policy available at www.StockerInv.com.co</string>
+    <string name="content_description">" Here is something"</string>
+    <string name="continuar">Continue</string>
+    <string name="crear_cuenta">Create a Google account</string>
+    <string name="slogan">" We Make Things Easy For You"</string>
+    <string name="nombre">Name</string>
+    <string name="correo_usuario">E-mail</string>
+    <string name="clave_usuario">Password</string>
+    <string name="Inicio_sesion">" Log in"</string>
+    <string name="usuario">" User"</string>
+    <string name="eliminar">Remove</string>
+    <string name="titulo_campo_vacio">" Empty fields"</string>
+    <string name="mensaje_campo_vacio">We require that all fields be filled out to continue</string>
+    <string name="texto_elementos">" ° ° New Item ° °"</string>
+    <string name="texto_crear_elemento">° ° Create Item ° °</string>
+    <string name="nombre_elemento">Item Name</string>
+    <string name="texto_unidades">Units</string>
+    <string name="buscar_elemento">" Search Item"</string>
+    <string name="agrega_foto_articulo">" Add a Photo of the Item"</string>
+    <string name="text_view_contador_uno">0 Units</string>
+    <string name="texto_helper_Elementos">Select Category name</string>
+    <string name="destino">Inventory Destination</string>
+    <string name="origen">" Inventory Location"</string>
+    <string name="text_helper_ruta">" City or Municipality"</string>
+    <string name="ruta_text">Route</string>
+    <string name="probar_ruta">" Check Route"</string>
+    <string name="texto_agregar">Add</string>
+    <string name="texto_exportar">" To export"</string>
+    <string name="text_helper_inventario">Enter Item Name</string>
+    <string name="google_maps_key">AIzaSyCdBsFcdo1PzSz5HI5NXK_MFbU2ZLWO9XA</string>
+
+</resources>

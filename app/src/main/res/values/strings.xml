@@ -1,7 +1,6 @@
 <resources>
 
     <!--- Catergorias -->
-    <string name="creacion_categorias">° ° Creacion de Categorias ° °</string>
     <string name="texto_categorias">Ingrese el nombre de la Categoria</string>
     <string name="crear">Crear Categoria</string>
     <string name="categorias"> Categorias</string>
@@ -17,13 +16,10 @@
 
 
     <!--- APP -->
-    <string name="app_name">StockerInv</string>
+    <string name="app_name" translatable="false">StockerInv</string>
     <string name="ingreso_con_google">Ingrese con Google</string>
-    <string name="no_tienes_cuenta"> Desliza  \n Prueba Nuestra app</string>
-    <string name="registro">Registrate</string>
-    <string name="registrarse">Registrarse</string>
+    <string name="no_tienes_cuenta">" Desliza    Prueba Nuestra app"</string>
     <string name="texto_checkbox">Al registrarse acepta los terminos y condiciones, la politica de uso de datos disponible en www.StockerInv.com.co</string>
-    <string name="terminos_y_condiciones">Registrate</string>
     <string name="content_description">Aqui hay algo</string>
     <string name="continuar">Continuar</string>
     <string name="crear_cuenta">Crea una cuenta de Google</string>
@@ -34,12 +30,8 @@
     <string name="nombre">Nombre</string>
     <string name="correo_usuario">Correo Electronico</string>
     <string name="clave_usuario">Clave Usuario</string>
-    <string name="crear_clave_usuario">Crea Una Clave de usuario</string>
     <string name="Inicio_sesion">Iniciar Sesion</string>
     <string name="usuario">Usuario</string>
-    <string name="recordar_clave">¿Olvido su Clave de Usuario?</string>
-    <string name="invitado">Invitado</string>
-    <string name="confirmar_clave">Confirmar Clave</string>
     <string name="eliminar">Eliminar</string>
     <string name="titulo_campo_vacio"> Campos Vacios</string>
     <string name="mensaje_campo_vacio">Requerimos que todos los campos esten diligenciados para  continuar </string>
@@ -50,24 +42,22 @@
     <string name="nombre_elemento"> Nombre del Elemento</string>
     <string name="texto_unidades"> Unidades </string>
     <string name="buscar_elemento"> Buscar Elemento </string>
-    <string name="agrega_foto_articulo"> Agrega una Foto \n del Articulo </string>
+    <string name="agrega_foto_articulo">" Agrega una Foto   del Articulo "</string>
     <string name="text_view_contador_uno"> 0 Unidades </string>
     <string name="texto_helper_Elementos">Seleccione el nombre de la Categoria</string>
 
     <!--- Ruta -->
-    <string name="destino"> Ingrese el destino de su Inventario </string>
+    <string name="destino">"Destino del Inventario "</string>
     <string name="origen"> Lugar del Inventario   </string>
-    <string name="text_view_distancia"> 0 KM </string>
-    <string name="text_view_duracion"> 00:00 Horas </string>
+    <string name="text_view_distancia" translatable="false"> 0 KM </string>
     <string name="text_helper_ruta">Ciudad o Municipio</string>
-    <string name="ruta_text"> Ruta</string>
+    <string name="ruta_text">Ruta</string>
     <string name="probar_ruta"> Verificar Ruta</string>
 
     <!--- Inventario -->
-    <string name="texto_home"> Home </string>
+    <string name="texto_home" translatable="false"> Home </string>
     <string name="texto_agregar"> Agregar </string>
     <string name="texto_exportar"> Exportar </string>
-    <string name="texto_salir_app"> Cerrar APP </string>
     <string name="text_helper_inventario">Ingresa el Nombre del Articulo </string>
 
 

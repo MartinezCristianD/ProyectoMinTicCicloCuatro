@@ -118,7 +118,7 @@
                 android:id="@+id/imageButtonAccederCamara"
                 android:layout_width="@dimen/dimen_icono_cuadrado"
                 android:layout_height="@dimen/dimen_icono_rectangulo"
-                android:layout_marginVertical="@dimen/margen_media"
+                android:layout_margin="@dimen/margen_media"
                 android:background="@drawable/icono_camara_dos"
                 android:contentDescription="@string/content_description"
                 app:layout_constraintBottom_toBottomOf="@id/textViewAgregarFoto"
@@ -129,10 +129,11 @@
 
             <TextView
                 android:id="@+id/textViewAgregarFoto"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margen_minima"
                 android:gravity="center"
+                android:lines="2"
                 android:text="@string/agrega_foto_articulo"
                 android:textSize="@dimen/texto_secundario"
                 app:layout_constraintBottom_toBottomOf="parent"
